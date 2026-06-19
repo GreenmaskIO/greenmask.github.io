@@ -1,0 +1,96 @@
+/* marquee-horizontal — exact match: 143px, flex, center, relative, hidden */
+.marquee {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 8.9375rem;
+  overflow: hidden;
+}
+
+/* track-horizontal-alt */
+.track {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee-horizontal-alt 40s linear infinite;
+}
+
+/* Each icon + text pair */
+.loopPair {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* loop_icon_wrap */
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 0.5rem;
+}
+
+/* loop_icon — natural SVG size (width="110" height="110" on the element) */
+.icon {
+  color: var(--color-dark, #1d1d35);
+}
+
+/* loop_text u-text-display — 8.125rem at 14px base = ~113.75px */
+.loopText {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 8.125rem;
+  line-height: 1.1em;
+  letter-spacing: 0em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-dark, #1d1d35);
+  flex-shrink: 0;
+  padding: 0 0.5rem;
+}
+
+@keyframes marquee-horizontal-alt {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media screen and (max-width: 1200px) {
+  .marquee {
+    height: 5.625rem;
+  }
+
+  .loopText {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .marquee {
+    height: 4.0625rem;
+  }
+
+  .loopText {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .marquee {
+    height: 3rem;
+  }
+
+  .loopText {
+    font-size: 2.5rem;
+  }
+}

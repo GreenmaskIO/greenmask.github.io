@@ -1,0 +1,507 @@
+/* ==========================================================
+   Layout strategy
+   ----------------------------------------------------------
+   - Article body and hero intro are centered on the page
+     using `max-width: 720px; margin: 0 auto`. The body's
+     center sits at the viewport center regardless of the TOC.
+   - The TOC column has zero width and its inner sticky element
+     overflows visually to the LEFT of the body, so the body
+     stays page-centered and the TOC never pushes it.
+   - Hidden on viewports too narrow to fit it without
+     overlapping the centered body column; below the breakpoint
+     a `.mobileToc` accordion at the top of the article takes
+     its place.
+   ========================================================== */
+
+.heroContent {
+  max-width: 720px;
+  margin: 0 auto;
+  min-width: 0;
+}
+
+.bodySection {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.bodyCol {
+  flex: 1 1 auto;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  min-width: 0;
+}
+
+.tocCol {
+  flex: 0 0 0;
+  width: 0;
+  position: relative;
+  align-self: stretch;
+  /* Allow the sticky TOC inside to overflow visually past this
+     zero-width column without being clipped. */
+  overflow: visible;
+}
+
+.tocColHidden {
+  display: none;
+}
+
+.tocSticky {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 24px);
+  width: 220px;
+  /* Start of body section IS the start of the article body content,
+     so the TOC's top initially aligns with the article body and
+     only pins below the navbar once the user scrolls past it. */
+}
+
+/* Breadcrumbs row — left-aligned at the container edge (logo offset).
+   Not centered with the article body. */
+.breadcrumbsRow {
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 996px) {
+  .breadcrumbsRow {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* ==========================================================
+   Full-bleed hero band
+   ========================================================== */
+.heroBand {
+  background: var(--swatch--light-secondary); /* #F0EDFF */
+  padding: 3.5rem 0 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 996px) {
+  .heroBand {
+    padding: 2.25rem 0 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroBand {
+    padding: 1.75rem 0 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Hero content stack — breadcrumbs sit above the intro block. */
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--blog-gap-md);
+}
+
+/* ==========================================================
+   Breadcrumbs
+   ========================================================== */
+.breadcrumbs {
+  margin: 0;
+}
+
+.breadcrumbsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--blog-gap-xs);
+  font-family: var(--blog-body-font-family);
+  font-size: var(--blog-meta-font-size);
+  line-height: var(--blog-meta-line-height);
+  color: var(--blog-meta-color);
+}
+
+.breadcrumbsItem {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.breadcrumbsLink {
+  color: var(--blog-meta-color);
+  text-decoration: none;
+  font-weight: var(--blog-meta-weight);
+  transition: color 0.15s ease;
+}
+
+.breadcrumbsLink:hover {
+  color: var(--color-brand);
+  text-decoration: none;
+}
+
+.breadcrumbsSeparator {
+  color: var(--ifm-color-emphasis-500);
+  list-style: none;
+}
+
+.breadcrumbsCurrent {
+  color: var(--blog-meta-color-strong);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .breadcrumbsCurrent {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+/* ==========================================================
+   Intro block (tag, title, meta)
+   ========================================================== */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--blog-gap-md);
+  padding: 0;
+  margin: 0;
+}
+
+.tagPill {
+  align-self: flex-start;
+  background: rgba(20, 193, 154, 0.18);
+  color: var(--ifm-color-primary-darker);
+  font-family: var(--blog-body-font-family);
+  font-size: var(--blog-pill-font-size);
+  font-weight: var(--blog-pill-weight);
+  letter-spacing: var(--blog-pill-letter-spacing);
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.tagPill:hover {
+  background: rgba(20, 193, 154, 0.28);
+  text-decoration: none;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--blog-heading-font-family);
+  font-size: var(--blog-title-font-size);
+  line-height: var(--blog-title-line-height);
+  letter-spacing: var(--h4--letter-spacing);
+  font-weight: var(--h4--font-weight);
+  color: var(--blog-heading-color);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--blog-gap-xs);
+  font-family: var(--blog-body-font-family);
+  font-size: var(--blog-meta-font-size);
+  line-height: var(--blog-meta-line-height);
+  font-weight: var(--blog-meta-weight);
+  color: var(--blog-meta-color);
+  margin-top: 0.25rem;
+}
+
+.author {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--blog-gap-xs);
+}
+
+.authorAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.authorName {
+  color: var(--blog-meta-color-strong);
+  font-weight: 600;
+}
+
+.metaItem {
+  white-space: nowrap;
+}
+
+.metaDot {
+  color: var(--ifm-color-emphasis-500);
+}
+
+@media (max-width: 996px) {
+  .title {
+    font-size: var(--blog-section-font-size); /* 1.75rem / 28px */
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==========================================================
+   Cover image (sits at the top of the body column)
+   ========================================================== */
+.coverImageFigure {
+  margin: 0 0 2.5rem;
+  padding: 0;
+}
+
+.coverImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .coverImageFigure {
+    margin-bottom: 1.75rem;
+  }
+}
+
+/* ==========================================================
+   Body section + paginator wrapper
+   ========================================================== */
+.blogPostContainer {
+  margin-bottom: 4rem;
+}
+
+.bodyCol {
+  display: block;
+}
+
+/* The inner scrolling area for the TOC, when the heading list is
+   tall enough to need scrolling within the sticky frame. */
+.tocSticky {
+  max-height: calc(100vh - var(--ifm-navbar-height) - 48px);
+  overflow-y: auto;
+}
+
+.articleToc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--blog-gap-sm);
+  padding-right: 0.25rem;
+}
+
+.tocProgressTrack {
+  position: relative;
+  height: 2px;
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.tocProgressFill {
+  height: 100%;
+  background: var(--color-brand);
+  border-radius: 999px;
+  transition: width 0.08s linear;
+  width: 0%;
+}
+
+.tocLabel {
+  margin: 0;
+  font-family: var(--blog-body-font-family);
+  font-size: 0.6875rem;             /* 11px */
+  font-weight: var(--blog-pill-weight);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.articleTocInner {
+  padding: 0;
+}
+
+.articleTocInner :global(.table-of-contents) {
+  padding: 0;
+  margin: 0;
+  font-family: var(--blog-body-font-family);
+  /* Lighter editorial TOC scale. */
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.articleTocInner :global(.table-of-contents__left-border) {
+  border-left-color: var(--ifm-color-emphasis-300);
+  border-left-width: 1px;
+  padding-left: 1rem;
+}
+
+.articleTocInner :global(.table-of-contents li) {
+  margin: 0.75rem 0;
+}
+
+/* Trim first/last so the gray rail starts at the first link and ends
+   at the last — no extra extension above or below. */
+.articleTocInner :global(.table-of-contents > li:first-child) {
+  margin-top: 0;
+}
+.articleTocInner :global(.table-of-contents > li:last-child) {
+  margin-bottom: 0;
+}
+
+.articleTocInner :global(.table-of-contents__link) {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 400;
+  position: relative;
+  display: block;
+  line-height: 1.4;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.articleTocInner :global(.table-of-contents__link:hover) {
+  color: var(--text--blue);
+  text-decoration: none;
+}
+
+.articleTocInner :global(.table-of-contents__link:focus-visible) {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Active state keeps a stronger weight + color than hover so it remains
+   visually dominant. */
+.articleTocInner :global(.table-of-contents__link--active) {
+  color: var(--text--blue);
+  font-weight: 700;
+}
+
+/* Active accent: brand-color bar that sits perfectly centered on top
+   of the gray `__left-border` rail.
+
+   Geometry:
+   - The gray rail is the 1px `border-left` on the ul. Its center is
+     `1px / 2 = 0.5px` to the right of the ul's outer-left edge.
+   - The link inside the ul has `position: relative`, so the ::before
+     `left` is measured from the link's left edge.
+   - The link's left edge sits `border-left (1px) + padding-left
+     (1rem) = 1rem + 1px` to the right of the ul's outer-left edge.
+   - That puts the gray rail's center at `-(1rem + 1px) + 0.5px =
+     -(1rem + 0.5px)` relative to the link's left.
+
+   For a `W = 3px` green strip whose center matches the gray rail's
+   center, the strip's `left` must be `gray_center - W/2 =
+   -(1rem + 0.5px) - 1.5px = -(1rem + 2px)`. Result: a 3px brand-color
+   accent that visually replaces the gray segment (1px on each side
+   of overhang past the rail), with no parallel-line offset. */
+.articleTocInner :global(.table-of-contents__left-border) {
+  position: relative;
+}
+
+.articleTocInner :global(.table-of-contents__link) {
+  z-index: 0;
+}
+
+.articleTocInner :global(.table-of-contents__link--active::before) {
+  content: '';
+  position: absolute;
+  left: calc(-1rem - 2px);
+  top: -0.15rem;
+  bottom: -0.15rem;
+  width: 3px;
+  background: var(--color-brand);
+  border-radius: 999px;
+  z-index: 2;
+}
+
+/* ==========================================================
+   Responsive: three-tier layout
+   ----------------------------------------------------------
+   - ≥1336px: default — body is viewport-centered, TOC floats
+     to its left from a zero-width column.
+   - 1024–1335px: switch to a true sidebar layout — TOC takes
+     220px of in-flow space on the left, the body fills the
+     remainder (it gives up viewport-centering, but the TOC
+     would otherwise overlap the centered body at these widths).
+   - ≤1023px: TOC column hidden, body re-centers itself, and
+     a `.mobileToc` Contents accordion appears at the top.
+   ========================================================== */
+@media (max-width: 1335px) and (min-width: 1024px) {
+  .bodySection {
+    gap: 2rem;
+  }
+
+  .tocCol {
+    flex: 0 0 220px;
+    width: 220px;
+    /* `overflow: visible` is required for `position: sticky` on the
+       inner `.tocSticky` to actually stick — any `hidden` / `clip` on
+       an ancestor breaks the sticky containing-block chain. */
+    overflow: visible;
+  }
+
+  .bodyCol {
+    margin: 0;
+  }
+
+  /* Hide the reading-progress strip in the sidebar layout — its
+     horizontal rule pushed the "Contents" label below the article
+     body's first line. CONTENTS now sits flush with the article
+     text top, matching the user-supplied reference. */
+  .articleToc .tocProgressTrack {
+    display: none;
+  }
+
+  /* Indent the "Contents" label so its left edge lines up with the
+     TOC item text (which is offset by the 1px left rail + 1rem
+     padding-left). Without this the label sits one item-indent to
+     the left of the items below it. */
+  .articleToc .tocLabel {
+    padding-left: calc(1rem + 1px);
+  }
+
+  /* Shift the hero content (tag pill + H1 + author meta) right to
+     align its left edge with the article body column underneath —
+     the body column starts at `TOC width + gap = 220px + 2rem` from
+     the container's left padding edge. Without this the hero is
+     viewport-centered (via `margin: 0 auto`) and the title sits to
+     the LEFT of the article body underneath it. */
+  .heroContent {
+    margin-left: calc(220px + 2rem);
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .tocCol,
+  .tocColHidden {
+    display: none;
+  }
+}
+
+/* Mobile Contents accordion — reuses the same TOCCollapsible component
+   (and CollapseButton "Contents" swizzle) as the docs page. Sits at
+   the top of the body column wherever the in-flow / floating TOC is
+   hidden. Visual styling lives in src/css/custom.css alongside the
+   docs version so blog and docs stay line-for-line identical. */
+.mobileToc {
+  display: none;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .mobileToc {
+    display: block;
+  }
+}

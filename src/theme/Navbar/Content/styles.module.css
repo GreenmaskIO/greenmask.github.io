@@ -1,0 +1,59 @@
+/* Aligned to the same container as page sections (hero, features, sticky
+   cards, footer): max-width + auto margin + page-horizontal padding. */
+.navbarLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  height: 100%;
+  position: relative;
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.navbarCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbarRight {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 4px;
+}
+
+.colorModeToggle {
+  display: none;
+}
+
+/* Mobile hamburger wrapper — visible only below the breakpoint. */
+.navbarMobileToggle {
+  display: none;
+  align-items: center;
+}
+
+/* Tablet & mobile: hide the center menu and right CTA, show the hamburger.
+   The user gets a clean two-element bar: logo on the left, toggle on the right. */
+@media (max-width: 1200px) {
+  .navbarCenter,
+  .navbarRight {
+    display: none;
+  }
+
+  .navbarMobileToggle {
+    display: flex;
+  }
+}

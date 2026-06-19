@@ -1,0 +1,1050 @@
+/* ========================
+   Design tokens (reference)
+   --color-brand: #14C19A
+   --color-dark: #1D1D35
+   --color-light: #FBFBFB
+   --color-purple-light: #F0EDFF
+   ======================== */
+
+/* ========================
+   Page wrapper
+   ======================== */
+.pageMain {
+  font-family: var(--font--descriptive-family);
+}
+
+/* ========================
+   Shared Buttons (used in non-hero sections)
+   ======================== */
+.buttonPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-brand);
+  color: var(--color-light);
+  border: none;
+  border-radius: 100px;
+  padding: 12px 28px;
+  font-family: var(--btn2--font-family);
+  font-size: var(--btn2--font-size);
+  line-height: var(--btn2--line-height);
+  letter-spacing: var(--btn2--letter-spacing);
+  font-weight: var(--btn2--font-weight);
+  text-transform: var(--sub-h3--text-transform);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonPrimary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: var(--color-light);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(20, 193, 154, 0.3);
+}
+
+.buttonSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--color-light);
+  border-radius: 100px;
+  padding: 12px 28px;
+  font-family: var(--btn2--font-family);
+  font-size: var(--btn2--font-size);
+  line-height: var(--btn2--line-height);
+  letter-spacing: var(--btn2--letter-spacing);
+  font-weight: var(--btn2--font-weight);
+  text-transform: var(--sub-h3--text-transform);
+  color: var(--color-light);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonSecondary:hover {
+  background: var(--color-light);
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+/* ========================
+   Hero Section
+   Matches: feature_wrap (dark theme)
+   padding-top: xllarge (12.5rem)
+   padding-bottom: large (5.625rem)
+   ======================== */
+.heroBanner {
+  display: block;
+  position: relative;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  -webkit-font-smoothing: antialiased;
+  /* Section vertical padding through the global token cascade —
+     responsive sizing handled automatically by --padding-vertical--*
+     in custom.css across desktop / tablet / mobile / 480 / 324. */
+  padding-top: var(--padding-vertical--xlsmall);
+  padding-bottom: var(--padding-vertical--large);
+}
+
+/* feature-container u-container */
+.heroContain {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+}
+
+/* feature_layout u-grid-desktop — 12-col grid */
+.heroLayout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;                            /* --grid-gap--main */
+}
+
+/* feature_content u-column-full — spans all 12 cols, flex column */
+.heroContent {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 3.75rem;                            /* u-gap-large */
+}
+
+/* feature_header u-vflex-center-center u-gap-medium u-flex-grow */
+.heroHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;                    /* children fill full width */
+  gap: 2.5rem;                             /* u-gap-medium */
+  flex-grow: 1;
+}
+
+/* feature_title u-text-h1 — full-width heading */
+.heroTitleWrap {
+  width: 100%;
+}
+
+.heroTitle {
+  font-family: var(--h1--font-family);
+  font-size: var(--h1--font-size);
+  line-height: var(--h1--line-height);
+  letter-spacing: var(--h1--letter-spacing);
+  font-weight: var(--h1--font-weight);
+  text-transform: var(--h1--text-transform);
+  color: var(--color-light);
+  margin: 0;
+  text-align: justify;
+}
+
+.heroTitle strong {
+  font-weight: 400;
+  color: var(--color-brand);
+}
+
+/* feature_description_wrap u-grid-column-2 — 2-col grid */
+.heroDescriptionWrap {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-column-gap: 1.25rem;               /* --grid-gap--main */
+  grid-row-gap: 1.25rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* Left column: empty spacer */
+.heroDescriptionEmpty {
+  /* intentionally empty — occupies the first column */
+}
+
+/* Right column: paragraph text */
+.heroDescriptionText {
+  display: flex;
+  align-items: flex-start;
+}
+
+.heroSubtitle {
+  font-family: var(--text-large--font-family);
+  font-size: var(--text-large--font-size);
+  line-height: var(--text-large--line-height);
+  letter-spacing: var(--text-large--letter-spacing);
+  font-weight: var(--text-large--font-weight);
+  color: var(--color-light);
+  margin: 0;
+}
+
+/* feature_button_wrap u-grid-column-2 — 2-col grid */
+.heroButtonWrap {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-column-gap: 1.25rem;
+  grid-row-gap: 1.25rem;
+  width: 100%;
+}
+
+/* Left column: primary button + caption */
+.heroButtonLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;                    /* button fills column width */
+  gap: 1rem;                               /* --space--small */
+}
+
+/* Right column: secondary button */
+.heroButtonRight {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* link_cta — wraps pill + icon circle */
+/* --cta-h: 74px from original computed styles */
+.ctaLink {
+  --cta-h: 74px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.ctaLink:hover {
+  text-decoration: none;
+}
+
+/* ---- Primary pill ---- */
+.ctaPill {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: var(--cta-h);
+  background-color: var(--button--background);
+  border-radius: var(--radius--round);
+  padding: 0 2.5rem;
+  transition: background-color 0.4s ease;
+}
+
+.ctaLink:hover .ctaPill {
+  background-color: var(--button--background-hover);
+}
+
+/* btn_cta_text_cover — btn3 tokens */
+.ctaPillText {
+  font-family: var(--btn3--font-family);
+  font-weight: var(--btn3--font-weight);
+  font-size: var(--btn3--font-size);
+  text-transform: var(--btn3--text-transform);
+  color: var(--button--text);
+  white-space: nowrap;
+  line-height: var(--btn3--line-height);
+  transition: color 0.4s ease;
+}
+
+/* ---- Icon circle ---- */
+.ctaIconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cta-h);
+  height: var(--cta-h);
+  border-radius: 50%;
+  background-color: var(--button--background);
+  color: var(--button--text);
+  flex-shrink: 0;
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.ctaLink:hover .ctaIconWrap {
+  background-color: var(--button--background-hover);
+}
+
+/* Icon rotation on hover */
+.ctaIconWrap svg {
+  transition: transform 0.3s ease;
+}
+
+.ctaLink:hover .ctaIconWrap svg {
+  transform: rotateZ(20deg);
+}
+
+/* ---- Secondary pill (outlined) ---- */
+.ctaPillSecondary {
+  background-color: transparent;
+  border: 1px solid var(--color-brand);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.ctaLink:hover .ctaPillSecondary {
+  background-color: transparent;
+  border-color: var(--button--border-hover);
+}
+
+/* ---- Secondary icon circle (outlined) ---- */
+.ctaIconWrapSecondary {
+  background-color: transparent;
+  border: 1px solid var(--color-brand);
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.ctaLink:hover .ctaIconWrapSecondary {
+  background-color: transparent;
+  border-color: var(--button--border-hover);
+}
+
+/* Caption note below primary CTA */
+.heroCtaNote {
+  font-family: var(--sub-h4--font-family);
+  font-size: var(--sub-h4--font-size);
+  line-height: var(--sub-h4--line-height);
+  letter-spacing: var(--sub-h4--letter-spacing);
+  font-weight: var(--sub-h4--font-weight);
+  color: var(--color-light);
+  opacity: 0.6;
+  margin: 0;
+}
+
+/* ========================
+   How It Works Section — Sticky overlapping cards
+   ======================== */
+.howItWorks {
+  display: block;
+  position: relative;
+  background-color: var(--color-dark);
+  padding-top: var(--padding-vertical--large);
+}
+
+.howItWorksInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal) var(--padding-vertical--medium);
+}
+
+.sectionTitle {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-light);
+  text-align: center;
+  margin: 0;
+}
+
+.sectionTitle strong {
+  font-weight: 400;
+  color: var(--color-brand);
+}
+
+/* Sticky cards container */
+.stickyCards {
+  position: relative;
+}
+
+/* Each card: sticky, same top, z-index stacks them */
+.stickyCard {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  align-items: stretch;
+  padding: 60px 0;
+  margin-bottom: 0;
+  background: var(--color-dark);
+  overflow: hidden;
+  box-shadow: 0 -8px 50px rgba(0, 0, 0, 0.4);
+  clip-path: inset(-60px -10px 0 -10px);
+  z-index: calc(1 + var(--card-index, 0));
+}
+
+.stickyCard:first-child {
+  box-shadow: none;
+  clip-path: none;
+}
+
+/* Inner wrapper — aligns step content to the global container while the
+   .stickyCard's dark background still bleeds to the viewport edges. */
+.stickyCardInner {
+  width: 100%;
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  min-width: 0;
+}
+
+/* Left column: badge+heading at top, description at bottom */
+.stepContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-light);
+  min-width: 0;
+}
+
+.stepTop {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Step badge — pill/tag style */
+.stepBadge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.375rem 1rem;
+  border-radius: 100vw;
+  background-color: rgba(251, 251, 251, 0.1);
+  font-family: var(--sub-h3--font-family);
+  font-size: var(--sub-h3--font-size);
+  line-height: var(--sub-h3--line-height);
+  letter-spacing: var(--sub-h3--letter-spacing);
+  font-weight: var(--sub-h3--font-weight);
+  text-transform: var(--sub-h3--text-transform);
+  color: var(--color-light);
+}
+
+.stepTitle {
+  font-family: var(--h5--font-family);
+  font-size: var(--h5--font-size);
+  line-height: var(--h5--line-height);
+  letter-spacing: var(--h5--letter-spacing);
+  font-weight: var(--h5--font-weight);
+  color: var(--color-light);
+  margin: 0;
+}
+
+.stepDescription {
+  font-family: var(--text-small--font-family);
+  font-size: var(--text-small--font-size);
+  line-height: var(--text-small--line-height);
+  letter-spacing: var(--text-small--letter-spacing);
+  font-weight: var(--text-small--font-weight);
+  color: var(--color-light);
+  opacity: 0.7;
+  margin: 0;
+  max-width: 460px;
+}
+
+.stepLink {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.stepLink:hover {
+  color: var(--ifm-color-primary-light);
+}
+
+/* Right column: image */
+.stepVisual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.stepImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ========================
+   Need It Fast (CTA) Section
+   f-cta_section — dark outer, light inner card with bg image
+   ======================== */
+.needItFast {
+  display: block;
+  position: relative;
+  background-color: var(--color-dark);
+  padding: var(--padding-vertical--large) 0;
+}
+
+.needItFastInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+}
+
+/* f-cta_layout — vertical stack: card + button */
+.needItFastLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+/* f-cta_content — light-themed card with background image */
+.needItFastContent {
+  position: relative;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* f-cta_bacground_ratio — aspect-ratio wrapper for bg image */
+.needItFastBgRatio {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.needItFastVisual {
+  position: absolute;
+  inset: 0;
+}
+
+.needItFastBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* f-cta_content_wrap — text content on top of image */
+.needItFastTextWrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 40px;
+}
+
+/* f-cta_subh u-text-sub-h1 */
+.needItFastSubheading {
+  font-family: var(--sub-h1--font-family);
+  font-size: var(--sub-h1--font-size);
+  line-height: var(--sub-h1--line-height);
+  letter-spacing: var(--sub-h1--letter-spacing);
+  font-weight: var(--sub-h1--font-weight);
+  text-transform: var(--sub-h1--text-transform);
+  color: var(--color-dark);
+}
+
+/* f-cta_heading u-text-h4 */
+.needItFastHeading {
+  font-family: var(--h4--font-family);
+  font-size: var(--h4--font-size);
+  line-height: var(--h4--line-height);
+  letter-spacing: var(--h4--letter-spacing);
+  font-weight: var(--h4--font-weight);
+  text-transform: var(--h4--text-transform);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+/* f-cta-button_wrap — full width */
+.needItFastButtonWrap {
+  display: flex;
+  width: 100%;
+}
+
+/* ========================
+   FAQ Section — matches homepage
+   ======================== */
+.faq {
+  padding: var(--padding-vertical--large) 0;
+  background: var(--color-dark);
+  text-align: center;
+}
+
+.faqInner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+}
+
+.faqTitle {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-light);
+  text-align: center;
+  margin: 0 0 2.5rem;
+}
+
+.accordionLine {
+  height: 1px;
+  background: var(--color-light);
+  opacity: 0.1;
+}
+
+.faqCard {
+  border-top: 1px solid rgba(251, 251, 251, 0.1);
+}
+
+.faqCardToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.25rem;
+  padding: 20px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faqCardTitle {
+  font-family: var(--h5--font-family);
+  font-size: var(--h5--font-size);
+  line-height: var(--h5--line-height);
+  letter-spacing: var(--h5--letter-spacing);
+  font-weight: var(--h5--font-weight);
+  color: var(--color-light);
+  text-align: left;
+  flex: 1;
+}
+
+.faqCardIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: var(--color-light);
+  transition: transform 0.35s ease;
+}
+
+.faqCardIconOpen {
+  transform: rotate(180deg);
+}
+
+.faqCardContent {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faqCardContentOpen {
+  grid-template-rows: 1fr;
+}
+
+.faqCardClip {
+  overflow: hidden;
+}
+
+.faqCardText {
+  padding-bottom: 1.25rem;
+  font-family: var(--text-medium--font-family);
+  font-size: var(--text-medium--font-size);
+  line-height: var(--text-medium--line-height);
+  letter-spacing: var(--text-medium--letter-spacing);
+  font-weight: var(--text-medium--font-weight);
+  color: var(--color-light);
+  opacity: 0.75;
+  max-width: 750px;
+  text-align: left;
+}
+
+/* ========================
+   Final CTA Section — purple card with bg image
+   ======================== */
+.finalCta {
+  padding: var(--padding-vertical--large) 0;
+  background: var(--color-dark);
+}
+
+.finalCtaInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+}
+
+.finalCtaLayout {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Purple card */
+.finalCtaContent {
+  position: relative;
+  background-color: var(--fill--purple, #8186F1);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Background image — absolute cover */
+.finalCtaBgRatio {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.finalCtaVisual {
+  position: absolute;
+  inset: 0;
+}
+
+.finalCtaBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text + buttons on top of image */
+.finalCtaTextWrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 40px;
+}
+
+.finalCtaHeading {
+  font-family: var(--h3--font-family);
+  font-size: var(--h3--font-size);
+  line-height: var(--h3--line-height);
+  letter-spacing: var(--h3--letter-spacing);
+  font-weight: var(--h3--font-weight);
+  text-transform: var(--h3--text-transform);
+  color: var(--color-light);
+  margin: 0;
+  width: 80%;
+}
+
+/* Banner-style buttons (smaller than hero CTA) */
+.finalCtaButtons {
+  display: grid;
+  grid-template-columns: var(--grid-2, repeat(2, minmax(0, 1fr)));
+  grid-template-rows: auto;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-column-gap: var(--grid-gap--main, 1.25rem);
+  grid-row-gap: var(--grid-gap--main, 1.25rem);
+  align-items: flex-start;
+  width: 80%;
+}
+
+.bannerCtaLink {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: var(--btn2--font-family);
+  font-size: var(--btn2--font-size);
+  line-height: var(--btn2--line-height);
+  font-weight: var(--btn2--font-weight);
+}
+
+.bannerCtaLink:hover {
+  text-decoration: none;
+}
+
+.bannerCtaPill {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: var(--button--background);
+  border-radius: var(--radius--round);
+  padding: 0 1.5rem;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.bannerCtaLink:hover .bannerCtaPill {
+  background-color: var(--color-light);
+}
+
+.bannerCtaLink:hover .bannerCtaPill .bannerCtaText {
+  color: var(--color-dark);
+}
+
+.bannerCtaPillStroke {
+  background-color: transparent;
+  border: 1px solid var(--color-light);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.bannerCtaLink:hover .bannerCtaPillStroke {
+  background-color: var(--color-light);
+  border-color: var(--color-light);
+}
+
+.bannerCtaText {
+  font-family: var(--btn2--font-family);
+  font-size: var(--btn2--font-size);
+  line-height: var(--btn2--line-height);
+  letter-spacing: var(--btn2--letter-spacing);
+  font-weight: var(--btn2--font-weight);
+  color: var(--color-light);
+  white-space: nowrap;
+  transition: color 0.4s ease;
+}
+
+.bannerCtaPillStroke .bannerCtaText {
+  color: var(--color-light);
+  transition: color 0.4s ease;
+}
+
+.bannerCtaLink:hover .bannerCtaPillStroke .bannerCtaText {
+  color: var(--color-dark);
+}
+
+.bannerCtaIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius--round);
+  background-color: var(--button--background);
+  color: var(--color-light);
+  flex-shrink: 0;
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.bannerCtaLink:hover .bannerCtaIcon {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+.bannerCtaIconStroke {
+  background-color: transparent;
+  border: 1px solid var(--color-light);
+  color: var(--color-light);
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.bannerCtaLink:hover .bannerCtaIconStroke {
+  background-color: var(--color-light);
+  border-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+.bannerCtaIcon svg {
+  transition: transform 0.3s ease;
+}
+
+.bannerCtaLink:hover .bannerCtaIcon svg {
+  transform: rotateZ(20deg);
+}
+
+/* ========================
+   Responsive — 1200px
+   ======================== */
+@media screen and (max-width: 1200px) {
+  .needItFastTextWrap {
+    padding: 2.5rem;
+  }
+}
+
+/* ========================
+   Responsive — 996px (mobile)
+   ======================== */
+@media screen and (max-width: 996px) {
+  .heroDescriptionWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .heroDescriptionEmpty {
+    display: none;
+  }
+
+  .heroButtonWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .heroButtonLeft {
+    align-items: flex-start;
+  }
+
+  .heroButtonRight {
+    align-items: flex-start;
+  }
+
+  .stickyCard {
+    position: relative;
+    top: auto;
+    flex-direction: column;
+    min-height: auto;
+    box-shadow: none;
+    /* Drop the 60px card chrome at mobile/tablet — the chrome is a
+       desktop-only sticky-overlap design feature. Without it the
+       title → STEP 1 gap collapses from ~120px to ~56px (1.5rem
+       inner-bottom + 2rem stepContent top), matching the homepage
+       `index.module.css` @996 rhythm. */
+    padding: 0;
+    clip-path: none;
+  }
+
+  .stickyCardInner {
+    flex-direction: column;
+  }
+
+  /* Mirror the homepage `index.module.css` @996 rule — asymmetric
+     bottom padding (0.75rem) on content + zero min-height on the
+     visual + 2rem bottom padding pull the next sticky card up so
+     the rhythm matches the marketing page. */
+  .stepContent {
+    padding: 2rem 0 0.75rem;
+    gap: 1.25rem;
+  }
+
+  .stepVisual {
+    min-height: 0;
+    padding: 0 0 2rem;
+  }
+
+  .needItFastTextWrap {
+    padding: 2.5rem 1.5rem;
+  }
+
+  /* Tighten the gap between the "Need it fast" card and the
+     "Request urgent feature" button below — 2.5rem default
+     leaves too much air at narrow mobile widths. */
+  .needItFastLayout {
+    gap: 1rem;
+  }
+
+  /* Tighten the gap between the hero description text and the
+     CTA button row — the default 3.75rem (60px) on `.heroContent`
+     puts an awkward amount of air there at mobile widths. */
+  .heroContent {
+    gap: 2.5rem;
+  }
+
+  .finalCtaTextWrap {
+    padding: 2rem 1.5rem;
+  }
+
+  /* At narrow viewports the default `width: 80%` on the heading
+     squeezes "Ready to shape the future of GreenMask?" into very
+     short lines (one word per line). Use the full card width. */
+  .finalCtaHeading {
+    width: 100%;
+  }
+
+  .finalCtaButtons {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .bannerCtaLink {
+    height: 48px;
+  }
+
+  .bannerCtaPill {
+    height: 48px;
+  }
+
+  .bannerCtaIcon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ========================
+   Responsive — tablet 768-996px
+   ----------------------------------------------------------
+   At tablet widths the hero section keeps the same layout as
+   the 1024 / desktop view: description text sits in the right
+   column of a 2-col grid (with the empty left spacer visible),
+   and the primary + secondary buttons stay side-by-side. This
+   overrides the ≤996 mobile rules above (which stack both into
+   a single column) at the 768-996 range only.
+   ======================== */
+@media screen and (max-width: 996px) and (min-width: 768px) {
+  .heroDescriptionWrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .heroDescriptionEmpty {
+    display: block;
+  }
+
+  .heroButtonWrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .heroButtonLeft,
+  .heroButtonRight {
+    align-items: flex-start;
+  }
+
+  /* Tighten the gap between the "Need it fast" card and the
+     "Request urgent feature" button below — 2.5rem feels too
+     airy at tablet widths. */
+  .needItFastLayout {
+    gap: 1rem;
+  }
+
+  /* Match the homepage rule (`index.module.css` @768-1024 override):
+     tighten the section title → first sticky card gap to 1.5rem
+     instead of the cascaded `--padding-vertical--medium` (4.5rem
+     / 72px at this breakpoint). Default `.stickyCard padding: 60px 0`
+     stays untouched — it's part of this page's card-chrome design
+     and provides the between-step visual gap. */
+  .howItWorksInner {
+    padding-bottom: 1.5rem;
+  }
+
+  /* Shrink CTA buttons at tablet — primary hero pill (`.ctaLink`)
+     starts at 74px and the banner-style pills (`.bannerCta*`) sit
+     at 48px from the ≤996 rule. Both feel too tall at 768. */
+  .ctaLink {
+    --cta-h: 48px;
+  }
+
+  .ctaPill {
+    padding: 0 1.5rem;
+  }
+
+  .bannerCtaLink {
+    height: 40px;
+  }
+
+  .bannerCtaPill {
+    height: 40px;
+    padding: 0 1.25rem;
+  }
+
+  .bannerCtaIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Final CTA banner buttons — at tablet show "Request urgent
+     feature" and "Submit on GitHub" side-by-side in a 2-col grid
+     (overrides the ≤996 mobile rule which stacks them). */
+  .finalCtaButtons {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+}
+
+/* ========================
+   Responsive — 480px (small mobile)
+   ======================== */
+@media screen and (max-width: 480px) {
+  .ctaLink {
+    --cta-h: 54px;
+  }
+
+  .ctaPill {
+    padding: 0 1.5rem;
+  }
+
+  /* old stepCard removed — now using stickyCard */
+
+  .needItFastTextWrap {
+    padding: 2rem 1.25rem;
+  }
+}

@@ -1,0 +1,11 @@
+/* Header button shell — visual styling (label typography, chevron, border,
+   etc.) lives in global custom.css so the same rules can target both this
+   button and the surrounding TOCCollapsible card uniformly across docs
+   and blog. Here we only need a minimal flex layout so the chevron sits
+   on the right of the label. */
+.tocCollapsibleButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

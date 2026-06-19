@@ -1,0 +1,744 @@
+/* ========================
+   Design tokens
+   ======================== */
+/* --color-brand: #14C19A */
+/* --color-dark: #1D1D35 */
+/* --color-light: #FBFBFB */
+/* --color-purple-light: #F0EDFF */
+/* --color-purple: #8186F1 */
+
+/* ========================
+   Page wrapper
+   ======================== */
+.pageMain {
+  /* Neutralize any Docusaurus prose/markdown default styles */
+  font-family: var(--font--descriptive-family);
+}
+
+/* ========================
+   Hero Section
+   LEFT = GIF image, RIGHT = heading + text
+   ======================== */
+/* ========================
+   Hero — about_wrap
+   data-theme="light"
+   data-padding-top="xllarge" (12.5rem)
+   data-padding-bottom="large" (5.625rem)
+   ======================== */
+.heroBanner {
+  display: block;
+  position: relative;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  padding-top: var(--padding-vertical--xlsmall);
+  padding-bottom: var(--padding-vertical--large);
+}
+
+/* about_contain u-container */
+.heroContain {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+}
+
+/* about_layout u-grid-desktop — 12-col grid */
+.heroGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;                          /* --grid-gap--main */
+  row-gap: 0;
+}
+
+/* about_inner_wrap u-grid-desktop u-column-12 — full width, inner 12-col grid */
+.heroInnerWrap {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* about_visual_wrap u-column-3 — 3 of 12 cols */
+.heroVisualWrap {
+  grid-column: auto / span 3;
+}
+
+/* about_visual_ratio u-visual-wrap — aspect ratio container */
+.heroVisualRatio {
+  aspect-ratio: 2 / 1;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* g_visual_wrap u-cover-absolute */
+.heroVisualInner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* g_visual_background */
+.heroVisualBg {
+  position: absolute;
+  inset: 0;
+  background: var(--color-dark);
+}
+
+/* g_visual_img u-cover-absolute */
+.heroGif {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* g_visual_overlay u-cover-absolute — opacity 40% */
+.heroVisualOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-light);
+  opacity: 0.4;
+}
+
+/* about_text u-column-6 u-text-large */
+.heroText {
+  grid-column: auto / span 6;
+  grid-column-start: 7;
+  font-family: var(--text-large--font-family);
+  font-size: var(--text-large--font-size);
+  line-height: var(--text-large--line-height);
+  letter-spacing: var(--text-large--letter-spacing);
+  font-weight: var(--text-large--font-weight);
+  text-transform: var(--text-large--text-transform);
+  color: var(--color-dark);
+  display: flex;
+  align-items: flex-start;
+}
+
+.heroText p {
+  margin: 0;
+  font-family: var(--text-large--font-family);
+  font-size: var(--text-large--font-size);
+  line-height: var(--text-large--line-height);
+  letter-spacing: var(--text-large--letter-spacing);
+  font-weight: var(--text-large--font-weight);
+  text-transform: var(--text-large--text-transform);
+  color: var(--color-dark);
+}
+
+
+/* about_title u-text-h1 u-column-12 — full width heading */
+.heroTitleWrap {
+  grid-column: span 12;
+  margin-top: 3.75rem;                   /* --space--large gap before heading */
+}
+
+/* u-text-h1 applied to h2 element */
+.heroTitle {
+  font-family: var(--h1--font-family);
+  font-size: var(--h1--font-size);
+  line-height: var(--h1--line-height);
+  letter-spacing: var(--h1--letter-spacing);
+  font-weight: var(--h1--font-weight);
+  text-transform: var(--h1--text-transform);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.heroTitle strong {
+  font-weight: 400;
+  color: var(--color-brand);             /* bold accent in brand green */
+}
+
+/* ========================
+   Mission Section
+   mission_wrap — light background (#fbfbfb)
+   ======================== */
+.mission {
+  display: block;
+  position: relative;
+  background: var(--color-light);
+}
+
+/* mission_contain u-container — aligned to global container system */
+.missionContain {
+  width: 100%;
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: var(--padding-vertical--large) var(--page-padding-horizontal);
+  position: relative;
+}
+
+/* mission_layout u-grid-autofit */
+.missionLayout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 1.25rem;                        /* --grid-gap--main */
+}
+
+/* mission_visual u-hflex-center-center — star column, centered */
+.missionVisual {
+  display: flex;
+  flex-flow: row;
+  place-content: center;
+  align-items: center;
+  color: var(--color-light);           /* white star on dark background */
+  background-color: var(--color-brand);
+}
+
+/* mission_content u-vflex-left-top — gap and padding match the
+   `.valueCard` (1.25rem / --space--main) so card chrome stays
+   consistent across the page. */
+.missionContent {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background-color: var(--color-purple-light);  /* --fill--purple-light */
+  padding: 1.25rem;
+}
+
+/* mission_subh u-text-sub-h1 */
+.missionSubh {
+  font-family: var(--sub-h1--font-family);
+  font-size: var(--sub-h1--font-size);
+  line-height: var(--sub-h1--line-height);
+  letter-spacing: var(--sub-h1--letter-spacing);
+  font-weight: var(--sub-h1--font-weight);
+  text-transform: var(--sub-h1--text-transform);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.missionSubh p {
+  margin: 0;
+}
+
+/* mission_text u-text-h4 — h4 sized, NOT uppercase */
+.missionTextWrap {
+  margin: 0;
+}
+
+.missionText {
+  font-family: var(--h4--font-family);
+  font-size: var(--h4--font-size);
+  line-height: var(--h4--line-height);
+  letter-spacing: var(--h4--letter-spacing);
+  font-weight: var(--h4--font-weight);
+  text-transform: var(--h4--text-transform);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+/* ========================
+   Values Section
+   Background: purple-light (#F0EDFF)
+   ======================== */
+.values {
+  display: block;
+  position: relative;
+  background: var(--color-light);          /* #fbfbfb */
+}
+
+.valuesInner {
+  width: 100%;
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: var(--padding-vertical--large) var(--page-padding-horizontal);
+  position: relative;
+}
+
+/* "Our values" label — h2 styling, centered */
+.sectionLabel {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-dark);
+  text-align: center;
+  margin: 0 0 var(--space--large);
+}
+
+.sectionLabelAccent {
+  color: var(--color-brand);               /* #14c19a */
+}
+
+/* 12-col grid matching original u-grid-tablet layout */
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;                          /* --grid-gap--main */
+}
+
+/* Row 1: card 1 at col 1, card 2 at col 7, card 3 at col 10 */
+.valuesGrid > :nth-child(1) {
+  grid-column: 1 / span 3;
+}
+
+.valuesGrid > :nth-child(2) {
+  grid-column: 7 / span 3;
+}
+
+.valuesGrid > :nth-child(3) {
+  grid-column: 10 / span 3;
+}
+
+/* Row 2: card 4 at col 4, card 5 at col 10 */
+.valuesGrid > :nth-child(4) {
+  grid-column: 4 / span 3;
+}
+
+.valuesGrid > :nth-child(5) {
+  grid-column: 10 / span 3;
+}
+
+.valueCard {
+  grid-column: auto / span 3;
+  background: var(--color-light);
+  /* Thin divider-style outline, same weight + color as the homepage
+     `.featureCard` gap dividers (`rgba(13, 22, 22, 0.15)`). Replaces
+     the heavier `1px solid var(--color-dark)` rule that drew an
+     opaque dark frame around every card. */
+  border: 1px solid rgba(13, 22, 22, 0.15);
+  padding: 1.25rem;                       /* --space--main = 20px */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  aspect-ratio: 1;
+}
+
+/* values_icon_card_wrap u-vflex-left-top */
+.valueCardIcon {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* SVG icon: 34x34, block display, match original computed styles */
+.valueCardSvg {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  height: 34px;
+}
+
+/* values_card_content u-vflex-left-top u-gap-main */
+.valueCardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;                          /* --grid-gap--main = 20px */
+}
+
+/* h5 card title */
+.valueCardTitle {
+  font-family: var(--h5--font-family);
+  font-size: var(--h5--font-size);
+  line-height: var(--h5--line-height);
+  letter-spacing: var(--h5--letter-spacing);
+  font-weight: var(--h5--font-weight);
+  text-transform: var(--h5--text-transform);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+/* u-text-medium */
+.valueCardDescription {
+  font-family: var(--text-medium--font-family);
+  font-size: var(--text-medium--font-size);
+  line-height: var(--text-medium--line-height);
+  letter-spacing: var(--text-medium--letter-spacing);
+  font-weight: var(--text-medium--font-weight);
+  text-transform: var(--text-medium--text-transform);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+/* ========================
+   CTA Section
+   Background: light, centered pill button
+   ======================== */
+.ctaSection {
+  padding: var(--padding-vertical--large) 0;
+  background: var(--color-light);
+}
+
+/* Same container/grid system as the rest of the site; centers the button. */
+.ctaInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  display: flex;
+  justify-content: center;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 1.2vw, 1.5rem);
+  background-color: var(--color-brand);
+  border: 1px solid var(--color-brand);
+  color: var(--color-light);
+  font-family: var(--btn1--font-family);
+  font-size: var(--btn1--font-size);
+  line-height: var(--btn1--line-height);
+  letter-spacing: var(--btn1--letter-spacing);
+  font-weight: var(--btn1--font-weight);
+  text-transform: var(--btn1--text-transform);
+  padding: clamp(1rem, 1.6vw, 1.5rem) clamp(2rem, 4vw, 3.5rem);
+  border-radius: 1000px;
+  text-decoration: none;
+  transition: background-color 280ms ease-out, border-color 280ms ease-out;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Mobile: compact pill matching reference site. */
+@media (max-width: 768px) {
+  .ctaButton {
+    font-size: 1.125rem;
+    padding: 0.875rem 1.5rem;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaButton {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  background-color: var(--fill--purple);
+  border-color: var(--fill--purple);
+  color: var(--color-light);
+  text-decoration: none;
+}
+
+.ctaArrow {
+  display: block;
+  width: 78px;
+  height: 78px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  .ctaArrow {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ctaArrow {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translate(4px, -4px);
+}
+
+/* ========================
+   Newsletter Section
+   Background: dark (#1D1D35)
+   ======================== */
+.newsletter {
+  padding: var(--padding-vertical--large) 0;
+  background: var(--color-dark);
+}
+
+.newsletterInner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  text-align: center;
+}
+
+.newsletterTitle {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-light);
+  margin: 0;
+}
+
+.newsletterForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.newsletterInputWrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: 1px solid rgba(251, 251, 251, 0.25);
+  border-radius: 1000px;
+  overflow: hidden;
+  background: rgba(251, 251, 251, 0.05);
+}
+
+.newsletterInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 1.125rem 1.75rem;
+  font-family: var(--text-medium--font-family);
+  font-size: var(--text-medium--font-size);
+  line-height: var(--text-medium--line-height);
+  letter-spacing: var(--text-medium--letter-spacing);
+  font-weight: var(--text-medium--font-weight);
+  color: var(--color-light);
+  min-width: 0;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(251, 251, 251, 0.45);
+}
+
+.newsletterButton {
+  flex-shrink: 0;
+  background: var(--color-brand);
+  border: none;
+  border-radius: 1000px;
+  padding: 1rem 2rem;
+  font-family: var(--btn2--font-family);
+  font-size: var(--btn2--font-size);
+  line-height: var(--btn2--line-height);
+  letter-spacing: var(--btn2--letter-spacing);
+  font-weight: var(--btn2--font-weight);
+  text-transform: var(--sub-h3--text-transform);
+  color: var(--color-light);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  margin: 4px;
+}
+
+.newsletterButton:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.newsletterError {
+  font-family: var(--error--font-family);
+  font-size: var(--error--font-size);
+  line-height: var(--error--line-height);
+  letter-spacing: var(--error--letter-spacing);
+  font-weight: var(--error--font-weight);
+  color: #ff6b6b;
+  margin: 0;
+}
+
+.newsletterSuccess {
+  font-family: var(--text-large--font-family);
+  font-size: var(--text-large--font-size);
+  line-height: var(--text-large--line-height);
+  letter-spacing: var(--text-large--letter-spacing);
+  font-weight: var(--text-large--font-weight);
+  color: var(--color-brand);
+  margin: 0;
+}
+
+/* ========================
+   Responsive — 1200px
+   ----------------------------------------------------------
+   Section vertical padding (heroBanner, missionContain,
+   valuesInner, ctaSection, newsletter) cascades automatically
+   from the `--padding-vertical--*` tokens defined in
+   custom.css — no per-element overrides needed here.
+   ======================== */
+@media screen and (max-width: 1200px) {
+  .valuesGrid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .valuesGrid > :nth-child(1),
+  .valuesGrid > :nth-child(2),
+  .valuesGrid > :nth-child(3),
+  .valuesGrid > :nth-child(4),
+  .valuesGrid > :nth-child(5) {
+    grid-column: auto / span 3;
+  }
+
+  .valueCard {
+    grid-column: auto / span 3;
+  }
+}
+
+/* ========================
+   Responsive — 996px (mobile)
+   ----------------------------------------------------------
+   Section vertical padding cascades automatically through the
+   `--padding-vertical--*` tokens (set to 2rem / 32px at ≤996
+   in custom.css) — no hardcoded per-element overrides.
+   ======================== */
+@media screen and (max-width: 996px) {
+  .heroInnerWrap {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .heroVisualWrap {
+    grid-column: span 1;
+  }
+
+
+  .heroText {
+    grid-column: span 1;
+  }
+
+.heroTitleWrap {
+    margin-top: 2rem;
+  }
+
+  .valuesInner {
+    gap: 2.5rem;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .valueCard {
+    grid-column: auto;
+  }
+
+  .newsletterInner {
+    gap: 2rem;
+  }
+
+  .newsletterInputWrap {
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: visible;
+    border: none;
+    gap: 0.75rem;
+    background: transparent;
+  }
+
+  .newsletterInput {
+    border: 1px solid rgba(251, 251, 251, 0.25);
+    border-radius: 1000px;
+    background: rgba(251, 251, 251, 0.05);
+    width: 100%;
+  }
+
+  .newsletterButton {
+    margin: 0;
+    width: 100%;
+    border-radius: 1000px;
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* ========================
+   Responsive — small mobile ≤767px
+   ----------------------------------------------------------
+   Force the mission layout to stack (visual above content)
+   and turn the brand-green visual cell into a full-width
+   square so the centred asterisk reads correctly. Without
+   `aspect-ratio: 1` the cell collapses to the asterisk SVG's
+   intrinsic 110 × 110 size and looks like a small tile
+   instead of the reference square. */
+@media (max-width: 767px) {
+  .missionLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .missionVisual {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Scale the asterisk SVG down on small viewports — the 110×110
+     intrinsic size from the JSX dominates the square otherwise. */
+  .missionVisual svg {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .missionVisual svg {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* ========================
+   Responsive — tablet 768-996px
+   ----------------------------------------------------------
+   Keep the hero side-by-side (GIF on the left + text on the
+   right) at tablet widths instead of stacking — matches the
+   user reference at 768. The visual column is capped at 200px
+   so the GIF stays compact; the text column takes the remaining
+   space. Below 768 the ≤996 stack rule above still applies
+   because its selectors win on cascade when this range doesn't
+   match.
+   ======================== */
+@media screen and (max-width: 996px) and (min-width: 768px) {
+  /* Equal-width 2-col grid (restores the narrow text column from
+     before the 200px-GIF tweak). The visual cell still fills its
+     half-row, but the GIF inside is capped via `.heroVisualWrap`
+     `max-width` so it stays compact. */
+  .heroInnerWrap {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .heroVisualWrap {
+    grid-column: 1 / 2;
+    max-width: 200px;
+  }
+
+  .heroText {
+    grid-column: 2 / 3;
+  }
+
+  /* Values grid — 2 columns at tablet widths (overrides the
+     single-column stack from the ≤996 mobile rule). The
+     `nth-child` selectors below match the specificity of the
+     `@1200` rule that sets `grid-column: auto / span 3` (which
+     would otherwise force each card onto its own row because
+     `span 3` exceeds this grid's 2 tracks). */
+  .valuesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .valuesGrid > :nth-child(1),
+  .valuesGrid > :nth-child(2),
+  .valuesGrid > :nth-child(3),
+  .valuesGrid > :nth-child(4),
+  .valuesGrid > :nth-child(5) {
+    grid-column: auto;
+  }
+
+  .valueCard {
+    grid-column: auto;
+  }
+}

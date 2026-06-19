@@ -1,0 +1,291 @@
+/* contacts_wrap — light theme, matches original computed styles */
+.contactsWrap {
+  display: block;
+  position: relative;
+  background-color: var(--color-light, #fbfbfb);
+  color: var(--color-dark, #1d1d35);
+  -webkit-font-smoothing: antialiased;
+  background-attachment: scroll;
+}
+
+/* contacts_contain u-container
+   data-padding-top="medium" (3.75rem)
+   data-padding-bottom="xllarge" (12.5rem) */
+.contactsContain {
+  width: 100%;
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 3.75rem var(--page-padding-horizontal) 12.5rem;
+}
+
+/* contact_layout u-grid-desktop — 12-col grid (desktop). Discord lives in
+   the left rail (cols 1–2) via grid-column, so the JSX order (main first,
+   Discord second) doesn't affect visual placement on desktop. */
+.contactLayout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* ========================
+   Social / Discord — 2 cols (cols 1–2) on desktop. Explicit row keeps it
+   aligned with the main content above the GIF, regardless of DOM order. */
+.socialContent {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  align-self: start;
+}
+
+/* social_wrap u-vflex-left-top u-gap-xsmall */
+.socialWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+/* discord_link w-inline-block — column: square icon + label */
+.discordLink {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.discordLink:hover,
+.discordLink:focus-visible {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* social_inner_wrap u-hflex-center-center — square icon container */
+.socialInnerWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #f0edff;
+  transition: background-color 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.discordLink:hover .socialInnerWrap,
+.discordLink:focus-visible .socialInnerWrap {
+  background-color: #e6e0ff;
+}
+
+/* "Join Discord" label — slide + underline matches header/footer link-slide. */
+.socialLabel {
+  display: inline-block;
+  font-family: var(--sub-h3--font-family);
+  font-size: var(--sub-h3--font-size);
+  line-height: var(--sub-h3--line-height);
+  letter-spacing: var(--sub-h3--letter-spacing);
+  font-weight: var(--sub-h3--font-weight);
+  text-transform: var(--sub-h3--text-transform);
+  color: var(--color-dark, #1d1d35);
+}
+
+@media (hover: hover) {
+  .discordLink:hover :global(.link-slide__default),
+  .discordLink:focus-visible :global(.link-slide__default) {
+    transform: translateY(-110%);
+  }
+  .discordLink:hover :global(.link-slide__hover),
+  .discordLink:focus-visible :global(.link-slide__hover) {
+    transform: translateY(0);
+  }
+  .discordLink:hover :global(.link-slide)::after,
+  .discordLink:focus-visible :global(.link-slide)::after {
+    transform: scaleX(1);
+  }
+}
+
+.discordSvg {
+  width: 5rem;
+  height: auto;
+  display: block;
+}
+
+/* social_text u-text-medium */
+.socialText {
+  font-family: var(--text-medium--font-family);
+  font-size: var(--text-medium--font-size);
+  line-height: var(--text-medium--line-height);
+  letter-spacing: var(--text-medium--letter-spacing);
+  font-weight: var(--text-medium--font-weight);
+  text-transform: var(--text-medium--text-transform);
+  color: var(--color-dark, #1d1d35);
+}
+
+.socialText p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* ========================
+   Main content — 6 cols (cols 4–9, leaving col 3 as gap) on desktop
+   ======================== */
+.contactsContant {
+  grid-column: 4 / span 6;
+  grid-row: 1;
+}
+
+/* contacts_header u-vflex-center-center u-gap-medium */
+.contactsHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+/* contacts_title */
+.contactsTitle {
+  text-align: center;
+}
+
+/* u-text-sub-h1 */
+.subH1 {
+  font-family: var(--sub-h1--font-family);
+  font-size: var(--sub-h1--font-size);
+  line-height: var(--sub-h1--line-height);
+  letter-spacing: var(--sub-h1--letter-spacing);
+  font-weight: var(--sub-h1--font-weight);
+  text-transform: var(--sub-h1--text-transform);
+  color: var(--color-dark, #1d1d35);
+}
+
+/* contacts_contacts u-vflex-center-center u-gap-main */
+.contactsContacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+/* link_large = u-text-link1 */
+.linkLarge {
+  font-family: var(--link1--font-family);
+  font-size: var(--link1--font-size);
+  line-height: var(--link1--line-height);
+  letter-spacing: var(--link1--letter-spacing);
+  font-weight: var(--link1--font-weight);
+  text-transform: var(--link1--text-transform);
+  color: var(--color-dark, #1d1d35);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.linkLarge:hover {
+  color: var(--color-brand, #14c19a);
+  text-decoration: none;
+}
+
+/* ========================
+   Visual / GIF
+   ======================== */
+/* contacts_visual_wrap — centered within the flex column */
+.contactsVisualWrap {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* contacts_visual_ratio — perfect square circle container */
+.contactsVisualRatio {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* g_visual_img — fills the circle, cropped not stretched */
+.visualImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* g_visual_background — behind the image */
+.visualBackground {
+  display: none;
+}
+
+/* g_visual_overlay — disabled */
+.visualOverlay {
+  display: none;
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media screen and (max-width: 1200px) {
+  .contactsContain {
+    padding: 3.75rem var(--page-padding-horizontal) 8.75rem;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .contactsContain {
+    padding: 2.5rem var(--page-padding-horizontal) 5.625rem;
+  }
+}
+
+/* Tablet (768–1024px): simple 2-column horizontal layout — Discord card
+   in the left column, "Stay Connected!" + email + GIF in the right. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contactLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .socialContent {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .contactsContant {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* Mobile (<768px): vertical stack — main content (title + email + GIF) on
+   top, Discord block centered below. */
+@media (max-width: 767px) {
+  .contactLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .contactsContant,
+  .socialContent {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+  }
+
+  .socialContent {
+    max-width: 18rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Tighten the gap between "STAY CONNECTED!", the email link, and the GIF
+     on mobile so they feel like one cohesive block. */
+  .contactsHeader {
+    gap: 1.25rem;
+  }
+}

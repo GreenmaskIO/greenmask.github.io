@@ -1,0 +1,1286 @@
+/* ========================
+   Hero Section
+   ======================== */
+.heroBanner {
+  background: var(--color-light);
+  color: var(--color-dark);
+  overflow: hidden;
+  padding-top: var(--padding-vertical--xlsmall);
+}
+
+/* Tablet — the section also needs its own bottom padding so the gap to
+   the next section (.features intro paragraph) totals 72 + 72 = 144px,
+   matching the unified tablet rhythm. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .heroBanner {
+    padding-bottom: var(--padding-vertical--large);
+  }
+
+  /* Drop the tablet `.features` extra top — 72px from heroBanner bottom
+     plus 72px from features top gives the standard 144px. */
+  .features {
+    padding-top: var(--padding-vertical--large);
+  }
+}
+
+/* Mobile — uniform 64px gap to the next section (32 + 32). */
+@media (max-width: 767px) {
+  .heroBanner {
+    padding-bottom: var(--padding-vertical--large);
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  gap: 0;
+}
+
+/* Left column — mirrors .hero_header: flex column, gap: space--medium (2.5rem) */
+.heroLeft {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem; /* --space--medium */
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+/* h1: 4.875rem, line-height 1.1, uppercase, Helvetica Neue, weight 400 */
+.heroTitle {
+  font-family: var(--h1--font-family);
+  font-size: var(--h1--font-size);
+  line-height: var(--h1--line-height);
+  letter-spacing: var(--h1--letter-spacing);
+  font-weight: var(--h1--font-weight);
+  text-transform: var(--h1--text-transform);
+  text-align: justify;
+  text-align-last: justify;
+  color: var(--color-dark);
+  margin: 0;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Tablet (768–1024px) — keep `justify` so the line stretches across the
+   container as in the reference, but pull the last line back to the left
+   so a short trailing word doesn't get gappily justified. The font-size
+   override scales the heading up from the shared tablet h1 token (which
+   also drives the CTA button) so the title reads as the dominant element
+   without enlarging buttons. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .heroTitle {
+    font-size: 3.75rem;
+    text-align: justify;
+    text-align-last: left;
+  }
+}
+
+/* Phone (<768px): justify breaks on narrow widths — switch to left-aligned. */
+@media (max-width: 767px) {
+  .heroTitle {
+    text-align: left;
+    text-align-last: left;
+  }
+}
+
+.heroTitleAccent {
+  color: var(--color-brand);
+}
+
+.heroTitleLastLine {
+  display: block;
+  text-align: left;
+}
+
+/* Description wrap — mirrors .u-grid-column-2: 2-col grid, gap: 1.25rem */
+.heroDescription {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column-gap: 1.25rem; /* --grid-gap--main */
+  grid-row-gap: 1.25rem;
+  grid-template-rows: auto;
+  grid-auto-columns: minmax(0, 1fr);
+  width: 100%;
+}
+
+/* Col 2: icon + text as a flex row, mirrors the inner layout */
+.heroDescriptionRight {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+/* Icon — mirrors .u-hflex-right-top */
+.heroIcon {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: var(--color-dark);
+}
+
+/* Text — mirrors .u-text-large */
+.heroText {
+  font-family: var(--text-large--font-family);
+  font-size: var(--text-large--font-size);
+  line-height: var(--text-large--line-height);
+  letter-spacing: var(--text-large--letter-spacing);
+  font-weight: var(--text-large--font-weight);
+  color: var(--color-dark);
+  margin: 0;
+  width: 310px;
+  min-height: 288px;
+}
+
+@media (max-width: 1200px) {
+  .heroText {
+    width: 100%;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 996px) {
+
+  .heroIcon svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Phone-only: collapse the 2-col description grid so the icon stacks above
+   the text. Tablet keeps the desktop side-by-side layout. */
+@media (max-width: 600px) {
+  .heroDescription {
+    grid-template-columns: 1fr;
+  }
+
+  .heroDescriptionRight {
+    flex-direction: column;
+  }
+}
+
+/* Sponsors marquee */
+.sponsorMarquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sponsorMarquee__viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sponsorMarquee__track {
+  display: flex;
+  width: 200%;
+  animation: sponsorMarquee 40s linear infinite;
+  will-change: transform;
+}
+
+/* Each group fills exactly the viewport (50% of the 200%-wide track), so a
+   complete Solanica→Xata row spans the full container before repeating.
+   `space-around` puts gap/2 of padding on each edge, so the seam between
+   group 1's right edge and group 2's left edge is exactly one inter-logo
+   gap — visually indistinguishable from any other gap in the row. */
+.sponsorMarquee__group {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 0;
+}
+
+.sponsorMarquee:hover .sponsorMarquee__track,
+.sponsorMarquee:focus-within .sponsorMarquee__track {
+  animation-play-state: paused;
+}
+
+/* Translate by exactly one group's width. Track is 200% of viewport,
+   so -50% = -1 viewport = -1 group. The reset to 0 lands on a frame
+   visually identical to the start because both groups are identical. */
+@keyframes sponsorMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsorMarquee__track {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Tablet: switch to a content-sized marquee. Each logo carries its own
+   fixed margin-right; both groups have identical width (sum of logos +
+   trailing margins), so translating -50% still lands on a seamless frame.
+   This prevents the overlap that happens when the viewport-wide group
+   becomes narrower than the combined logo widths. */
+@media (max-width: 1200px) and (min-width: 768px) {
+  .sponsorMarquee__track {
+    width: max-content;
+    animation-duration: 60s;
+  }
+
+  .sponsorMarquee__group {
+    flex: none;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .heroSponsorLink {
+    margin-right: 3rem;
+  }
+}
+
+/* Mobile: stop the marquee entirely and lay out the logos as a
+   centered 2-column grid. The duplicate aria-hidden group is hidden,
+   so there's no double rendering. */
+@media (max-width: 767px) {
+  .sponsorMarquee,
+  .sponsorMarquee__viewport {
+    overflow: visible;
+  }
+
+  .sponsorMarquee__track {
+    width: 100%;
+    animation: none;
+    transform: none;
+    display: block;
+    will-change: auto;
+  }
+
+  .sponsorMarquee__group[aria-hidden='true'] {
+    display: none;
+  }
+
+  .sponsorMarquee__group {
+    flex: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 2rem 1.5rem;
+    padding: 0;
+  }
+
+  .heroSponsorLink {
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+  }
+}
+
+.heroSponsorLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.heroSponsorLogo {
+  max-height: 32px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Per-logo optical sizing — tuned for visual weight, not pixel height. */
+.heroSponsorLink[data-sponsor='solanica'] .heroSponsorLogo,
+.heroSponsorLink[data-sponsor='openeverest'] .heroSponsorLogo {
+  max-height: 52px;
+}
+
+.heroSponsorLink[data-sponsor='lenus'] .heroSponsorLogo,
+.heroSponsorLink[data-sponsor='xata'] .heroSponsorLogo {
+  max-height: 36px;
+}
+
+/* Image row */
+.heroRight {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.heroImageWrap {
+  background: var(--color-purple-light);
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top left;
+}
+
+/* Tablet / mobile use distinct picture sources (Tablet.png / Mobile.png) sized
+   for those viewports — display them whole and centered, no cropping. */
+@media screen and (max-width: 1024px) {
+  .heroImage {
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+/* ========================
+   Features Section
+   ======================== */
+.features {
+  /* Desktop: 180px top (extra breathing room above intro paragraph) +
+     standard large bottom. Tablet & mobile fall back to token-based
+     values via the media queries below. */
+  padding: 11.25rem 0 var(--padding-vertical--large);
+  background: var(--color-light);
+}
+
+/* Tablet — extra breathing room above the intro paragraph so it doesn't
+   sit flush against the previous (often dark) section. */
+@media (max-width: 1200px) and (min-width: 768px) {
+  .features {
+    padding-top: var(--padding-vertical--xllarge); /* 128px on tablet */
+  }
+}
+
+/* Mobile — drop the 180px desktop top back to the standard large token. */
+@media (max-width: 767px) {
+  .features {
+    padding-top: var(--padding-vertical--large);
+  }
+}
+
+.featuresInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+}
+
+/* Intro paragraph — u-text-h4, justified, indented from the 6th column. */
+.benefitsText {
+  font-family: var(--h4--font-family);
+  font-size: var(--h4--font-size);
+  line-height: var(--h4--line-height);
+  letter-spacing: var(--h4--letter-spacing);
+  font-weight: var(--h4--font-weight);
+  color: var(--color-dark);
+  text-align: justify;
+  text-indent: 50%;
+  margin: 0 0 2.5rem 0;
+}
+
+/* Phone-only: drop the 50% indent + justify (look broken on narrow widths).
+   Tablet keeps the desktop justified-indented look. */
+@media (max-width: 767px) {
+  .benefitsText {
+    text-align: left;
+    text-indent: 0;
+  }
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 3rem;
+  row-gap: 0;
+}
+
+/* No card padding — content of the first/last cards sits flush with the
+   container edges, aligning with the section text above. Dividers are
+   placed in the gap via a pseudo-element so they don't change card width. */
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* --space--main */
+  min-width: 0;
+  position: relative;
+}
+
+.featureCard:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1.5rem; /* exact center of the 3rem column-gap */
+  width: 1px;
+  background: rgba(13, 22, 22, 0.15);
+  pointer-events: none;
+}
+
+/* Square visual frame — full-width 1:1 illustration container.
+   Image fills the square (the illustration asset already includes its
+   own background), matching the reference benefits_visual_ratio. */
+.featureVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.featureImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* u-vflex-left-top u-gap-xsmall */
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem; /* u-gap-xsmall */
+}
+
+/* u-text-h5 — reserve exactly 2 lines of vertical space across all cards
+   so descriptions start at the same baseline. */
+.featureTitle {
+  font-family: var(--h5--font-family);
+  font-size: var(--h5--font-size);
+  line-height: var(--h5--line-height);
+  letter-spacing: var(--h5--letter-spacing);
+  font-weight: var(--h5--font-weight);
+  color: var(--color-dark);
+  margin: 0;
+  min-height: calc(var(--h5--font-size) * 1.2 * 2);
+}
+
+/* u-text-medium */
+.featureDescription {
+  font-family: var(--text-medium--font-family);
+  font-size: var(--text-medium--font-size);
+  line-height: var(--text-medium--line-height);
+  letter-spacing: var(--text-medium--letter-spacing);
+  font-weight: var(--text-medium--font-weight);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+/* ========================
+   How It Works Section — Sticky overlapping cards
+   ======================== */
+.howItWorks {
+  background: var(--color-light);
+}
+
+/* Tablet — give the section its own bottom padding so the gap from the
+   last sticky card to the next section is 72px + 72px = 144px, matching
+   the rest of the responsive rhythm. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .howItWorks {
+    padding-bottom: var(--padding-vertical--large);
+  }
+}
+
+/* Mobile — uniform 32 + 32 = 64px gap to the next section. */
+@media (max-width: 767px) {
+  .howItWorks {
+    padding-bottom: var(--padding-vertical--large);
+  }
+}
+
+.howItWorksInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: var(--padding-vertical--large) var(--page-padding-horizontal) var(--padding-vertical--medium);
+}
+
+/* Tablet — tighten the gap between the "HOW IT WORKS" title and the first
+   sticky card so the section reads as one block. The unified 144px gap
+   token cascade otherwise pushes them apart. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .howItWorksInner {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.sectionTitle {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-dark);
+  text-align: center;
+  margin: 0;
+}
+
+.sectionTitle strong {
+  font-weight: 400;
+  color: var(--color-brand);
+}
+
+/* Sticky cards container — one shared parent for all cards.
+   Cards are direct children so sticky works within the same context. */
+.stickyCards {
+  position: relative;
+}
+
+/* Each card: sticky, pins at the same top, higher z-index covers previous.
+   margin-bottom provides scroll runway before the next card arrives. */
+.stickyCard {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  min-height: 80vh;
+  margin-bottom: 0;
+  background: var(--color-dark);
+  overflow: hidden;
+  box-shadow: 0 -8px 50px rgba(0, 0, 0, 0.4);
+  z-index: calc(1 + var(--card-index, 0));
+}
+
+.stickyCard:last-child {
+  margin-bottom: 0;
+}
+
+/* Inner wrapper — aligns the step content to the global container while the
+   .stickyCard's dark background still bleeds to the viewport edges. */
+.stickyCardInner {
+  width: 100%;
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Left column: number at top, heading+description at bottom */
+.stepContent {
+  flex: 1;
+  padding: 3.75rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-light);
+  min-width: 0;
+}
+
+/* Step number — anchored at top of left column */
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(251, 251, 251, 0.3);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-light);
+  flex-shrink: 0;
+}
+
+/* Heading + description — anchored at bottom of left column */
+.stepTextBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stepTitle {
+  font-family: var(--h4--font-family);
+  font-size: var(--h4--font-size);
+  line-height: var(--h4--line-height);
+  letter-spacing: var(--h4--letter-spacing);
+  font-weight: var(--h4--font-weight);
+  color: var(--color-light);
+  margin: 0;
+}
+
+.stepDescription {
+  font-family: var(--text-large--font-family);
+  font-size: var(--text-large--font-size);
+  line-height: var(--text-large--line-height);
+  letter-spacing: var(--text-large--letter-spacing);
+  font-weight: var(--text-large--font-weight);
+  color: var(--color-light);
+  opacity: 0.8;
+  max-width: 460px;
+}
+
+/* Right column: image */
+.stepVisual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  min-width: 0;
+}
+
+.stepImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ========================
+   Who Needs This Section
+   ======================== */
+.whoNeedsThis {
+  padding: var(--padding-vertical--xllarge) 0 var(--padding-vertical--large);
+  background: var(--color-light);
+}
+
+.whoNeedsInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+}
+
+.whoNeedsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space--large);
+}
+
+.whoNeedsTitle {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-dark);
+  text-align: center;
+  margin: 0;
+}
+
+.whoNeedsTitle strong {
+  font-weight: 400;
+  color: var(--color-brand);
+}
+
+.whoNeedsCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -0.625rem; /* offset card margins */
+}
+
+.whoNeedsCard {
+  display: inline-block;
+  margin: 0.625rem;           /* --size--0-625rem */
+  padding: 1.25rem;           /* --space--main */
+  background-color: var(--color-purple-light); /* --fill--purple-light: #f0edff */
+  border: 1px solid rgba(13, 22, 22, 0.15);    /* same subtle tone as feature dividers */
+  border-radius: 100vw;                        /* --radius--round */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* --font--primary-family */
+  font-size: 1.75rem;         /* --h5--font-size */
+  line-height: 1.2em;         /* --h5--line-height */
+  letter-spacing: 0em;
+  font-weight: 400;
+  color: var(--color-dark);
+  text-align: center;
+  vertical-align: baseline;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  cursor: default;
+}
+
+.whoNeedsCard:hover {
+  background-color: var(--color-dark);  /* --listitem--background-hover */
+  color: var(--color-light);            /* --listitem--text-hover */
+  border-color: var(--color-dark);
+}
+
+/* ========================
+   Our Services Section
+   ======================== */
+.ourServices {
+  padding: var(--padding-vertical--large) 0;
+  background: var(--color-light);
+}
+
+.ourServicesInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space--large);
+}
+
+.ourServicesTitle {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-dark);
+  text-align: center;
+  margin: 0;
+}
+
+.ourServicesTitle strong {
+  font-weight: 400;
+  color: var(--color-brand);
+}
+
+.servicesList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem; /* --grid-gap--main */
+  width: 100%;
+}
+
+.serviceCard {
+  background-color: var(--color-dark);   /* data-theme="dark" */
+  border: 1px solid var(--color-dark);
+  padding: 2.5rem;                       /* --space--medium */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.5rem;                           /* --space--medium */
+  min-height: 480px;
+}
+
+.serviceIcon {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  color: var(--color-light);
+}
+
+.serviceContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;            /* u-vflex-left-bottom */
+  gap: 1.25rem;                         /* --space--main */
+}
+
+.serviceTitle {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.75rem;   /* --h5--font-size */
+  line-height: 1.2em;
+  letter-spacing: 0em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-light);
+  margin: 0;
+}
+
+.serviceText {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;  /* text-medium */
+  line-height: 1.2em;
+  letter-spacing: 0em;
+  font-weight: 400;
+  color: var(--color-light);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ========================
+   FAQ Section
+   ======================== */
+.faq {
+  padding: var(--padding-vertical--large) 0;
+  background: var(--color-light);
+  text-align: center;
+}
+
+.faqInner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+}
+
+.faqInner > .sectionTitle {
+  margin-bottom: 2.5rem;
+}
+
+.accordionLine {
+  height: 1px;
+  background: var(--color-dark);
+  opacity: 0.15;
+}
+
+/* faq_card_wrap */
+.faqCard {
+  border-top: 1px solid rgba(29, 29, 53, 0.15);
+}
+
+/* faq_card_toggle — u-hflex-between-stretch u-gap-main */
+.faqCardToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.25rem; /* --space--main */
+  padding: 20px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* faq_card_title — u-text-h5 */
+.faqCardTitle {
+  font-family: var(--h5--font-family);
+  font-size: var(--h5--font-size);
+  line-height: var(--h5--line-height);
+  letter-spacing: var(--h5--letter-spacing);
+  font-weight: var(--h5--font-weight);
+  color: var(--color-dark);
+  text-align: left;
+  flex: 1;
+}
+
+/* faq_card_icon */
+.faqCardIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.35s ease;
+}
+
+.faqCardIconOpen {
+  transform: rotate(180deg);
+}
+
+/* faq_card_content — collapsed by default via grid trick */
+.faqCardContent {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faqCardContentOpen {
+  grid-template-rows: 1fr;
+}
+
+/* faq_card_clip — overflow hidden for animation */
+.faqCardClip {
+  overflow: hidden;
+}
+
+/* faq_card_text — u-text-medium */
+.faqCardText {
+  padding-bottom: 1.25rem; /* --space--main */
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.3em;
+  letter-spacing: 0em;
+  font-weight: 400;
+  color: var(--color-dark);
+  opacity: 0.8;
+  max-width: 750px;
+  text-align: left;
+}
+
+/* ========================
+   Get Started CTA Section
+   ======================== */
+.ctaSection {
+  padding: var(--padding-vertical--large) 0;
+  background: var(--color-light);
+  text-align: center;
+}
+
+/* Container matches the rest of the site's grid system; centers the button. */
+.ctaInner {
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  display: flex;
+  justify-content: center;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 1.2vw, 1.5rem);
+  background-color: var(--color-brand);
+  border: 1px solid var(--color-brand);
+  color: var(--color-light);
+  font-family: var(--btn1--font-family);
+  font-size: var(--btn1--font-size);
+  line-height: var(--btn1--line-height);
+  letter-spacing: var(--btn1--letter-spacing);
+  font-weight: var(--btn1--font-weight);
+  text-transform: var(--btn1--text-transform);
+  padding: clamp(1rem, 1.6vw, 1.5rem) clamp(2rem, 4vw, 3.5rem);
+  border-radius: 1000px;
+  text-decoration: none;
+  transition: background-color 280ms ease-out, border-color 280ms ease-out;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Mobile: shrink the CTA so it matches the reference site — compact pill,
+   single-line label, small arrow. */
+@media (max-width: 768px) {
+  .ctaButton {
+    font-size: 1.125rem;
+    padding: 0.875rem 1.5rem;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaButton {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  background-color: var(--fill--purple);
+  border-color: var(--fill--purple);
+  color: var(--color-light);
+  text-decoration: none;
+}
+
+.ctaArrow {
+  display: block;
+  width: 78px;
+  height: 78px;
+  flex-shrink: 0;
+  background-color: transparent;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  .ctaArrow {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ctaArrow {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translate(4px, -4px);
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media screen and (max-width: 1200px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3rem;
+  }
+
+  /* 2-col layout: only cards 2 & 4 (column 2) keep the vertical left
+     divider; cards 1 & 3 (column 1) start at the container edge. */
+  .featuresGrid > .featureCard:nth-child(2n + 1)::before {
+    display: none;
+  }
+
+  /* Horizontal divider above row 2 (cards 3 & 4), centered in the
+     3rem row-gap. */
+  .featuresGrid > .featureCard:nth-child(n + 3)::after {
+    content: '';
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(13, 22, 22, 0.15);
+    pointer-events: none;
+  }
+
+  .whoNeedsCard {
+    font-size: 1.375rem;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .heroContent {
+    flex-direction: column;
+  }
+
+  .heroLeft {
+    padding-right: 0;
+    padding-bottom: 2rem;
+  }
+
+  .heroRight {
+    flex: none;
+    width: 100%;
+  }
+
+  .stickyCard {
+    position: relative;
+    top: auto;
+    flex-direction: column;
+    min-height: auto;
+    margin-bottom: 0;
+    box-shadow: none;
+  }
+
+  .stickyCardInner {
+    flex-direction: column;
+  }
+
+  .stepContent {
+    padding: 2rem 0 0.75rem;
+    gap: 1.25rem;
+  }
+
+  .stepVisual {
+    min-height: 0;
+    padding: 0 0 2rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 2.5rem;
+  }
+
+  /* Single column — rotate the divider: a thin horizontal line sits in the
+     row-gap above every card except the first. The `display: block` undoes
+     the 2-column tablet rule that hides the divider on odd cards, which
+     would otherwise still match at this breakpoint and leave card 3 without
+     a top line. */
+  .featuresGrid > .featureCard:not(:first-child)::before {
+    display: block;
+    top: -1.25rem;
+    bottom: auto;
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 1px;
+  }
+
+  /* Drop the tablet's row-2 horizontal divider — the ::before rule above
+     handles every gap on mobile. */
+  .featuresGrid > .featureCard::after {
+    display: none;
+  }
+
+  .whoNeedsCard {
+    font-size: 1.25rem;
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  .whoNeedsCards {
+    flex-direction: column;
+    margin: 0;
+    gap: var(--space--small);
+  }
+
+  .servicesList {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceCard {
+    min-height: auto;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .serviceIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .serviceContent {
+    gap: 0.75rem;
+  }
+
+  .faqCardTitle {
+    font-size: 1.375rem;
+  }
+
+}
+
+/* ========================
+   Newsletter Section
+   Background: dark (#1D1D35)
+   ======================== */
+.newsletter {
+  padding: var(--padding-vertical--large) 0;
+  background: var(--color-dark);
+}
+
+.newsletterInner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding-horizontal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  text-align: center;
+}
+
+.newsletterTitle {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-light);
+  margin: 0;
+}
+
+.newsletterForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.newsletterInputWrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: 1px solid rgba(251, 251, 251, 0.25);
+  border-radius: 1000px;
+  overflow: hidden;
+  background: rgba(251, 251, 251, 0.05);
+}
+
+.newsletterInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 1.125rem 1.75rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-light);
+  min-width: 0;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(251, 251, 251, 0.45);
+}
+
+.newsletterButton {
+  flex-shrink: 0;
+  background: var(--color-brand);
+  border: none;
+  border-radius: 1000px;
+  padding: 1rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-light);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  margin: 4px;
+}
+
+.newsletterButton:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.newsletterError {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #ff6b6b;
+  margin: 0;
+}
+
+.newsletterSuccess {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: var(--color-brand);
+  margin: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .newsletterInner {
+    gap: 2rem;
+  }
+
+  .newsletterInputWrap {
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: visible;
+    border: none;
+    gap: 0.75rem;
+    background: transparent;
+  }
+
+  .newsletterInput {
+    border: 1px solid rgba(251, 251, 251, 0.25);
+    border-radius: 1000px;
+    background: rgba(251, 251, 251, 0.05);
+    width: 100%;
+  }
+
+  .newsletterButton {
+    margin: 0;
+    width: 100%;
+    border-radius: 1000px;
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Tablet (768–1024px) — restore the desktop-style Features section so the
+   intro paragraph keeps its justified-indented look and the cards stay in
+   a 2-column grid with the column-divider + row-divider pattern. The
+   ≤996px mobile rules above otherwise collapse this to a single column. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
+    row-gap: 3rem;
+  }
+
+  /* Vertical divider — only cards in column 2 (cards 2 & 4). */
+  .featuresGrid > .featureCard:not(:first-child)::before {
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -1.5rem;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .featuresGrid > .featureCard:nth-child(2n + 1)::before {
+    display: none;
+  }
+
+  /* Horizontal divider — above row 2 (cards 3 & 4). */
+  .featuresGrid > .featureCard:nth-child(n + 3)::after {
+    display: block;
+  }
+}

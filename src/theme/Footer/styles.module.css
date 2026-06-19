@@ -1,0 +1,360 @@
+/* ========================
+   Footer — matches original greenmask.io
+   dark theme: background #1d1d35, text #fbfbfb
+   ======================== */
+
+.footerWrap {
+  display: block;
+  position: relative;
+  background-color: #1d1d35;
+  color: #fbfbfb;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* container: padding-top medium (3.75rem), padding-bottom main (5.625rem) */
+.footerContain {
+  width: 100%;
+  max-width: var(--max-width--main);
+  margin: 0 auto;
+  padding: 3.75rem var(--page-padding-horizontal) 20px;
+}
+
+/* Main layout: 12-col tablet grid, gap 1.25rem */
+.footerLayout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* ========================
+   Subscribe form — 6 cols (top-left)
+   ======================== */
+.footerFormWrap {
+  grid-column: span 6;
+}
+
+.footerFormLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+/* h5 */
+.footerFormTitle {
+  font-family: var(--h5--font-family);
+  font-size: var(--h5--font-size);
+  line-height: var(--h5--line-height);
+  letter-spacing: var(--h5--letter-spacing);
+  font-weight: var(--h5--font-weight);
+  color: #fbfbfb;
+  margin: 0;
+}
+
+.formWrap {
+  width: 100%;
+}
+
+.formList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.formFieldWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3125rem;
+  width: 100%;
+}
+
+.formFieldInner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 0;
+  border: 1px solid rgba(251, 251, 251, 0.3);
+  border-radius: 100px;
+  padding: 0 0.375rem 0 1.5rem;
+  background: transparent;
+  transition: border-color 0.2s ease;
+}
+
+.formFieldInner:focus-within {
+  border-color: rgba(251, 251, 251, 0.6);
+}
+
+.formFieldError {
+  color: #ff6b6b;
+  font-family: var(--error--font-family);
+  font-size: var(--error--font-size);
+  line-height: var(--error--line-height);
+  letter-spacing: var(--error--letter-spacing);
+  font-weight: var(--error--font-weight);
+  position: absolute;
+  bottom: -1.25rem;
+  left: 1.5rem;
+}
+
+.formInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fbfbfb;
+  font-family: var(--text-medium--font-family);
+  font-size: var(--text-medium--font-size);
+  line-height: var(--text-medium--line-height);
+  letter-spacing: var(--text-medium--letter-spacing);
+  font-weight: var(--text-medium--font-weight);
+  padding: 1rem 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.formInput::placeholder {
+  color: rgba(251, 251, 251, 0.5);
+}
+
+.btnFormWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: #fbfbfb;
+  border: none;
+  cursor: pointer;
+  color: #1d1d35;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnFormWrap:hover {
+  background-color: #14C19A;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.btnFormIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnFormIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successMessage {
+  font-family: var(--text-small--font-family);
+  font-size: var(--text-small--font-size);
+  line-height: var(--text-small--line-height);
+  letter-spacing: var(--text-small--letter-spacing);
+  font-weight: var(--text-small--font-weight);
+  color: #fbfbfb;
+  padding: 0.75rem 0;
+}
+
+/* Divider between newsletter and main footer content */
+.footerDivider {
+  grid-column: 1 / -1;
+  border: none;
+  border-top: 1px solid rgba(251, 251, 251, 0.1);
+  margin: 1.25rem 0;
+  background: none;
+  height: 0;
+}
+
+/* ========================
+   Footer content — full 12 cols (bottom row)
+   Inner 12-col grid: logo (3 cols) + nav (6 cols)
+   ======================== */
+.footerContent {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* Logo wrap — 3 cols (u-column-3) */
+.footerLogoWrap {
+  grid-column: span 3;
+}
+
+/* u-vflex-left-between height_100 */
+.footerLogoLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.footerLogoSvg {
+  color: #fbfbfb;
+}
+
+/* u-text-small */
+.footerLogoText {
+  font-family: var(--text-small--font-family);
+  font-size: var(--text-small--font-size);
+  line-height: var(--text-small--line-height);
+  letter-spacing: var(--text-small--letter-spacing);
+  font-weight: var(--text-small--font-weight);
+  color: #fbfbfb;
+  margin: 0;
+}
+
+/* Nav wrap — 6 cols, pushed to the right (cols 7-12) */
+.footerNavWrap {
+  grid-column: 7 / -1;
+}
+
+.footerNavLayout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1.25rem;
+}
+
+.footerGroup {
+  /* auto column */
+}
+
+/* u-vflex-stretch-top u-gap-main */
+.footerGroupLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+/* u-text-sub-h3 */
+.footerGroupTitle {
+  font-family: var(--sub-h3--font-family);
+  font-size: var(--sub-h3--font-size);
+  line-height: var(--sub-h3--line-height);
+  letter-spacing: var(--sub-h3--letter-spacing);
+  font-weight: var(--sub-h3--font-weight);
+  text-transform: var(--sub-h3--text-transform);
+  color: #fbfbfb;
+}
+
+/* u-gap-xsmall */
+.footerGroupList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3125rem;
+}
+
+.footerGroupItem {
+  /* list item */
+}
+
+/* footer_link_wrap w-inline-block */
+.footerLinkWrap {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.footerLinkWrap:hover {
+  text-decoration: none;
+}
+
+/* u-text-small */
+.footerLinkText {
+  font-family: var(--text-small--font-family);
+  font-size: var(--text-small--font-size);
+  line-height: var(--text-small--line-height);
+  letter-spacing: var(--text-small--letter-spacing);
+  font-weight: var(--text-small--font-weight);
+  color: #fbfbfb;
+}
+
+@media (hover: hover) {
+  .footerLinkWrap:hover :global(.link-slide__default) {
+    transform: translateY(-110%);
+  }
+
+  .footerLinkWrap:hover :global(.link-slide__hover) {
+    transform: translateY(0);
+  }
+
+  .footerLinkWrap:hover :global(.link-slide)::after {
+    transform: scaleX(1);
+  }
+}
+
+.footerLinkWrapActive :global(.link-slide)::after {
+  transform: scaleX(1);
+}
+
+/* ========================
+   Bottom bar
+   ======================== */
+.footerBottom {
+  margin-top: 3.125rem;
+  border-top: 1px solid rgba(251, 251, 251, 0.1);
+  padding-top: 1.25rem;
+}
+
+.footerBottomLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* text-small */
+.footerBottomText {
+  font-family: var(--text-small--font-family);
+  font-size: var(--text-small--font-size);
+  line-height: var(--text-small--line-height);
+  letter-spacing: var(--text-small--letter-spacing);
+  font-weight: var(--text-small--font-weight);
+  color: #fbfbfb;
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media (max-width: 996px) {
+  .footerContain {
+    padding: 3.75rem var(--page-padding-horizontal) 3.125rem;
+  }
+
+  .footerLayout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .footerFormWrap {
+    grid-column: span 1;
+  }
+
+  .footerContent {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+
+  .footerLogoWrap {
+    grid-column: span 1;
+  }
+
+  .footerNavWrap {
+    grid-column: 1 / -1;
+  }
+}

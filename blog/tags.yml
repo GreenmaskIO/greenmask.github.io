@@ -1,0 +1,28 @@
+# Greenmask blog tags. Declaring a tag here adds it to the vocabulary so a
+# post can reference it without producing an `onInlineTags` warning. The
+# three migrated posts do not carry tags on the live site, so none are
+# assigned yet.
+data-anonymization:
+  label: Data anonymization
+  permalink: /data-anonymization
+  description: Posts about anonymizing data with Greenmask.
+
+synthetic-data:
+  label: Synthetic data
+  permalink: /synthetic-data
+  description: Posts about generating synthetic data.
+
+postgresql:
+  label: PostgreSQL
+  permalink: /postgresql
+  description: Posts about working with PostgreSQL databases.
+
+test-data-management:
+  label: Test data management
+  permalink: /test-data-management
+  description: Posts about Test Data Management (TDM) workflows.
+
+openeverest:
+  label: OpenEverest
+  permalink: /openeverest
+  description: Posts about Greenmask integrations with OpenEverest.

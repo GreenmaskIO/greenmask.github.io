@@ -1,0 +1,1554 @@
+/**
+ * Global styles for Greenmask Docusaurus site.
+ * Design tokens from Figma: colors, typography, spacing.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Site-wide smooth in-page navigation. Hash links (TOC, breadcrumbs,
+   any internal anchor) animate to their target instead of jumping. */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Widen the scroll-margin on blog article headings so the target sits
+   below the fixed navbar with breathing room. Docusaurus already adds
+   `.anchorTargetStickyNavbar` with `scroll-margin-top: calc(navbar +
+   0.5rem)`; bump it to 1.5rem for blog pages. */
+.blog-post-page :is(h1, h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1.5rem);
+}
+
+:root {
+  /* Infima overrides */
+  --ifm-color-primary: #14C19A;
+  --ifm-color-primary-dark: #12ad8a;
+  --ifm-color-primary-darker: #11a382;
+  --ifm-color-primary-darkest: #0e866b;
+  --ifm-color-primary-light: #16dbaf;
+  --ifm-color-primary-lighter: #17e8b9;
+  --ifm-color-primary-lightest: #22f7c6;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Brand colors */
+  --color-brand: #14C19A;
+  --color-dark: #1D1D35;
+  --color-light: #FBFBFB;
+  --color-purple-light: #F0EDFF;
+  --color-white: #FFFFFF;
+
+  /* Swatch aliases (matching greenmask.io design system) */
+  --swatch--brand: #14C19A;
+  --swatch--dark: #1D1D35;
+  --swatch--light: #FBFBFB;
+  --swatch--dark-secondary: #8186F1;
+  --swatch--light-secondary: #F0EDFF;
+  --swatch--transparent: transparent;
+
+  /* Fill / text colors */
+  --fill--blue: #1D1D35;
+  --fill--green: #14C19A;
+  --fill--purple: #8186F1;
+  --fill--purple-light: #F0EDFF;
+  --fill--white: #FBFBFB;
+  --fill--red: #B12938;
+  --text--blue: #1D1D35;
+  --text--green: #14C19A;
+  --text--purple: #8186F1;
+  --text--white: #FBFBFB;
+
+  /* Typography — fonts */
+  --font--primary-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font--descriptive-family: 'Inter', sans-serif;
+  --font-heading: var(--font--primary-family);
+  --font-body: var(--font--descriptive-family);
+
+  /* Font weights */
+  --font--primary-regular: 400;
+  --font--primary-light: 300;
+  --font--descriptive-medium: 500;
+  --font--descriptive-regular: 400;
+  --font--descriptive-light: 300;
+
+  /* Text transforms */
+  --text-transform--none: none;
+  --text-transform--uppercase: uppercase;
+  --text-transform--capitalize: capitalize;
+  --text-transform--lowercase: lowercase;
+  --text-transform--inherit: inherit;
+
+  /* Letter spacing */
+  --letter-spacing--0em: 0em;
+
+  /* Line heights */
+  --line-height--1-021em: 1.021em;
+  --line-height--1-1em: 1.1em;
+  --line-height--1-2em: 1.2em;
+  --line-height--1-3em: 1.3em;
+
+  /* Sizes */
+  --size--0rem: 0rem;
+  --size--0-625rem: 0.625rem;
+  --size--0-75rem: 0.75rem;
+  --size--0-875rem: 0.875rem;
+  --size--1rem: 1rem;
+  --size--1-125rem: 1.125rem;
+  --size--1-25rem: 1.25rem;
+  --size--1-375rem: 1.375rem;
+  --size--1-5rem: 1.5rem;
+  --size--1-625rem: 1.625rem;
+  --size--1-75rem: 1.75rem;
+  --size--1-875em: 1.875em;
+  --size--2rem: 2rem;
+  --size--2-25rem: 2.25rem;
+  --size--2-5rem: 2.5rem;
+  --size--3rem: 3rem;
+  --size--3-125rem: 3.125rem;
+  --size--3-75rem: 3.75rem;
+  --size--4-25rem: 4.25rem;
+  --size--4-375rem: 4.375rem;
+  --size--4-875rem: 4.875rem;
+  --size--5rem: 5rem;
+  --size--5-625rem: 5.625rem;
+  --size--6-25rem: 6.25rem;
+  --size--8-125rem: 8.125rem;
+  --size--8-75rem: 8.75rem;
+  --size--12-5rem: 12.5rem;
+
+  /* Typography — display */
+  --display--font-family: var(--font--primary-family);
+  --display--font-size: var(--size--8-125rem);
+  --display--line-height: var(--line-height--1-1em);
+  --display--letter-spacing: var(--letter-spacing--0em);
+  --display--font-weight: var(--font--primary-regular);
+  --display--text-transform: var(--text-transform--uppercase);
+
+  /* Typography — h1 */
+  --h1--font-family: var(--font--primary-family);
+  --h1--font-size: var(--size--4-875rem);
+  --h1--line-height: var(--line-height--1-1em);
+  --h1--letter-spacing: var(--letter-spacing--0em);
+  --h1--font-weight: var(--font--primary-regular);
+  --h1--text-transform: var(--text-transform--uppercase);
+
+  /* Typography — h2 */
+  --h2--font-family: var(--font--primary-family);
+  --h2--font-size: var(--size--4-25rem);
+  --h2--line-height: var(--line-height--1-2em);
+  --h2--letter-spacing: var(--letter-spacing--0em);
+  --h2--font-weight: var(--font--primary-regular);
+  --h2--text-transform: var(--text-transform--uppercase);
+
+  /* Typography — h3 */
+  --h3--font-family: var(--font--primary-family);
+  --h3--font-size: var(--size--4-25rem);
+  --h3--line-height: var(--line-height--1-2em);
+  --h3--letter-spacing: var(--letter-spacing--0em);
+  --h3--font-weight: var(--font--primary-regular);
+  --h3--text-transform: var(--text-transform--inherit);
+
+  /* Typography — h4 */
+  --h4--font-family: var(--font--primary-family);
+  --h4--font-size: var(--size--2-5rem);
+  --h4--line-height: var(--line-height--1-2em);
+  --h4--letter-spacing: var(--letter-spacing--0em);
+  --h4--font-weight: var(--font--primary-regular);
+  --h4--text-transform: var(--text-transform--inherit);
+
+  /* Typography — h5 */
+  --h5--font-family: var(--font--primary-family);
+  --h5--font-size: var(--size--1-75rem);
+  --h5--line-height: var(--line-height--1-2em);
+  --h5--letter-spacing: var(--letter-spacing--0em);
+  --h5--font-weight: var(--font--primary-regular);
+  --h5--text-transform: var(--text-transform--inherit);
+
+  /* Typography — sub-headings */
+  --sub-h1--font-family: var(--font--descriptive-family);
+  --sub-h1--font-size: var(--size--1-125rem);
+  --sub-h1--line-height: var(--line-height--1-2em);
+  --sub-h1--letter-spacing: var(--letter-spacing--0em);
+  --sub-h1--font-weight: var(--font--descriptive-regular);
+  --sub-h1--text-transform: var(--text-transform--uppercase);
+
+  --sub-h2--font-family: var(--font--descriptive-family);
+  --sub-h2--font-size: var(--size--1rem);
+  --sub-h2--line-height: var(--line-height--1-2em);
+  --sub-h2--letter-spacing: var(--letter-spacing--0em);
+  --sub-h2--font-weight: var(--font--descriptive-medium);
+  --sub-h2--text-transform: var(--text-transform--none);
+
+  --sub-h3--font-family: var(--font--descriptive-family);
+  --sub-h3--font-size: var(--size--1rem);
+  --sub-h3--line-height: var(--line-height--1-2em);
+  --sub-h3--letter-spacing: var(--letter-spacing--0em);
+  --sub-h3--font-weight: var(--font--descriptive-medium);
+  --sub-h3--text-transform: var(--text-transform--uppercase);
+
+  --sub-h4--font-family: var(--font--descriptive-family);
+  --sub-h4--font-size: var(--size--0-75rem);
+  --sub-h4--line-height: var(--line-height--1-2em);
+  --sub-h4--letter-spacing: var(--letter-spacing--0em);
+  --sub-h4--font-weight: var(--font--descriptive-regular);
+  --sub-h4--text-transform: var(--text-transform--inherit);
+
+  /* Typography — body text */
+  --text-large--font-family: var(--font--descriptive-family);
+  --text-large--font-size: var(--size--1-375rem);
+  --text-large--line-height: var(--line-height--1-3em);
+  --text-large--letter-spacing: var(--letter-spacing--0em);
+  --text-large--font-weight: var(--font--descriptive-regular);
+  --text-large--text-transform: var(--text-transform--none);
+
+  --text-medium--font-family: var(--font--descriptive-family);
+  --text-medium--font-size: var(--size--1-125rem);
+  --text-medium--line-height: var(--line-height--1-2em);
+  --text-medium--letter-spacing: var(--letter-spacing--0em);
+  --text-medium--font-weight: var(--font--descriptive-regular);
+  --text-medium--text-transform: var(--text-transform--none);
+
+  --text-small--font-family: var(--font--descriptive-family);
+  --text-small--font-size: var(--size--1rem);
+  --text-small--line-height: var(--line-height--1-3em);
+  --text-small--letter-spacing: var(--letter-spacing--0em);
+  --text-small--font-weight: var(--font--descriptive-regular);
+  --text-small--text-transform: var(--text-transform--none);
+
+  /* Typography — menu */
+  --menu--font-family: var(--font--descriptive-family);
+  --menu--font-size: var(--size--1rem);
+  --menu--line-height: var(--line-height--1-2em);
+  --menu--letter-spacing: var(--letter-spacing--0em);
+  --menu--font-weight: var(--font--descriptive-medium);
+  --menu--text-transform: var(--text-transform--none);
+
+  /* Typography — buttons */
+  --btn1--font-family: var(--font--primary-family);
+  --btn1--font-size: var(--size--4-875rem);
+  --btn1--line-height: var(--line-height--1-021em);
+  --btn1--letter-spacing: var(--letter-spacing--0em);
+  --btn1--font-weight: var(--font--primary-regular);
+  --btn1--text-transform: var(--text-transform--uppercase);
+
+  --btn2--font-family: var(--font--descriptive-family);
+  --btn2--font-size: var(--size--1rem);
+  --btn2--line-height: var(--line-height--1-2em);
+  --btn2--letter-spacing: var(--letter-spacing--0em);
+  --btn2--font-weight: var(--font--descriptive-medium);
+  --btn2--text-transform: var(--text-transform--none);
+
+  --btn3--font-family: var(--font--descriptive-family);
+  --btn3--font-size: var(--size--1-25rem);
+  --btn3--line-height: var(--line-height--1-2em);
+  --btn3--letter-spacing: var(--letter-spacing--0em);
+  --btn3--font-weight: var(--font--descriptive-medium);
+  --btn3--text-transform: var(--text-transform--none);
+
+  /* Typography — links */
+  --link1--font-family: var(--font--descriptive-family);
+  --link1--font-size: var(--size--2-5rem);
+  --link1--line-height: var(--line-height--1-2em);
+  --link1--letter-spacing: var(--letter-spacing--0em);
+  --link1--font-weight: var(--font--descriptive-regular);
+  --link1--text-transform: var(--text-transform--none);
+
+  --link2--font-family: var(--font--descriptive-family);
+  --link2--font-size: var(--size--1rem);
+  --link2--line-height: var(--line-height--1-2em);
+  --link2--letter-spacing: var(--letter-spacing--0em);
+  --link2--font-weight: var(--font--descriptive-medium);
+  --link2--text-transform: var(--text-transform--none);
+
+  /* Typography — error */
+  --error--font-family: var(--font--descriptive-family);
+  --error--font-size: var(--size--0-75rem);
+  --error--line-height: var(--line-height--1-021em);
+  --error--letter-spacing: var(--letter-spacing--0em);
+  --error--font-weight: var(--font--descriptive-regular);
+  --error--text-transform: var(--text-transform--inherit);
+
+  /* Spacing */
+  --space--extra-small: var(--size--0-625rem);
+  --space--small: var(--size--1rem);
+  --space--main: 1.25rem;
+  --space--medium: 2.5rem;
+  --space--half-large: var(--size--1-875em);
+  --space--large: 3.75rem;
+
+  /* Layout */
+  --max-width--main: 100rem;
+  --padding-horizontal--main: 3.125rem;
+  --padding-horizontal--medium: 1.5rem;
+  --padding-horizontal--small: 1.25rem;
+  --padding-horizontal--extra-small: 1rem;
+  --padding-vertical--none: var(--size--0rem);
+  --padding-vertical--small: var(--size--3-125rem);
+  --padding-vertical--medium: var(--size--3-75rem);
+  --padding-vertical--large: var(--size--5-625rem);
+  --padding-vertical--xlsmall: var(--size--6-25rem);
+  --padding-vertical--xlmedium: var(--size--8-75rem);
+  --padding-vertical--xllarge: var(--size--12-5rem);
+
+  /* Grid */
+  --grid-gap--main: 1.25rem;
+  --grid-gap--tablet: 1rem;
+  --column-count: 12;
+
+  /* Borders */
+  --border-width--main: 1px;
+  --border-width--large: 5px;
+  --radius--round: 100vw;
+  --svg-stroke-width--main: 1.5px;
+
+  /* ============================================================
+     Blog typography & spacing system
+     ------------------------------------------------------------
+     Single source of truth for all blog surfaces (list page,
+     featured + grid cards, post page intro, body, TOC,
+     breadcrumbs, meta rows). The blog CSS modules read these
+     instead of hardcoding values, so the whole blog stays
+     visually consistent.
+     ============================================================ */
+
+  /* Headings — backed by the project's h-token scale. */
+  --blog-title-font-size: var(--h4--font-size);            /* 2.5rem  / 40px */
+  --blog-title-line-height: var(--h4--line-height);        /* 1.2em */
+  --blog-section-font-size: var(--h5--font-size);          /* 1.75rem / 28px */
+  --blog-section-line-height: var(--h5--line-height);      /* 1.2em */
+  --blog-card-title-font-size: 1.5rem;                     /* 24px (between h5 and text-large) */
+  --blog-card-title-line-height: 1.3;
+  --blog-heading-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --blog-heading-color: var(--text--blue);
+
+  /* Body copy — single canonical pair for excerpts and paragraphs. */
+  --blog-body-font-size: 1rem;                             /* 16px */
+  --blog-body-line-height: 1.6;
+  --blog-body-color: var(--ifm-color-emphasis-900);
+  --blog-body-font-family: var(--font--descriptive-family);
+
+  /* Meta rows — author, date, reading time, breadcrumbs.
+     Same scale on every blog surface. */
+  --blog-meta-font-size: 0.875rem;                         /* 14px */
+  --blog-meta-line-height: 1.5;
+  --blog-meta-weight: 500;
+  --blog-meta-color: var(--ifm-color-emphasis-800);
+  --blog-meta-color-strong: var(--text--blue);             /* author name, current breadcrumb */
+
+  /* Tag pill / contents label — small uppercase brand chip. */
+  --blog-pill-font-size: 0.75rem;                          /* 12px */
+  --blog-pill-letter-spacing: 0.04em;
+  --blog-pill-weight: 700;
+
+  /* Spacing — derived from existing --space--* tokens. */
+  --blog-gap-xs: 0.5rem;                                   /* 8px  - within meta row */
+  --blog-gap-sm: 0.75rem;                                  /* 12px - card body inner */
+  --blog-gap-md: var(--space--small);                      /* 1rem - card body / hero stack */
+  --blog-gap-lg: var(--space--main);                       /* 1.25rem */
+  --blog-gap-xl: var(--space--medium);                     /* 2.5rem - between sections */
+  --blog-card-radius: 16px;
+
+  /* Theme (dark page default) */
+  --theme--background: var(--swatch--dark);
+  --theme--text: var(--swatch--light);
+  --theme--border: var(--swatch--light);
+
+  /* Button theme */
+  --button--background: var(--swatch--brand);
+  --button--text: var(--swatch--light);
+  --button--background-hover: var(--swatch--dark-secondary);
+  --button--text-hover: var(--swatch--light);
+  --button--border-hover: var(--swatch--dark-secondary);
+
+  /* Navbar */
+  --navbar-height: 100px;
+  --ifm-navbar-height: var(--navbar-height);
+  --ifm-navbar-background-color: var(--color-light);
+  --ifm-navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+
+  /* Background */
+  --ifm-background-color: var(--color-light);
+
+  /* ===========================================================
+     Single horizontal-padding system used across ALL pages
+     -----------------------------------------------------------
+     The value of `--page-padding-horizontal` is the canonical
+     left/right padding for every page wrapper, hero, and
+     section. It steps down responsively below.
+     The `--ifm-*` vars below align Docusaurus' built-in
+     `.container` (used by blog + docs) with this same system,
+     so a Docusaurus page and a custom page render with
+     identical edge spacing and content max-width.
+     =========================================================== */
+  --page-padding-horizontal: var(--padding-horizontal--main);  /* 3.125rem / 50px */
+  --ifm-container-width: var(--max-width--main);               /* 100rem / 1600px */
+  --ifm-container-width-xl: var(--max-width--main);
+  --ifm-spacing-horizontal: var(--page-padding-horizontal);
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --page-padding-horizontal: 2.5rem;                          /* 40px */
+    --ifm-spacing-horizontal: var(--page-padding-horizontal);
+  }
+}
+
+/* Tablet step (768–1200px) — unified responsive system for the 1024px
+   iPad-class range. Tokens here mirror the entire mobile cascade with
+   intermediate values, so typography, vertical rhythm, button sizes,
+   and grid gaps all scale together as one coherent tablet design. */
+@media (max-width: 1200px) and (min-width: 997px) {
+  :root {
+    /* Typography size scale — between desktop and mobile, weighted
+       slightly toward the smaller end so a 1024px tablet doesn't
+       inherit oversized desktop headings. */
+    --size--8-125rem: 5rem;      /* display: 130 → 80 */
+    --size--4-875rem: 3rem;      /* h1, btn1: 78 → 48 */
+    --size--4-25rem: 2.75rem;    /* h2, h3: 68 → 44 */
+    --size--2-5rem: 2rem;        /* h4, link1: 40 → 32 */
+    --size--1-75rem: 1.5rem;     /* h5: 28 → 24 */
+    --size--1-375rem: 1.125rem;  /* text-large: 22 → 18 */
+    --size--1-125rem: 1rem;      /* sub-h1, text-medium: 18 → 16 */
+
+    /* Vertical rhythm — ~25% reduction from desktop. */
+    --size--12-5rem: 8rem;       /* xllarge 200 → 128 */
+    --size--8-75rem: 6rem;       /* xlmedium 140 → 96 */
+    --size--6-25rem: 5rem;       /* xlsmall 100 → 80 */
+    --size--5-625rem: 4.5rem;    /* large 90 → 72 */
+    --size--3-75rem: 3rem;       /* medium 60 → 48 */
+
+    --grid-gap--main: var(--grid-gap--tablet); /* 1.25 → 1rem */
+  }
+}
+
+@media (max-width: 996px) {
+  :root {
+    --page-padding-horizontal: var(--padding-horizontal--medium); /* 1.5rem / 24px */
+    --ifm-spacing-horizontal: var(--page-padding-horizontal);
+
+    /* Responsive size scale matching greenmask.io reference tokens.
+       Every typography variable (h1/h2/h3/h4/h5, btn1, link1, sub-h*,
+       text-large/medium/small) and every --padding-vertical--*
+       already points at one of these size tokens, so overriding the
+       size tokens cascades the smaller mobile sizes through the
+       entire system (typography + vertical spacing). */
+    --size--8-125rem: 3.75rem;   /* display: 130 → 60 */
+    --size--4-875rem: 2.125rem;  /* h1, btn1: 78 → 34 */
+    --size--4-25rem: 2.125rem;   /* h2, h3: 68 → 34 */
+    --size--2-5rem: 1.5rem;      /* h4, link1: 40 → 24 */
+    --size--1-75rem: 1.25rem;    /* h5: 28 → 20 */
+    --size--1-375rem: 1rem;      /* text-large: 22 → 16 */
+    --size--1-125rem: 0.875rem;  /* sub-h1, text-medium: 18 → 14 */
+    --size--1-25rem: 0.875rem;   /* btn3: 20 → 14 */
+    --size--1rem: 0.875rem;      /* sub-h2/h3, menu, text-small: 16 → 14 */
+    --size--0-75rem: 0.625rem;   /* sub-h4, error: 12 → 10 */
+
+    /* Vertical-padding tokens (cascade through --padding-vertical--*).
+       Every section pads 32px top + 32px bottom, so adjacent sections
+       always show a uniform 64px visible gap on mobile. */
+    --size--12-5rem: 2rem;       /* xllarge 200 → 32 */
+    --size--8-75rem: 2rem;       /* xlmedium 140 → 32 */
+    --size--6-25rem: 2rem;       /* xlsmall 100 → 32 */
+    --size--5-625rem: 2rem;      /* large 90 → 32 */
+    --size--3-75rem: 2rem;       /* medium 60 → 32 */
+    --size--3-125rem: 1.5rem;    /* small 50 → 24 (used for utility, not section padding) */
+
+    /* Inter-element spacing (gap between heading + content, etc.).
+       Shrunk on mobile so sections feel compact like the reference. */
+    --space--large: 1.75rem;     /* 3.75rem → 28px */
+    --space--medium: 1.25rem;    /* 2.5rem → 20px */
+
+    --grid-gap--main: var(--grid-gap--tablet); /* 1.25 → 1rem */
+  }
+}
+
+/* Tablet range (768–1024px) — every section pads 72px top + 72px bottom,
+   so adjacent sections always have a 144px visible gap. Overrides the
+   smaller mobile cascade because this rule comes later in source order. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --size--12-5rem: 4.5rem;     /* xllarge → 72 */
+    --size--8-75rem: 4.5rem;     /* xlmedium → 72 */
+    --size--6-25rem: 4.5rem;     /* xlsmall → 72 */
+    --size--5-625rem: 4.5rem;    /* large → 72 */
+    --size--3-75rem: 4.5rem;     /* medium → 72 (howItWorksInner bottom) */
+  }
+}
+
+/* Small-mobile step — tighter horizontal padding so headings and CTAs
+   don't get squeezed at 375–480px viewports. */
+@media (max-width: 480px) {
+  :root {
+    --page-padding-horizontal: var(--padding-horizontal--small); /* 1.25rem / 20px */
+    --ifm-spacing-horizontal: var(--page-padding-horizontal);
+
+    /* Compress vertical rhythm a bit more on very narrow viewports. */
+    --size--12-5rem: 3rem;
+    --size--8-75rem: 2.5rem;
+    --size--6-25rem: 2rem;
+    --size--5-625rem: 2rem;
+    --size--3-75rem: 1.5rem;
+    --size--3-125rem: 1.25rem;
+  }
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #14C19A;
+  --ifm-navbar-background-color: var(--color-light);
+}
+
+/* ========================
+   Navbar
+   ======================== */
+.navbar {
+  height: var(--navbar-height);
+  padding: 0;
+  background-color: var(--color-light);
+  border-bottom: none;
+  box-shadow: none;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+}
+
+/* ========================
+   Docs layout container
+   ========================
+   Docusaurus renders the docs sidebar + main + TOC inside a CSS-module-scoped
+   `.docRoot_<hash>` flex row. Target it by class-suffix and constrain it to
+   the same max-width + horizontal padding used by .navbarLayout, .heroContent,
+   .featuresInner, .stickyCardInner, .footerContain. The docs sidebar then
+   aligns with the navbar logo on every viewport. */
+[class*='docRoot_'] {
+  width: 100%;
+  max-width: var(--max-width--main);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-padding-horizontal);
+  padding-right: var(--page-padding-horizontal);
+}
+
+/* Strip Infima's default 50px horizontal padding from the TOC column
+   wrapper so "Dump anonymization and synthetic data generation tool"
+   and other long headings have the full rail width to lay out in. */
+[class*='docRoot_'] .col.col--3:has(.theme-doc-toc-desktop) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Align the docs sidebar nav and menu items flush with the sidebar
+   container's left edge (which sits at var(--page-padding-horizontal)
+   = the same x as the navbar logo). Infima adds an 8px nav padding
+   and a 12px menu__link padding by default, which pushes the text
+   noticeably right of the logo. */
+[class*='docRoot_'] .theme-doc-sidebar-container nav.menu {
+  padding-left: 0;
+}
+
+[class*='docRoot_'] .theme-doc-sidebar-container .menu__list {
+  padding-left: 0;
+}
+
+[class*='docRoot_'] .theme-doc-sidebar-container .menu__link {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+/* Tablet (1024–1199px) — narrow the sidebar so the article gets more
+   reading width. Default Docusaurus var is 300px globally; we override
+   only in this band, so desktop ≥1200px keeps the standard width. */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  :root {
+    --doc-sidebar-width: 220px;
+  }
+}
+
+/* Desktop & 1024px tablet (≥1024px) — hide the mobile TOC accordion and
+   its swizzled wrapper outright. Docusaurus' default `@media (min-width:
+   997px) { .theme-doc-toc-mobile { display: none } }` doesn't catch our
+   custom `.tocMobileRow_*` wrapper, so we hide both here. */
+@media (min-width: 1024px) {
+  [class*='docRoot_'] .theme-doc-toc-mobile,
+  [class*='docRoot_'] [class*='tocCollapsible_'],
+  [class*='docRoot_'] [class*='tocMobileRow_'] {
+    display: none !important;
+  }
+}
+
+/* Tablet & mobile (<1024px) — swap the desktop TOC rail for the mobile
+   accordion. */
+@media (max-width: 1023px) {
+  [class*='docRoot_'] .theme-doc-toc-desktop {
+    display: none !important;
+  }
+
+  [class*='docRoot_'] .theme-doc-toc-mobile {
+    display: block !important;
+    margin-bottom: var(--space--main);
+  }
+
+  /* Drop Infima's row/col horizontal padding around the docs article on
+     tablet/mobile so the TOC accordion and article body sit flush with
+     the container edge (which already has --page-padding-horizontal on
+     the outer docRoot). The extra inner padding doubles the gap and
+     squeezes content unnecessarily. */
+  [class*='docRoot_'] .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  [class*='docRoot_'] .row > .col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* DocRootLayoutMain wraps the article in `.container` which adds
+     another `var(--ifm-spacing-horizontal)` horizontal padding —
+     stacking on top of our outer `.docRoot_<hash>` padding and the
+     `.col` padding (already zeroed above). Drop it too so the article
+     starts flush with the sidebar/logo column. */
+  [class*='docRoot_'] .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* DocRootLayoutMain also adds Infima utility classes
+     `padding-top--md` (1rem) + `padding-bottom--lg` (2.5rem) on that
+     container. On tablet/mobile that doubles the visual breathing
+     room above and below the article. Tighten both. */
+  [class*='docRoot_'] .container.padding-top--md {
+    padding-top: 0;
+  }
+
+  [class*='docRoot_'] .container.padding-bottom--lg {
+    padding-bottom: 1rem;
+  }
+}
+
+/* TOCCollapsible accordion — applies to both docs (.theme-doc-toc-mobile)
+   and blog article pages. Selector pattern matches Docusaurus' hashed
+   `tocCollapsible_*` modules. */
+.theme-doc-toc-mobile,
+[class*='tocCollapsible_'] {
+  background-color: var(--fill--purple-light);
+  border: none;
+  border-radius: 0;
+  /* Strip the default 1rem top/bottom margin Docusaurus adds — the
+     .tocMobileRow wrapper owns the spacing via margin-bottom. Without
+     this the collapsed card is 80px instead of the locked 48px. */
+  margin: 0;
+  overflow: hidden;
+}
+
+/* "Contents" header — bold sentence-case label on a light grey card,
+   matching the minimalist reference. */
+.theme-doc-toc-mobile [class*='tocCollapsibleButton_'],
+[class*='tocCollapsibleButton_'] {
+  font-family: var(--blog-body-font-family);
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text--blue);
+  /* Locked 48px (3rem) height — matches the sidebar toggle button
+     beside it on ≤768px. Padding only controls horizontal inset; flex
+     centering on the button itself handles vertical alignment. */
+  height: 3rem;
+  padding: 0 1.25rem;
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Thin CSS chevron pointing down by default, flipping to point up
+   when the accordion expands — matches the reference style. */
+.theme-doc-toc-mobile [class*='tocCollapsibleButton_']::after,
+[class*='tocCollapsibleButton_']::after {
+  background-image: none;
+  filter: none;
+  content: '';
+  width: 0.625rem;
+  height: 0.625rem;
+  border-right: 1.5px solid var(--text--blue);
+  border-bottom: 1.5px solid var(--text--blue);
+  transform: rotate(45deg);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+}
+
+[class*='tocCollapsibleExpanded_'] [class*='tocCollapsibleButton_']::after,
+[class*='tocCollapsibleButton_'][aria-expanded='true']::after {
+  transform: rotate(-135deg);
+}
+
+/* Item list inside the accordion — no separator border, no left rail,
+   just plain text indented from the card edge. `margin-top: 0` strips
+   the Docusaurus default 1rem gap between trigger and content (which
+   stays visible even when collapsed); `box-sizing: border-box` lets
+   the collapse animation (`height: 0`) actually reach 0px instead of
+   inflating to padding-bottom. */
+.theme-doc-toc-mobile [class*='tocCollapsibleContent_'],
+[class*='tocCollapsibleContent_'] {
+  border-top: none;
+  margin-top: 0;
+  padding: 0 1.25rem 1rem;
+  box-sizing: border-box;
+}
+
+.theme-doc-toc-mobile [class*='tocCollapsibleContent_'] .table-of-contents,
+[class*='tocCollapsibleContent_'] .table-of-contents {
+  font-family: var(--blog-body-font-family);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  padding: 0;
+  margin: 0;
+}
+
+.theme-doc-toc-mobile
+  [class*='tocCollapsibleContent_']
+  .table-of-contents__left-border,
+[class*='tocCollapsibleContent_'] .table-of-contents__left-border {
+  border-left: none;
+  padding-left: 0;
+  position: relative;
+}
+
+/* Strip Docusaurus' default top/bottom borders on the inner UL — the
+   minimalist card has no internal dividers. */
+.theme-doc-toc-mobile [class*='tocCollapsibleContent_'] .table-of-contents,
+[class*='tocCollapsibleContent_'] .table-of-contents {
+  border-top: none;
+  border-bottom: none;
+}
+
+.theme-doc-toc-mobile [class*='tocCollapsibleContent_'] .table-of-contents li,
+[class*='tocCollapsibleContent_'] .table-of-contents li {
+  margin: 0.75rem 0;
+}
+
+.theme-doc-toc-mobile
+  [class*='tocCollapsibleContent_']
+  .table-of-contents
+  > li:first-child,
+[class*='tocCollapsibleContent_'] .table-of-contents > li:first-child {
+  margin-top: 0;
+}
+
+.theme-doc-toc-mobile
+  [class*='tocCollapsibleContent_']
+  .table-of-contents
+  > li:last-child,
+[class*='tocCollapsibleContent_'] .table-of-contents > li:last-child {
+  margin-bottom: 0;
+}
+
+.theme-doc-toc-mobile
+  [class*='tocCollapsibleContent_']
+  .table-of-contents__link,
+[class*='tocCollapsibleContent_'] .table-of-contents__link {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 400;
+  display: block;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+  z-index: 0;
+}
+
+.theme-doc-toc-mobile
+  [class*='tocCollapsibleContent_']
+  .table-of-contents__link:hover,
+[class*='tocCollapsibleContent_'] .table-of-contents__link:hover {
+  color: var(--text--blue);
+  text-decoration: none;
+}
+
+.theme-doc-toc-mobile
+  [class*='tocCollapsibleContent_']
+  .table-of-contents__link--active,
+[class*='tocCollapsibleContent_'] .table-of-contents__link--active {
+  color: var(--text--blue);
+  font-weight: 700;
+}
+
+/* Active accent strip removed — minimalist card has no internal
+   dividers and the left rail it referenced is gone. Active state is
+   conveyed via `font-weight: 700` + `color: var(--text--blue)` on the
+   .table-of-contents__link--active rule above. */
+
+/* Logo */
+.navbar__brand {
+  height: 38px;
+  margin-right: 0;
+}
+
+.navbar__logo {
+  height: 38px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.navbar__logo:hover {
+  transform: scale(1.05);
+}
+
+/* Mobile: smaller logo + navbar height to match. */
+@media (max-width: 996px) {
+  :root {
+    --navbar-height: 64px;
+  }
+  .navbar__brand,
+  .navbar__logo {
+    height: 28px;
+  }
+}
+
+
+.navbar__item {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-dark);
+  padding: 0;
+  border-radius: 100px;
+  transition: color 0.2s ease;
+}
+
+.navbar__link {
+  color: var(--color-dark);
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* ========================
+   Vertical slide hover + underline (header + footer links)
+   inspired by wgb.agency
+   ======================== */
+.link-slide {
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.link-slide__track {
+  display: inline-grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.link-slide__default,
+.link-slide__hover {
+  grid-row: 1;
+  grid-column: 1;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+  white-space: nowrap;
+}
+
+.link-slide__hover {
+  transform: translateY(110%);
+}
+
+.link-slide::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .navbar__link:not(.navbar__cta):hover .link-slide__default {
+    transform: translateY(-110%);
+  }
+  .navbar__link:not(.navbar__cta):hover .link-slide__hover {
+    transform: translateY(0);
+  }
+  .navbar__link:not(.navbar__cta):hover .link-slide::after {
+    transform: scaleX(1);
+  }
+}
+
+.navbar__link--active:not(.navbar__cta) .link-slide::after {
+  transform: scaleX(1);
+}
+
+@media (hover: none) {
+  .link-slide__hover {
+    display: none;
+  }
+}
+
+/* CTA Button */
+.navbar__cta {
+  background-color: var(--color-brand) !important;
+  color: var(--color-light) !important;
+  padding: 10px 20px !important;
+  border-radius: 100px !important;
+  font-weight: 500 !important;
+  margin-left: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(20, 193, 154, 0.3);
+  transition: all 0.3s ease !important;
+}
+
+.navbar__cta:hover {
+  background-color: var(--swatch--dark-secondary) !important;
+  box-shadow: 0 6px 20px rgba(129, 134, 241, 0.4);
+  text-decoration: none !important;
+  color: var(--color-light) !important;
+}
+
+.navbar__cta::after {
+  content: '\2197';
+  transition: transform 0.3s ease;
+}
+
+.navbar__cta:hover::after {
+  transform: translate(2px, -2px);
+}
+
+/* GitHub nav item */
+.navbar__github {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.navbar__github::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E") no-repeat center;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E") no-repeat center;
+  vertical-align: middle;
+}
+
+/* ========================
+   Global Button Styles
+   ======================== */
+.button--primary {
+  background-color: var(--color-brand);
+  border: none;
+  border-radius: 100px;
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--color-light);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: var(--color-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(20, 193, 154, 0.3);
+}
+
+.button--secondary {
+  background: transparent;
+  border: 1px solid var(--color-dark);
+  border-radius: 100px;
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  transition: all 0.3s ease;
+}
+
+.button--secondary:hover {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+/* ========================
+   Scrollbar
+   ======================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand);
+}
+
+/* ========================
+   Dark navbar for pages with dark hero
+   .navbar--dark-hero is added directly to the nav element via useEffect
+   ======================== */
+.navbar.navbar--dark-hero,
+.navbar.navbar--dark-hero.navbar--fixed-top {
+  background: var(--color-dark) !important;
+  background-color: var(--color-dark) !important;
+  box-shadow: none !important;
+  --ifm-navbar-background-color: var(--color-dark);
+  --ifm-navbar-shadow: none;
+}
+
+.navbar--dark-hero .navbar__inner {
+  background: transparent !important;
+}
+
+.navbar--dark-hero .navbar__link {
+  color: var(--color-light) !important;
+}
+
+.navbar--dark-hero .navbar__link:hover {
+  color: var(--color-brand) !important;
+}
+
+.navbar--dark-hero .navbar__cta,
+.navbar--dark-hero .navbar__cta:hover {
+  color: var(--color-light) !important;
+}
+
+
+.navbar--dark-hero .navbar__item {
+  color: var(--color-light) !important;
+}
+
+.navbar--dark-hero .navbar__github::before {
+  background-color: var(--color-light) !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar--dark-hero .navbar__github:hover::before,
+.navbar--dark-hero .navbar__github:focus-visible::before {
+  background-color: var(--color-brand) !important;
+}
+
+/* Logo src swapped to /img/logo-light.svg via useEffect */
+
+.navbar--dark-hero .navbar__toggle {
+  color: var(--color-light) !important;
+}
+
+/* Default (light) navbar — hamburger icon, mobile sidebar links and
+   the close button should read as dark on the white sidebar background.
+   Docusaurus' Infima defaults use a muted secondary tone here; override
+   explicitly so the contrast is readable. */
+.navbar__toggle {
+  color: var(--color-dark) !important;
+}
+
+/* Show the hamburger toggle on tablets too (Docusaurus default hides it at
+   min-width: 997px). Matches the swizzled NavbarContent breakpoint. */
+/* Show the hamburger toggle on tablets too (Docusaurus default hides it at
+   min-width: 997px). Matches the swizzled NavbarContent + MobileSidebar
+   breakpoint of 1200px. The drawer visibility itself is handled by Infima's
+   default rule `.navbar-sidebar--show .navbar-sidebar { ... }`, which the
+   provider activates when `mobileSidebar.shown` flips to true. */
+@media (max-width: 1200px) {
+  .navbar__toggle {
+    display: inherit !important;
+  }
+}
+
+.navbar-sidebar__brand,
+.navbar-sidebar__items,
+.navbar-sidebar__item {
+  color: var(--color-dark);
+}
+
+.navbar-sidebar .navbar__link:not(.navbar__cta),
+.navbar-sidebar .menu__link:not(.navbar__cta) {
+  color: var(--color-dark) !important;
+}
+
+.navbar-sidebar .navbar__link:not(.navbar__cta):hover,
+.navbar-sidebar .navbar__link:not(.navbar__cta):focus-visible,
+.navbar-sidebar .menu__link:not(.navbar__cta):hover,
+.navbar-sidebar .menu__link:not(.navbar__cta):focus-visible {
+  color: var(--color-brand) !important;
+  background-color: transparent;
+}
+
+/* CTA inside the mobile sidebar: keep brand-green pill, center the
+   "Get started" label + arrow as a single group, keep text + arrow light.
+   Top margin separates it from the last menu link ("Star us"). */
+.navbar-sidebar .navbar__cta {
+  justify-content: center !important;
+  color: var(--color-light) !important;
+  background-color: var(--color-brand) !important;
+  margin-top: 1.5rem !important;
+}
+
+.navbar-sidebar .navbar__cta:hover,
+.navbar-sidebar .navbar__cta:focus-visible {
+  color: var(--color-light) !important;
+}
+
+/* Close (X) button — Docusaurus renders the X with `stroke=...` on inline
+   <g>/<path>, so we override stroke (not fill) with the design-system navy. */
+.navbar-sidebar__close {
+  color: var(--color-dark) !important;
+  opacity: 1 !important;
+}
+
+.navbar-sidebar__close svg g,
+.navbar-sidebar__close svg path {
+  stroke: var(--color-dark) !important;
+}
+
+.navbar-sidebar__close:hover svg g,
+.navbar-sidebar__close:hover svg path {
+  stroke: var(--color-brand) !important;
+}
+
+html.page-dark-nav .navbar-sidebar {
+  background-color: var(--color-dark) !important;
+}
+
+html.page-dark-nav .navbar-sidebar .navbar__link {
+  color: var(--color-light) !important;
+}
+
+html.page-dark-nav .navbar-sidebar .navbar__link:hover {
+  color: var(--color-brand) !important;
+}
+
+html.page-dark-nav .navbar-sidebar__close {
+  color: var(--color-light) !important;
+}
+
+/* ========================
+   Blog typography
+   ========================
+   Apply the Greenmask design system tokens to migrated blog articles.
+   The site-wide `--theme--text` token defaults to a light value (for
+   dark hero pages), so we set blog text to `--text--blue` directly
+   instead of going through that indirection. */
+
+/* Default body color on all blog pages so any text we don't specifically
+   target (markdown blockquotes, code captions, footers, etc.) still
+   reads clearly on the light blog background.
+   Also redefine `--theme--text` here so rules that reference the
+   semantic theme token (per the Webflow spec) resolve to the dark
+   navy on blog pages instead of the global default (light, intended
+   for dark hero pages). */
+.blog-post-page,
+.blog-list-page {
+  --theme--text: var(--text--blue);
+  color: var(--text--blue);
+}
+
+/* Article main title — Greenmask h3 token. */
+.blog-post-page article > header h1,
+.blog-post-page article > header h2,
+.blog-list-page article > header h1,
+.blog-list-page article > header h2 {
+  font-family: var(--font--primary-family);
+  font-size: var(--h3--font-size);
+  line-height: var(--h3--line-height);
+  letter-spacing: var(--h3--letter-spacing);
+  font-weight: var(--h3--font-weight);
+  color: var(--text--blue);
+}
+
+/* ============================================================
+   Inner blog article body typography
+   ------------------------------------------------------------
+   One unified system for headings, paragraphs, lists, and links
+   inside `.blog-post-page .markdown`. All rules use the same
+   `--blog-*` tokens so every article reads identically. Scoped
+   to `.blog-post-page .markdown` so card excerpts, the article
+   hero title, docs pages, and marketing pages are unaffected. */
+
+/* Previous / Next paginator cards — shared between the blog post
+   page and the docs page. Sharp rectangular corners, thin neutral
+   border, generous padding, brand-green title with a muted gray
+   sublabel ("Newer post" / "Older post" / "Previous" / "Next"). */
+:is(.blog-post-page, .docs-doc-page) .pagination-nav__link {
+  border-radius: 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  padding: 1.5rem;
+  font-family: var(--blog-body-font-family);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+:is(.blog-post-page, .docs-doc-page) .pagination-nav__link:hover {
+  border-color: var(--color-brand);
+  background: rgba(20, 193, 154, 0.04);
+  text-decoration: none;
+}
+
+:is(.blog-post-page, .docs-doc-page) .pagination-nav__sublabel {
+  font-family: var(--blog-body-font-family);
+  /* Sublabel ("Previous" / "Next" / "Newer post" / "Older post") sits
+     visually below the brand-color title, so keep it subtle. */
+  font-size: 0.75rem;                              /* 12px */
+  font-weight: var(--blog-meta-weight);            /* 500 */
+  line-height: 1.4;
+  color: var(--blog-meta-color);
+  letter-spacing: 0;
+  text-transform: none;
+  margin-bottom: 0.4rem;
+}
+
+:is(.blog-post-page, .docs-doc-page) .pagination-nav__label {
+  font-family: var(--blog-heading-font-family);
+  font-size: 1rem;                                 /* 16px */
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-brand);
+  text-decoration: none;
+}
+
+:is(.blog-post-page, .docs-doc-page) .pagination-nav__link:hover .pagination-nav__label {
+  color: var(--ifm-color-primary-darker);
+}
+
+/* Place Previous + Next side-by-side wherever the sidebar TOC is
+   hidden (≤1023px). 2-col grid with `1fr 1fr` gives equal widths
+   automatically; `align-items: stretch` (grid default) gives equal
+   heights — both items grow to the height of the taller-content
+   card. `.pagination-nav__link` is forced to 100% width/height
+   with `box-sizing: border-box` so the visible card (border +
+   1.5rem padding) fills its full grid cell rather than shrinking
+   to its own content. */
+@media (max-width: 1023px) {
+  .pagination-nav {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+  }
+
+  .pagination-nav__item {
+    min-width: 0;
+    display: flex;
+  }
+
+  .pagination-nav__link {
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Small mobile: 2-column grid squeezes titles to ~1 char per line.
+   Switch to a flex column stack so each card spans full body width
+   and the title can wrap normally. Using `display: flex` (not just
+   overriding `grid-template-columns`) fully resets the grid so
+   `grid-auto-rows: 1fr` from the ≤1023px rule cannot leak in and
+   force equal-height card-pairs. */
+@media (max-width: 480px) {
+  .pagination-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    grid-auto-rows: auto !important;
+    gap: 1rem;
+  }
+
+  .pagination-nav__item {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .pagination-nav__link {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* Heading family / weight / color shared across H2-H4. */
+.blog-post-page .markdown :is(h2, h3, h4) {
+  font-family: var(--blog-heading-font-family);
+  font-weight: var(--h4--font-weight);
+  letter-spacing: 0;
+  color: var(--blog-heading-color);
+}
+
+/* H2 — section heading (28px / h5 token). */
+.blog-post-page .markdown h2 {
+  font-size: var(--blog-section-font-size);   /* 1.75rem / 28px */
+  line-height: var(--h5--line-height);
+  text-transform: var(--h4--text-transform);
+  margin: 2rem 0 var(--space--extra-small);
+}
+
+/* H3 — subsection (1.25rem / 20px). */
+.blog-post-page .markdown h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 1.5rem 0 var(--space--extra-small);
+}
+
+/* H4 — minor heading (1.125rem / 18px). */
+.blog-post-page .markdown h4 {
+  font-size: 1.125rem;
+  line-height: 1.35;
+  font-weight: 600;
+  margin: 1.25rem 0 var(--space--extra-small);
+}
+
+/* The first heading sits flush against the section above it. */
+.blog-post-page .markdown > :is(h2, h3, h4):first-child {
+  margin-top: 0;
+}
+
+/* Body copy — unified across blog article body and any list-page
+   markdown excerpt. */
+.blog-post-page .markdown,
+.blog-list-page .markdown {
+  color: var(--blog-body-color);
+}
+
+.blog-post-page .markdown p,
+.blog-list-page .markdown p {
+  font-family: var(--blog-body-font-family);
+  font-size: var(--blog-body-font-size);
+  line-height: var(--blog-body-line-height);
+  font-weight: 400;
+  color: var(--blog-body-color);
+  margin: 0 0 1rem;
+}
+
+/* Lists — same typography as paragraphs, with consistent indentation. */
+.blog-post-page .markdown :is(ul, ol),
+.blog-list-page .markdown :is(ul, ol) {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.blog-post-page .markdown li,
+.blog-list-page .markdown li {
+  font-family: var(--blog-body-font-family);
+  font-size: var(--blog-body-font-size);
+  line-height: var(--blog-body-line-height);
+  font-weight: 400;
+  color: var(--blog-body-color);
+  margin: 0 0 0.5rem;
+}
+
+.blog-post-page .markdown li > :is(ul, ol),
+.blog-list-page .markdown li > :is(ul, ol) {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* Strong / em retain the dark color so emphasis reads clearly. */
+.blog-post-page .markdown strong,
+.blog-post-page .markdown em,
+.blog-list-page .markdown strong,
+.blog-list-page .markdown em {
+  color: var(--blog-heading-color);
+}
+
+/* Author name should not look clickable, even if Docusaurus wraps it
+   in a link (e.g., when `page: true` is set on the author). */
+.blog-post-page .avatar__name,
+.blog-list-page .avatar__name,
+.blog-post-page .avatar__name a,
+.blog-list-page .avatar__name a {
+  color: var(--text--blue);
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Strengthen secondary text on the blog post page. Default Docusaurus
+   uses a light gray for the date/reading-time/author-title line and the
+   author title under the avatar; bump them so they read clearly on a
+   white page. */
+.blog-post-page time,
+.blog-post-page small,
+.blog-post-page [class*='InfoStyles'],
+.blog-post-page [class*='AuthorTitle'] {
+  color: var(--ifm-color-emphasis-800);
+}
+
+.blog-post-page .markdown a {
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+.blog-post-page .markdown a:hover {
+  color: var(--ifm-color-primary-darker);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Documentation pages — share the blog editorial system
+   ------------------------------------------------------------
+   Layout / positioning is owned by Docusaurus (sidebar, TOC
+   placement, content grid). These rules only restyle the
+   typography, spacing, links, TOC, and paginator so docs and
+   blog feel like the same product. Scoped to `.docs-doc-page`.
+   ============================================================ */
+
+/* Body color — mirrors the blog wrapper. */
+.docs-doc-page,
+.docs-doc-page .theme-doc-markdown {
+  color: var(--blog-body-color);
+}
+
+/* Page title (H1) — same scale as the blog hero title. */
+.docs-doc-page .markdown > header > h1,
+.docs-doc-page .markdown > h1:first-child {
+  font-family: var(--blog-heading-font-family);
+  font-size: var(--blog-title-font-size);          /* 2.5rem / 40px */
+  line-height: var(--blog-title-line-height);
+  letter-spacing: var(--h4--letter-spacing);
+  font-weight: var(--h4--font-weight);
+  color: var(--blog-heading-color);
+  margin: 0 0 var(--space--small);
+}
+
+/* H2/H3/H4 share the blog body system. */
+.docs-doc-page .markdown :is(h2, h3, h4) {
+  font-family: var(--blog-heading-font-family);
+  font-weight: var(--h4--font-weight);
+  letter-spacing: 0;
+  color: var(--blog-heading-color);
+}
+
+.docs-doc-page .markdown h2 {
+  font-size: var(--blog-section-font-size);        /* 1.75rem / 28px */
+  line-height: var(--h5--line-height);
+  text-transform: var(--h4--text-transform);
+  margin: 2rem 0 var(--space--extra-small);
+}
+
+.docs-doc-page .markdown h3 {
+  font-size: 1.25rem;                              /* 20px */
+  line-height: 1.3;
+  margin: 1.5rem 0 var(--space--extra-small);
+}
+
+.docs-doc-page .markdown h4 {
+  font-size: 1.125rem;                             /* 18px */
+  line-height: 1.35;
+  font-weight: 600;
+  margin: 1.25rem 0 var(--space--extra-small);
+}
+
+.docs-doc-page .markdown > :is(h2, h3, h4):first-child {
+  margin-top: 0;
+}
+
+/* Body paragraphs and lists. */
+.docs-doc-page .markdown p {
+  font-family: var(--blog-body-font-family);
+  font-size: var(--blog-body-font-size);
+  line-height: var(--blog-body-line-height);
+  font-weight: 400;
+  color: var(--blog-body-color);
+  margin: 0 0 1rem;
+}
+
+.docs-doc-page .markdown :is(ul, ol) {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.docs-doc-page .markdown li {
+  font-family: var(--blog-body-font-family);
+  font-size: var(--blog-body-font-size);
+  line-height: var(--blog-body-line-height);
+  font-weight: 400;
+  color: var(--blog-body-color);
+  margin: 0 0 0.5rem;
+}
+
+.docs-doc-page .markdown li > :is(ul, ol) {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.docs-doc-page .markdown strong,
+.docs-doc-page .markdown em {
+  color: var(--blog-heading-color);
+}
+
+/* In-page links match the blog body link style. */
+.docs-doc-page .markdown a {
+  color: var(--color-brand);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.docs-doc-page .markdown a:hover {
+  color: var(--ifm-color-primary-darker);
+  text-decoration: underline;
+}
+
+/* The docs TOC chrome (progress bar, "Contents" label) and link
+   styling all live in src/theme/DocItem/TOC/Desktop/styles.module.css,
+   mirroring the blog `ArticleTOC` rules so the two surfaces are
+   visually + functionally identical. */
+
+/* Previous / Next paginator on docs uses the shared rule defined
+   earlier (`:is(.blog-post-page, .docs-doc-page) .pagination-nav__link`).
+   Layout, position, and responsive behavior remain Docusaurus defaults
+   (prev = left-aligned, next = right-aligned). */
+
+/* Docs sidebar: active category link styling. */
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--active {
+  color: var(--text--blue);
+  font-weight: 600;
+}
+
+/* Docs sidebar: replace the category caret chevron with a custom SVG. */
+.menu__caret::before,
+.menu__link--sublist-caret::after {
+  background: transparent;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M17 9L12 14L7 9' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M17 9L12 14L7 9' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: 1.5rem 1.5rem;
+          mask-size: 1.5rem 1.5rem;
+  background-color: currentColor;
+  filter: none;
+}

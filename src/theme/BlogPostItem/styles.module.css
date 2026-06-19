@@ -1,0 +1,5 @@
+/* No styles needed — page chrome (breadcrumbs, hero panel, cover image)
+   moved up into `BlogPostPage/Hero.tsx`, which imports
+   `BlogPostPage/styles.module.css`. The swizzled BlogPostItem now only
+   wraps the markdown body + footer for the post page, and falls through
+   to the default theme component for list views. */

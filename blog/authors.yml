@@ -1,0 +1,7 @@
+vadim:
+  name: Vadim Voytenko
+  title: Founder | Database Engineer, Developer
+  # TODO: confirm a public profile URL for Vadim (LinkedIn / GitHub / personal site).
+  # Intentionally no `url` and no `page: true` — the author name renders as
+  # plain text rather than a link (per blog design spec).
+  image_url: /img/blog/authors/vadim-voytenko.png

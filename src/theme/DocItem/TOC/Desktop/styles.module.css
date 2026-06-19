@@ -1,0 +1,131 @@
+/* Mirror of `BlogPostPage/styles.module.css` ArticleTOC styles, scoped
+   to the docs TOC. Keep this in sync with the blog file so the two
+   surfaces remain visually + functionally identical. */
+
+.docToc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--blog-gap-sm);
+  padding-right: 0.25rem;
+  /* Sticky offset matches the blog TOC so the chrome (progress bar +
+     "CONTENTS" label + link list) all pin together under the navbar
+     with breathing room. No `max-height` / `overflow-y` here — the
+     TOC stays fully visible and the page scrolls naturally. */
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+/* Docusaurus' `<TOC>` wraps in a div with `.tableOfContents` that has
+   its own `position: sticky` and `max-height` / `overflow`. Reset
+   them so the outer `.docToc` is the single sticky element and there
+   is no internal scroll area. */
+.docTocInner {
+  position: static;
+  max-height: none;
+  overflow: visible;
+}
+
+.tocProgressTrack {
+  position: relative;
+  height: 2px;
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.tocProgressFill {
+  height: 100%;
+  background: var(--color-brand);
+  border-radius: 999px;
+  transition: width 0.08s linear;
+  width: 0%;
+}
+
+.tocLabel {
+  margin: 0;
+  font-family: var(--blog-body-font-family);
+  font-size: 0.6875rem;             /* 11px */
+  font-weight: var(--blog-pill-weight);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.docTocInner {
+  padding: 0;
+}
+
+.docTocInner :global(.table-of-contents) {
+  padding: 0;
+  margin: 0;
+  font-family: var(--blog-body-font-family);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.docTocInner :global(.table-of-contents__left-border) {
+  border-left-color: var(--ifm-color-emphasis-300);
+  border-left-width: 1px;
+  padding-left: 1rem;
+}
+
+.docTocInner :global(.table-of-contents li) {
+  margin: 0.75rem 0;
+}
+
+.docTocInner :global(.table-of-contents > li:first-child) {
+  margin-top: 0;
+}
+.docTocInner :global(.table-of-contents > li:last-child) {
+  margin-bottom: 0;
+}
+
+.docTocInner :global(.table-of-contents__link) {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 400;
+  position: relative;
+  display: block;
+  line-height: 1.4;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.docTocInner :global(.table-of-contents__link:hover) {
+  color: var(--text--blue);
+  text-decoration: none;
+}
+
+.docTocInner :global(.table-of-contents__link:focus-visible) {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.docTocInner :global(.table-of-contents__link--active) {
+  color: var(--text--blue);
+  font-weight: 700;
+}
+
+/* Active accent — same geometry as the blog so the 3px brand-color
+   strip lands centered on the 1px gray rail.
+   Gray center = -(1rem + 0.5px); strip left = gray_center - W/2
+   = -(1rem + 2px) for W = 3px. */
+.docTocInner :global(.table-of-contents__left-border) {
+  position: relative;
+}
+
+.docTocInner :global(.table-of-contents__link) {
+  z-index: 0;
+}
+
+.docTocInner :global(.table-of-contents__link--active::before) {
+  content: '';
+  position: absolute;
+  left: calc(-1rem - 2px);
+  top: -0.15rem;
+  bottom: -0.15rem;
+  width: 3px;
+  background: var(--color-brand);
+  border-radius: 999px;
+  z-index: 2;
+}
