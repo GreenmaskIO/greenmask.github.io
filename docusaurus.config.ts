@@ -1,6 +1,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import ogImagesPlugin from './src/plugins/og-images';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -60,6 +61,8 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [ogImagesPlugin],
+
   presets: [
     [
       'classic',
@@ -110,7 +113,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/image.png',
     colorMode: {
       defaultMode: 'light',
       disableSwitch: true,
@@ -161,7 +164,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright \u00A9 GreenMask ${new Date().getFullYear()}`,
+      copyright: `Open-source platform for test data management and production-like development workflows.<br/>Copyright \u00A9 ${new Date().getFullYear()} Greenmask, Inc.`,
     },
     prism: {
       theme: prismThemes.github,
