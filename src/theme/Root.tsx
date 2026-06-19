@@ -32,14 +32,15 @@ function grantConsent(): void {
 }
 
 export default function Root({ children }: { children: React.ReactNode }) {
-  const [showBanner, setShowBanner] = useState(false);
+  const [showBanner, setShowBanner] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem(CONSENT_KEY) === null;
+  });
 
   useEffect(() => {
     const stored = localStorage.getItem(CONSENT_KEY);
     if (stored === 'accepted') {
       grantConsent();
-    } else if (!stored) {
-      setShowBanner(true);
     }
   }, []);
 

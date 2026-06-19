@@ -386,7 +386,8 @@ function FAQ() {
           const isOpen = openIdx === idx;
           return (
             <div key={idx} className={styles.faqCard}>
-              <div
+              <button
+                type="button"
                 className={styles.faqCardToggle}
                 onClick={() => setOpenIdx(isOpen ? null : idx)}
                 aria-expanded={isOpen}
@@ -410,7 +411,7 @@ function FAQ() {
                     />
                   </svg>
                 </div>
-              </div>
+              </button>
               <div className={`${styles.faqCardContent} ${isOpen ? styles.faqCardContentOpen : ''}`}>
                 <div className={styles.faqCardClip}>
                   <div className={styles.faqCardText}>{faq.answer}</div>

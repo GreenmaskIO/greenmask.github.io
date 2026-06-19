@@ -54,7 +54,7 @@ function HeroSection() {
               <div className={styles.heroTitleWrap}>
                 <h1 className={styles.heroTitle}>
                   Have something in mind?{' '}
-                  <strong>Let's make it real</strong>{' '}
+                  <strong>Let&apos;s make it real</strong>{' '}
                   — request a feature!
                 </h1>
               </div>
@@ -65,7 +65,7 @@ function HeroSection() {
                 <div className={styles.heroDescriptionText}>
                   <p className={styles.heroSubtitle}>
                     We welcome your ideas to improve GreenMask. Let us know what
-                    you'd like to see next — we're building this together.
+                    you&apos;d like to see next — we&apos;re building this together.
                   </p>
                 </div>
               </div>
@@ -134,7 +134,7 @@ const steps = [
         >
           GitHub Issues page
         </a>
-        . If you haven't already, log in or create a GitHub account — it only
+        . If you haven&apos;t already, log in or create a GitHub account — it only
         takes a minute.
       </>
     ),
@@ -291,7 +291,8 @@ function FAQSection() {
           const isOpen = openIdx === idx;
           return (
             <div key={idx} className={styles.faqCard}>
-              <div
+              <button
+                type="button"
                 className={styles.faqCardToggle}
                 onClick={() => setOpenIdx(isOpen ? null : idx)}
                 aria-expanded={isOpen}
@@ -317,7 +318,7 @@ function FAQSection() {
                     />
                   </svg>
                 </div>
-              </div>
+              </button>
               <div
                 className={`${styles.faqCardContent} ${isOpen ? styles.faqCardContentOpen : ''}`}
               >

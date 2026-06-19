@@ -599,6 +599,13 @@
   padding: 20px 0;
   cursor: pointer;
   user-select: none;
+  appearance: none;
+  background: none;
+  border: none;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
 }
 
 .faqCardTitle {

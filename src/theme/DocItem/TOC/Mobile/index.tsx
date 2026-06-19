@@ -22,6 +22,7 @@ export default function DocItemTOCMobile(): ReactNode {
 
   // Close the drawer when navigating to a new doc page.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSidebarOpen(false);
   }, [location.pathname]);
 
