@@ -9,10 +9,10 @@ import styles from './index.module.css';
 const sponsors = [
   { name: 'Solanica', logo: 'https://cdn.prod.website-files.com/6682e8b45d941e31f8e1efcc/69bd26f7d0abaab4f04855d5_colored-horizontal.svg', href: 'https://solanica.io/' },
   { name: 'OpenEverest', logo: 'https://cdn.prod.website-files.com/6682e8b45d941e31f8e1efcc/69bd2bd3ec098b1bf7cc4d1e_logo-horizontal-full-color-white.svg', href: 'https://openeverest.io/' },
-  { name: 'TestMU AI', logo: '/img/sponsors/testmu-ai.svg', href: 'https://www.testmuai.com/' },
-  { name: 'JetBrains', logo: '/img/sponsors/jetbrains.svg', href: 'https://www.jetbrains.com/' },
-  { name: 'Lenus', logo: '/img/sponsors/lenus.svg', href: 'https://www.lenusehealth.com/' },
-  { name: 'Xata', logo: '/img/sponsors/xata.svg', href: 'https://xata.io/' },
+  { name: 'TestMU AI', logo: '/img/partners/testmu-ai.svg', href: 'https://www.testmuai.com/' },
+  { name: 'JetBrains', logo: '/img/partners/jetbrains.svg', href: 'https://www.jetbrains.com/' },
+  { name: 'Lenus', logo: '/img/partners/lenus.svg', href: 'https://www.lenusehealth.com/' },
+  { name: 'Xata', logo: '/img/partners/xata.svg', href: 'https://xata.io/' },
 ];
 
 function HeroSection() {
@@ -444,8 +444,8 @@ export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title} - Open Source Data Anonymization`}
-      description="Open Source Data Anonymization Software for PostgreSQL"
+      title={`${siteConfig.title} - Open-source Test Data Management and Data Anonymization Platform`}
+      description="Open-source Test Data Management and Data Anonymization Platform for PostgreSQL"
     >
       <HeroSection />
       <main>

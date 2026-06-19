@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Greenmask',
-  tagline: 'Open Source Data Anonymization Software',
+  tagline: 'Open-source Test Data Management and Data Anonymization Platform',
   favicon: 'img/favicon.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -26,6 +26,25 @@ const config: Config = {
   projectName: 'greenmask.github.io', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: [
+        'window.dataLayer = window.dataLayer || [];',
+        'function gtag(){dataLayer.push(arguments);}',
+        "gtag('consent','default',{",
+        "  analytics_storage:'denied',",
+        "  ad_storage:'denied',",
+        "  ad_user_data:'denied',",
+        "  ad_personalization:'denied',",
+        '  wait_for_update:2000',
+        '});',
+        "gtag('js',new Date());",
+      ].join(''),
+    },
+  ],
 
   markdown: {
     hooks: {
@@ -48,6 +67,17 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           breadcrumbs: false,
+          lastVersion: '0.2.19',
+          versions: {
+            current: {
+              label: 'Next',
+              badge: true,
+            },
+            '0.2.19': {
+              label: '0.2.19',
+              badge: false,
+            },
+          },
         },
         blog: {
           blogTitle: 'Greenmask Blog',
@@ -102,6 +132,7 @@ const config: Config = {
       items: [
         { to: '/request-a-feature', label: 'Request a Feature', position: 'left' },
         { to: '/about', label: 'About', position: 'left' },
+        { to: '/vision', label: 'Vision', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
           type: 'docSidebar',
@@ -110,6 +141,10 @@ const config: Config = {
           label: 'Docs',
         },
         { to: '/contacts', label: 'Contacts', position: 'left' },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+        },
         {
           href: 'https://github.com/greenmaskio/greenmask',
           label: 'Star us',

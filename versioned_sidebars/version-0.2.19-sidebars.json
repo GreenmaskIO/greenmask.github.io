@@ -1,0 +1,188 @@
+{
+  "tutorialSidebar": [
+    {
+      "type": "category",
+      "label": "Documentation",
+      "collapsible": false,
+      "collapsed": false,
+      "items": [
+        "index",
+        "architecture",
+        "playground",
+        "installation",
+        "configuration",
+        {
+          "type": "category",
+          "label": "Commands",
+          "link": {
+            "type": "doc",
+            "id": "commands/index"
+          },
+          "items": [
+            "commands/list-transformers",
+            "commands/show-transformer",
+            "commands/validate",
+            "commands/dump",
+            "commands/list-dumps",
+            "commands/show-dump",
+            "commands/restore",
+            "commands/delete"
+          ]
+        },
+        "database_subset",
+        {
+          "type": "category",
+          "label": "Transformers",
+          "link": {
+            "type": "doc",
+            "id": "built_in_transformers/index"
+          },
+          "items": [
+            "built_in_transformers/dynamic_parameters",
+            "built_in_transformers/transformation_engines",
+            "built_in_transformers/parameters_templating",
+            "built_in_transformers/parameters_env_vars_interpolation",
+            "built_in_transformers/transformation_condition",
+            "built_in_transformers/transformation_inheritance",
+            {
+              "type": "category",
+              "label": "Standard transformers",
+              "link": {
+                "type": "doc",
+                "id": "built_in_transformers/standard_transformers/index"
+              },
+              "items": [
+                "built_in_transformers/standard_transformers/cmd",
+                "built_in_transformers/standard_transformers/dict",
+                "built_in_transformers/standard_transformers/hash",
+                "built_in_transformers/standard_transformers/masking",
+                "built_in_transformers/standard_transformers/noise_date",
+                "built_in_transformers/standard_transformers/noise_float",
+                "built_in_transformers/standard_transformers/noise_numeric",
+                "built_in_transformers/standard_transformers/noise_int",
+                "built_in_transformers/standard_transformers/random_bool",
+                "built_in_transformers/standard_transformers/random_choice",
+                "built_in_transformers/standard_transformers/random_date",
+                "built_in_transformers/standard_transformers/random_float",
+                "built_in_transformers/standard_transformers/random_numeric",
+                "built_in_transformers/standard_transformers/random_int",
+                "built_in_transformers/standard_transformers/random_string",
+                "built_in_transformers/standard_transformers/random_uuid",
+                "built_in_transformers/standard_transformers/random_latitude",
+                "built_in_transformers/standard_transformers/random_longitude",
+                "built_in_transformers/standard_transformers/random_unix_timestamp",
+                "built_in_transformers/standard_transformers/random_day_of_week",
+                "built_in_transformers/standard_transformers/random_day_of_month",
+                "built_in_transformers/standard_transformers/random_month_name",
+                "built_in_transformers/standard_transformers/random_year_string",
+                "built_in_transformers/standard_transformers/random_century",
+                "built_in_transformers/standard_transformers/random_company",
+                "built_in_transformers/standard_transformers/random_timezone",
+                "built_in_transformers/standard_transformers/random_email",
+                "built_in_transformers/standard_transformers/random_username",
+                "built_in_transformers/standard_transformers/random_password",
+                "built_in_transformers/standard_transformers/random_domain_name",
+                "built_in_transformers/standard_transformers/random_person",
+                "built_in_transformers/standard_transformers/random_url",
+                "built_in_transformers/standard_transformers/random_mac",
+                "built_in_transformers/standard_transformers/random_ip",
+                "built_in_transformers/standard_transformers/random_word",
+                "built_in_transformers/standard_transformers/random_sentence",
+                "built_in_transformers/standard_transformers/random_paragraph",
+                "built_in_transformers/standard_transformers/random_cc_type",
+                "built_in_transformers/standard_transformers/random_cc_number",
+                "built_in_transformers/standard_transformers/random_currency",
+                "built_in_transformers/standard_transformers/random_amount_with_currency",
+                "built_in_transformers/standard_transformers/random_phone_number",
+                "built_in_transformers/standard_transformers/random_toll_free_phone_number",
+                "built_in_transformers/standard_transformers/random_e164_phone_number",
+                "built_in_transformers/standard_transformers/real_address",
+                "built_in_transformers/standard_transformers/regexp_replace",
+                "built_in_transformers/standard_transformers/replace",
+                "built_in_transformers/standard_transformers/set_null"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Advanced transformers",
+              "link": {
+                "type": "doc",
+                "id": "built_in_transformers/advanced_transformers/index"
+              },
+              "items": [
+                "built_in_transformers/advanced_transformers/json",
+                "built_in_transformers/advanced_transformers/template",
+                "built_in_transformers/advanced_transformers/template_record",
+                {
+                  "type": "category",
+                  "label": "Custom functions",
+                  "link": {
+                    "type": "doc",
+                    "id": "built_in_transformers/advanced_transformers/custom_functions/index"
+                  },
+                  "items": [
+                    "built_in_transformers/advanced_transformers/custom_functions/core_functions",
+                    "built_in_transformers/advanced_transformers/custom_functions/faker_function"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Contributors",
+          "collapsed": true,
+          "items": [
+            "supporting_new_postgres"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Release notes",
+      "collapsed": true,
+      "items": [
+        "release_notes/greenmask_0_2_19",
+        "release_notes/greenmask_0_2_18",
+        "release_notes/greenmask_0_2_17",
+        "release_notes/greenmask_0_2_16",
+        "release_notes/greenmask_0_2_15",
+        "release_notes/greenmask_0_2_14",
+        "release_notes/greenmask_0_2_13",
+        "release_notes/greenmask_0_2_12",
+        "release_notes/greenmask_0_2_11",
+        "release_notes/greenmask_0_2_10",
+        "release_notes/greenmask_0_2_9",
+        "release_notes/greenmask_0_2_8",
+        "release_notes/greenmask_0_2_7",
+        "release_notes/greenmask_0_2_6",
+        "release_notes/greenmask_0_2_5",
+        "release_notes/greenmask_0_2_4",
+        "release_notes/greenmask_0_2_3",
+        "release_notes/greenmask_0_2_2",
+        "release_notes/greenmask_0_2_1",
+        "release_notes/greenmask_0_2_0",
+        "release_notes/greenmask_0_2_0_b2",
+        "release_notes/greenmask_0_2_0_b1",
+        "release_notes/greenmask_0_1_14",
+        "release_notes/greenmask_0_1_13",
+        "release_notes/greenmask_0_1_12",
+        "release_notes/greenmask_0_1_11",
+        "release_notes/greenmask_0_1_10",
+        "release_notes/greenmask_0_1_9",
+        "release_notes/greenmask_0_1_8",
+        "release_notes/greenmask_0_1_7",
+        "release_notes/greenmask_0_1_6",
+        "release_notes/greenmask_0_1_5",
+        "release_notes/greenmask_0_1_4",
+        "release_notes/greenmask_0_1_3",
+        "release_notes/greenmask_0_1_2",
+        "release_notes/greenmask_0_1_1",
+        "release_notes/greenmask_0_1_0",
+        "release_notes/greenmask_0_1_0_beta"
+      ]
+    }
+  ]
+}
