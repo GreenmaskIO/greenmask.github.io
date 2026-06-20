@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /img/og/
 
-Sitemap: https://www.greenmask.io/sitemap.xml
+Sitemap: https://greenmaskio.github.io/sitemap.xml
