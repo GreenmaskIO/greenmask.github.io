@@ -16,7 +16,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://www.greenmask.io',
+  url: 'https://greenmaskio.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -60,8 +60,8 @@ const config: Config = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'Greenmask',
-        url: 'https://www.greenmask.io',
-        logo: 'https://www.greenmask.io/img/logo.svg',
+        url: 'https://greenmaskio.github.io',
+        logo: 'https://greenmaskio.github.io/img/logo.svg',
         sameAs: ['https://github.com/greenmaskio/greenmask'],
       }),
     },
