@@ -8,7 +8,7 @@ import ogImagesPlugin from './src/plugins/og-images';
 const config: Config = {
   title: 'Greenmask',
   tagline: 'Open-source Test Data Management and Data Anonymization Platform',
-  favicon: 'favicon.ico',
+  favicon: '/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
