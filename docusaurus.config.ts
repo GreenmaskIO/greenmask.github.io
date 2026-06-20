@@ -30,6 +30,14 @@ const config: Config = {
 
   headTags: [
     {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/favicon.svg',
+      },
+    },
+    {
       tagName: 'script',
       attributes: {},
       innerHTML: [
