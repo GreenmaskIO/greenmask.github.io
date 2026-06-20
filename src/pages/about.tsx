@@ -173,7 +173,7 @@ function CTASection() {
   return (
     <section className={styles.ctaSection}>
       <div className={styles.ctaInner}>
-        <Link to="/docs/architecture" className={styles.ctaButton}>
+        <Link to="/docs/playground" className={styles.ctaButton}>
           Get started
           <svg
             className={styles.ctaArrow}

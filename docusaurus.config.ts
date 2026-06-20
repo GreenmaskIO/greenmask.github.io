@@ -183,7 +183,7 @@ const config: Config = {
           className: 'navbar__github',
         },
         {
-          to: '/docs/architecture',
+          to: '/docs/playground',
           label: 'Get started',
           position: 'right',
           className: 'navbar__cta',

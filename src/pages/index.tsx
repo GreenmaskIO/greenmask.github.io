@@ -455,7 +455,7 @@ function GetStartedCTA() {
   return (
     <section className={styles.ctaSection}>
       <div className={styles.ctaInner}>
-        <Link to="/docs/architecture" className={styles.ctaButton}>
+        <Link to="/docs/playground" className={styles.ctaButton}>
           Get started
           <svg className={styles.ctaArrow} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M7 17L17 7M17 7H7M17 7V17" />
