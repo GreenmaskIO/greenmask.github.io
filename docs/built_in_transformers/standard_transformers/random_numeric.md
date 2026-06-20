@@ -1,3 +1,9 @@
+---
+title: "RandomNumeric"
+description: "The RandomNumeric transformer generates a random numeric value within the provided interval, starting from min to"
+keywords: ["RandomNumeric", "numeric value", "decimal anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Generate a random numeric within the provided interval.
 
 ## Parameters

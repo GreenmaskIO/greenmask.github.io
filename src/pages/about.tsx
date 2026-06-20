@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
@@ -200,6 +201,9 @@ export default function About(): ReactNode {
       title={`About — ${siteConfig.title}`}
       description="Learn about Greenmask — our mission, values, and the team behind the open source data anonymization platform."
     >
+      <Head>
+        <meta name="keywords" content="greenmask, open source, data anonymization, Enterprise support, Open-Source, PostgreSQL anonymization, test data management, compliance, security, agentic pipeline, development cycle" />
+      </Head>
       <main className={styles.pageMain}>
         <HeroSection />
         <MissionSection />

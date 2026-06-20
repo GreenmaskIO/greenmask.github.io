@@ -1,3 +1,9 @@
+---
+title: "List-dumps"
+description: "The list-dumps command provides a list of all dumps stored in the storage."
+keywords: ["greenmask list-dumps", "dump listing", "backup management", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 ## list-dumps command
 
 The `list-dumps` command provides a list of all dumps stored in the storage.

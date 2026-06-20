@@ -1,3 +1,9 @@
+---
+title: "RandomChoice"
+description: "The RandomChoice transformer replaces one randomly chosen value from the list provided in the values parameter. You"
+keywords: ["RandomChoice", "random selection", "value list", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Replace values randomly chosen from a provided list.
 
 ## Parameters

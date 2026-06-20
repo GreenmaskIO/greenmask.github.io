@@ -1,3 +1,9 @@
+---
+title: "CoreFunctions"
+description: "Below you can find custom core functions which are divided into categories based on the transformation purpose."
+keywords: ["core functions", "built-in helpers", "greenmask functions", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

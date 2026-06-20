@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { useEffect, useState } from 'react';
+import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout';
 
@@ -459,6 +460,9 @@ export default function RequestAFeature(): ReactNode {
       title={`Request a Feature — ${siteConfig.title}`}
       description="Have something in mind? Request a feature for GreenMask — submit on GitHub or fast-track with paid development."
     >
+      <Head>
+        <meta name="keywords" content="greenmask feature request, Enterprise support, Open-Source, software development, paid development, PostgreSQL anonymization, test data management, compliance, security, agentic pipeline, development cycle" />
+      </Head>
       <main className={styles.pageMain}>
         <HeroSection />
         <HowItWorksSection />

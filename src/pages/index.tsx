@@ -1,10 +1,73 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { useState } from 'react';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
 import styles from './index.module.css';
+
+const faqs = [
+  {
+    question: 'What is Greenmask, and what is it used for?',
+    answer:
+      'Greenmask is a data anonymization system designed to ensure information security in testing and development environments. It helps create data that is as close to real as possible while preventing data leaks.',
+  },
+  {
+    question: 'How does Greenmask protect my data?',
+    answer:
+      'Greenmask uses powerful data anonymization tools such as deterministic transformations, dynamic parameters, and validation to ensure data security and compliance with confidentiality requirements.',
+  },
+  {
+    question: 'Why do I need production-like data in testing environments?',
+    answer:
+      'Using data that closely resembles production accelerates time to delivery, improves service quality through more accurate testing, and increases developer satisfaction by allowing them to work with realistic data, avoiding unexpected issues in production.',
+  },
+  {
+    question: 'What technologies are supported?',
+    answer:
+      'Currently, Greenmask supports PostgreSQL and S3. Support for MySQL, MongoDB, and other databases is actively in development.',
+  },
+  {
+    question: 'Can Greenmask integrate with my existing systems?',
+    answer:
+      'Yes, Greenmask easily integrates into existing CI/CD pipelines due to its simple architecture, and it also supports various data storage systems, including both local and remote (such as S3-compatible storage).',
+  },
+  {
+    question: 'How can I customize Greenmask for my needs?',
+    answer:
+      'You can configure Greenmask using flexible configuration files that support dynamic parameters and a wide range of transformations, allowing you to adapt the system to your specific requirements.',
+  },
+  {
+    question: 'How does Greenmask plan to develop its products?',
+    answer:
+      'We are actively developing a dynamic staging environment platform that includes test data management (TDM) features, which are already implemented at a basic level in the Greenmask utility.',
+  },
+];
+
+const softwareAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Greenmask',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Linux, macOS, Windows',
+  description:
+    'Open-source Test Data Management and Data Anonymization Platform for PostgreSQL',
+  url: 'https://www.greenmask.io',
+  downloadUrl: 'https://github.com/greenmaskio/greenmask/releases',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  license: 'https://github.com/greenmaskio/greenmask/blob/main/LICENSE',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+};
 
 const sponsors = [
   { name: 'Solanica', logo: 'https://cdn.prod.website-files.com/6682e8b45d941e31f8e1efcc/69bd26f7d0abaab4f04855d5_colored-horizontal.svg', href: 'https://solanica.io/' },
@@ -340,44 +403,6 @@ function OurServices() {
 function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: 'What is Greenmask, and what is it used for?',
-      answer:
-        'Greenmask is a data anonymization system designed to ensure information security in testing and development environments. It helps create data that is as close to real as possible while preventing data leaks.',
-    },
-    {
-      question: 'How does Greenmask protect my data?',
-      answer:
-        'Greenmask uses powerful data anonymization tools such as deterministic transformations, dynamic parameters, and validation to ensure data security and compliance with confidentiality requirements.',
-    },
-    {
-      question: 'Why do I need production-like data in testing environments?',
-      answer:
-        'Using data that closely resembles production accelerates time to delivery, improves service quality through more accurate testing, and increases developer satisfaction by allowing them to work with realistic data, avoiding unexpected issues in production.',
-    },
-    {
-      question: 'What technologies are supported?',
-      answer:
-        'Currently, Greenmask supports PostgreSQL and S3. Support for MySQL, MongoDB, and other databases is actively in development.',
-    },
-    {
-      question: 'Can Greenmask integrate with my existing systems?',
-      answer:
-        'Yes, Greenmask easily integrates into existing CI/CD pipelines due to its simple architecture, and it also supports various data storage systems, including both local and remote (such as S3-compatible storage).',
-    },
-    {
-      question: 'How can I customize Greenmask for my needs?',
-      answer:
-        'You can configure Greenmask using flexible configuration files that support dynamic parameters and a wide range of transformations, allowing you to adapt the system to your specific requirements.',
-    },
-    {
-      question: 'How does Greenmask plan to develop its products?',
-      answer:
-        'We are actively developing a dynamic staging environment platform that includes test data management (TDM) features, which are already implemented at a basic level in the Greenmask utility.',
-    },
-  ];
-
   return (
     <section className={styles.faq}>
       <div className={styles.faqInner}>
@@ -448,6 +473,11 @@ export default function Home(): ReactNode {
       title={`${siteConfig.title} - Open-source Test Data Management and Data Anonymization Platform`}
       description="Open-source Test Data Management and Data Anonymization Platform for PostgreSQL"
     >
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(softwareAppSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <meta name="keywords" content="data anonymization, test data management, PostgreSQL anonymization, Open-Source, Enterprise support, compliance, security, agentic pipeline, development cycle, consulting, training, software development, database anonymization, synthetic data" />
+      </Head>
       <HeroSection />
       <main>
         <Features />

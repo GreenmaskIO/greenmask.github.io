@@ -1,3 +1,9 @@
+---
+title: "RandomMac"
+description: "The RandomMac transformer generates a random MAC address and injects it into the specified database column. The"
+keywords: ["RandomMac", "MAC address", "network anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 The `RandomMac` transformer is designed to populate specified database columns with random MAC addresses.
 
 ## Parameters

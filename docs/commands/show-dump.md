@@ -1,3 +1,9 @@
+---
+title: "Show-dump"
+description: "This command provides details about all objects and data that can be restored, similar to the pg_restore -l command in"
+keywords: ["greenmask show-dump", "dump metadata", "backup inspection", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

@@ -1,3 +1,9 @@
+---
+title: "Validate"
+description: "The validate command allows you to perform a validation procedure and compare transformed data."
+keywords: ["greenmask validate", "data validation", "anonymization check", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

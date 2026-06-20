@@ -1,3 +1,9 @@
+---
+title: Greenmask Playground
+description: Try Greenmask instantly with the Docker-based playground — includes sample PostgreSQL databases, MinIO storage, and the Greenmask utility pre-configured and ready to run.
+keywords: ["greenmask playground", "docker", "data anonymization demo", "try greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Greenmask Playground
 
 ![Demo](assets/tapes/playground.gif)

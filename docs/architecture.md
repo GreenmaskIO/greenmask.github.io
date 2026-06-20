@@ -1,3 +1,9 @@
+---
+title: Architecture
+description: Learn how Greenmask wraps pg_dump and pg_restore to perform data anonymization during PostgreSQL logical backups, with support for parallel processing and S3-compatible storage.
+keywords: [greenmask architecture, pg_dump, pg_restore, postgresql backup, data anonymization pipeline, "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Architecture
 
 ## Introduction

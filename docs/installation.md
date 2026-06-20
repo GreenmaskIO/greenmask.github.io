@@ -1,3 +1,9 @@
+---
+title: Installation
+description: Install Greenmask via install script, pre-built binaries, Docker, Homebrew, or build from source. Requires PostgreSQL utilities matching your target server's major version.
+keywords: [install greenmask, greenmask docker, greenmask homebrew, greenmask binary, "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Installation
 
 ## Prerequisites

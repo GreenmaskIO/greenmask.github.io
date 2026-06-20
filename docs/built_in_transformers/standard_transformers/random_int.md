@@ -1,3 +1,9 @@
+---
+title: "RandomInt"
+description: "The RandomInt transformer generates a random integer within the specified min and max thresholds. The behaviour"
+keywords: ["RandomInt", "random integer", "number anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Generate a random integer within the provided interval.
 
 ## Parameters

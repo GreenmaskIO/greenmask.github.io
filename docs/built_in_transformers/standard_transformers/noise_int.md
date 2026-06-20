@@ -1,3 +1,9 @@
+---
+title: "NoiseInt"
+description: "The NoiseInt transformer multiplies the original integer value by randomly generated value that is not higher than"
+keywords: ["NoiseInt", "integer noise", "number anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Add or subtract a random fraction to the original integer value.
 
 ## Parameters

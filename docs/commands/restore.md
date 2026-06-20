@@ -1,3 +1,9 @@
+---
+title: "Restore"
+description: "The restore command is used to restore a database from a previously created dump. You can specify the dump to restore"
+keywords: ["greenmask restore", "pg_restore", "database recovery", "backup restore", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 ## restore command
 
 The `restore` command is used to restore a database from a previously created dump. You can specify the dump to restore

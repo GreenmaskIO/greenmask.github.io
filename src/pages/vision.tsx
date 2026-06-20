@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
@@ -236,6 +237,9 @@ export default function Vision(): ReactNode {
       title={`Vision — ${siteConfig.title}`}
       description="Greenmask platform vision: open-source Test Data Management and Data Anonymization for secure, production-like development workflows."
     >
+      <Head>
+        <meta name="keywords" content="greenmask vision, open source, enterprise-grade, data anonymization, test data management, Enterprise support, Open-Source, PostgreSQL anonymization, compliance, security, agentic pipeline, development cycle" />
+      </Head>
       <main>
         <HeroSection />
         <PrinciplesSection />

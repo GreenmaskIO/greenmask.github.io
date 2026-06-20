@@ -1,3 +1,9 @@
+---
+title: "ParametersEnvVarsInterpolation"
+description: "Greenmask supports environment variable interpolation in transformer parameter values using"
+keywords: ["environment variables", "parameter interpolation", "runtime config", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Parameters environment variables interpolation
 
 ## Description

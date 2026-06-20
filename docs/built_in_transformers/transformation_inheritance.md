@@ -1,3 +1,9 @@
+---
+title: "TransformationInheritance"
+description: "If you have partitioned tables or want to apply a transformation to a primary key and propagate it to all tables"
+keywords: ["transformation inheritance", "partitioned tables", "table inheritance", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Transformation Inheritance
 
 ## Description

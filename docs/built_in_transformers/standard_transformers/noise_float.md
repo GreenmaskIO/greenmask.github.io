@@ -1,3 +1,9 @@
+---
+title: "NoiseFloat"
+description: "The NoiseFloat transformer multiplies the original float value by randomly generated value that is not higher than"
+keywords: ["NoiseFloat", "float noise", "floating point anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Add or subtract a random fraction to the original float value.
 
 ## Parameters

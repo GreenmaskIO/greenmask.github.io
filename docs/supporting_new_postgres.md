@@ -1,3 +1,9 @@
+---
+title: Supporting a New PostgreSQL Version
+description: Step-by-step guide for adding support for a new PostgreSQL major version in Greenmask, including how to update the test suite and verify compatibility.
+keywords: ["postgresql version support", "greenmask compatibility", "postgres upgrade", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Supporting a New PostgreSQL Version
 
 ## Overview

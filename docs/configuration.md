@@ -1,3 +1,9 @@
+---
+title: Configuration
+description: Configure Greenmask using YAML files with sections for common settings, logging, storage backends (local or S3), and per-table transformation rules.
+keywords: ["greenmask configuration", "greenmask yaml", "greenmask config file", "anonymization config", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

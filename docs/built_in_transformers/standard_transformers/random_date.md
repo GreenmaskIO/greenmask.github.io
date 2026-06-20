@@ -1,3 +1,9 @@
+---
+title: "RandomDate"
+description: "The RandomDate transformer generates a random date within the provided interval, starting from min to max. It"
+keywords: ["RandomDate", "date generation", "date anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Generate a random date in a specified interval.
 
 ## Parameters

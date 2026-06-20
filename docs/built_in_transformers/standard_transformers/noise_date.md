@@ -1,3 +1,9 @@
+---
+title: "NoiseDate"
+description: "The NoiseDate transformer randomly generates duration between min_ratio and max_ratio parameter and adds it to or"
+keywords: ["NoiseDate", "date noise", "date anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Randomly add or subtract a duration within the provided `ratio` interval to the original date value.
 
 ## Parameters

@@ -1,3 +1,9 @@
+---
+title: "TransformationCondition"
+description: "The transformation condition feature allows you to execute a defined transformation only if a specified condition is"
+keywords: ["transformation condition", "conditional anonymization", "column conditions", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Transformation Condition
 
 ## Description

@@ -1,3 +1,9 @@
+---
+title: "RegexpReplace"
+description: "The RegexpReplace transformer replaces a string according to the applied regular expression. The valid regular"
+keywords: ["RegexpReplace", "regex replace", "pattern replacement", "regexp", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Replace a string using a regular expression.
 
 ## Parameters

@@ -8,7 +8,7 @@ import ogImagesPlugin from './src/plugins/og-images';
 const config: Config = {
   title: 'Greenmask',
   tagline: 'Open-source Test Data Management and Data Anonymization Platform',
-  favicon: 'img/favicon.png',
+  favicon: 'favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -44,6 +44,18 @@ const config: Config = {
         '});',
         "gtag('js',new Date());",
       ].join(''),
+    },
+    {
+      tagName: 'script',
+      attributes: { type: 'application/ld+json' },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Greenmask',
+        url: 'https://www.greenmask.io',
+        logo: 'https://www.greenmask.io/img/logo.svg',
+        sameAs: ['https://github.com/greenmaskio/greenmask'],
+      }),
     },
   ],
 
@@ -114,6 +126,14 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/image.png',
+    metadata: [
+      {
+        name: 'keywords',
+        content:
+          'data anonymization, test data management, PostgreSQL anonymization, database anonymization, synthetic data, TDM, greenmask, open source, Open-Source, Enterprise support, compliance, security, agentic pipeline, development cycle',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
     colorMode: {
       defaultMode: 'light',
       disableSwitch: true,

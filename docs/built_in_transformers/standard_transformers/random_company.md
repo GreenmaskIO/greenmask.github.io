@@ -1,3 +1,9 @@
+---
+title: "RandomCompany"
+description: "The RandomCompany transformer utilizes a comprehensive list of company names to inject random company names into the"
+keywords: ["RandomCompany", "company name", "business name anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 The `RandomCompany` transformer is designed to populate specified database columns with company attributes such as
 name and company suffix
 

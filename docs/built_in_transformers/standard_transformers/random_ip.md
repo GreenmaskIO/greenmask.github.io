@@ -1,3 +1,9 @@
+---
+title: "RandomIp"
+description: "Utilizing a robust algorithm or library for generating IP addresses, the RandomIp transformer injects random IPv4"
+keywords: ["RandomIp", "IP address", "network anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 The `RandomIp` transformer is designed to populate specified database columns with random IP v4 or V6 addresses.
 This utility is essential for applications requiring the simulation of network data, testing systems that utilize IP
 addresses, or anonymizing real IP addresses in datasets.

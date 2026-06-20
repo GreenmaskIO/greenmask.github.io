@@ -1,3 +1,9 @@
+---
+title: Database Subset
+description: Use Greenmask's subset conditions to dump only a portion of your PostgreSQL database while automatically preserving referential integrity across related tables.
+keywords: ["database subset", "postgresql subset", "greenmask", "referential integrity", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Database subset
 
 Greenmask allows you to define a subset condition for filtering data during the dump process. This feature is useful

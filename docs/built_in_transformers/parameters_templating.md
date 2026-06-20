@@ -1,3 +1,9 @@
+---
+title: "ParametersTemplating"
+description: "It is allowed to generate parameter values from templates. It is useful when you don't want to write values manually,"
+keywords: ["parameter templates", "Go templates", "transformer configuration", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 # Parameters templating
 
 ## Description

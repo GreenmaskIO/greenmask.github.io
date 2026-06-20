@@ -1,3 +1,9 @@
+---
+title: "RandomFloat"
+description: "The RandomFloat transformer generates a random float value within the provided interval, starting from min to"
+keywords: ["RandomFloat", "random float", "number anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Generate a random float within the provided interval.
 
 ## Parameters

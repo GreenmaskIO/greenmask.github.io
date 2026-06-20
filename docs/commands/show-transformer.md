@@ -1,3 +1,9 @@
+---
+title: "Show-transformer"
+description: "This command prints out detailed information about a transformer by a provided name, including specific attributes to"
+keywords: ["greenmask show-transformer", "transformer documentation", "greenmask", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 ## show-transformer command
 
 This command prints out detailed information about a transformer by a provided name, including specific attributes to

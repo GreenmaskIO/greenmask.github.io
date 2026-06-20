@@ -1,3 +1,9 @@
+---
+title: "NoiseNumeric"
+description: "The NoiseNumeric transformer multiplies the original numeric (or decimal) value by randomly generated value that is"
+keywords: ["NoiseNumeric", "numeric noise", "decimal anonymization", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Add or subtract a random fraction to the original numeric value.
 
 ## Parameters

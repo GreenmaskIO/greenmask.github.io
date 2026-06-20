@@ -1,3 +1,9 @@
+---
+title: "RandomEmail"
+description: "The RandomEmail transformer generates random email addresses for the specified database column. By default, the"
+keywords: ["RandomEmail", "email address", "email anonymization", "PII", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Generate email addresses for a specified column.
 
 ## Parameters

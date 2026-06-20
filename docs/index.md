@@ -1,5 +1,7 @@
 ---
 title: About Greenmask
+description: Greenmask is an open-source CLI tool for PostgreSQL dump anonymization and synthetic test data generation, designed for CI/CD and Test Data Management workflows.
+keywords: [greenmask, data anonymization, postgresql, test data management, database anonymization, "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
 sidebar_label: About
 slug: /
 ---

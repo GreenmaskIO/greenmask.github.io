@@ -1,3 +1,9 @@
+---
+title: "Dict"
+description: "The Dict transformer uses a user-provided key-value dictionary to replace values based on matches specified in"
+keywords: ["Dict", "dictionary lookup", "lookup table", "value substitution", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 Replace values matched by dictionary keys.
 
 ## Parameters

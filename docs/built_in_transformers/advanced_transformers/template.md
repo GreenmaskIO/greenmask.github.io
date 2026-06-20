@@ -1,3 +1,9 @@
+---
+title: "Template"
+description: "The Template transformer executes Go templates and automatically applies the template result to a specified column. Go template system is designed to be…"
+keywords: ["Template", "Go templates", "custom anonymization", "template transformer", "greenmask transformer", "data anonymization", "postgresql", "mysql", "oracle", "Enterprise support", "Open-Source", "PostgreSQL anonymization", "test data management", "compliance", "security", "agentic pipeline", "development cycle"]
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
