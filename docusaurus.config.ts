@@ -141,6 +141,7 @@ const config: Config = {
           'data anonymization, test data management, PostgreSQL anonymization, database anonymization, synthetic data, TDM, greenmask, open source, Open-Source, Enterprise support, compliance, security, agentic pipeline, development cycle',
       },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { property: 'og:type', content: 'website' },
     ],
     colorMode: {
       defaultMode: 'light',

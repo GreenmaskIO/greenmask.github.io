@@ -206,11 +206,9 @@ export default function ogImagesPlugin(context: LoadContext): Plugin {
 
           let patched = html;
 
-          if (/<meta property="og:image"[^>]*>/.test(patched)) {
-            patched = patched.replace(
-              /<meta property="og:image"[^>]*>/,
-              ogTag,
-            );
+          const ogImageRe = /<meta\s[^>]*property=["']?og:image["']?[^>]*\/?>/i;
+          if (ogImageRe.test(patched)) {
+            patched = patched.replace(ogImageRe, ogTag);
           } else {
             patched = patched.replace('</head>', `${ogTag}\n</head>`);
           }
@@ -222,11 +220,9 @@ export default function ogImagesPlugin(context: LoadContext): Plugin {
             );
           }
 
-          if (/<meta name="twitter:image"[^>]*>/.test(patched)) {
-            patched = patched.replace(
-              /<meta name="twitter:image"[^>]*>/,
-              twitterTag,
-            );
+          const twitterImageRe = /<meta\s[^>]*name=["']?twitter:image["']?[^>]*\/?>/i;
+          if (twitterImageRe.test(patched)) {
+            patched = patched.replace(twitterImageRe, twitterTag);
           } else {
             patched = patched.replace('</head>', `${twitterTag}\n</head>`);
           }
