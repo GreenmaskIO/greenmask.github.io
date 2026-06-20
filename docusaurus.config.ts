@@ -177,12 +177,13 @@ const config: Config = {
       items: [
         { to: '/request-a-feature', label: 'Request a Feature', position: 'left' },
         {
-          label: 'About',
+          label: 'Company',
           position: 'left',
           type: 'dropdown',
           items: [
             { to: '/about', label: 'About' },
             { to: '/vision', label: 'Vision' },
+            { to: '/contacts', label: 'Contacts' },
           ],
         },
         { to: '/blog', label: 'Blog', position: 'left' },
@@ -192,16 +193,15 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        { to: '/contacts', label: 'Contacts', position: 'left' },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-        },
         {
           href: 'https://github.com/greenmaskio/greenmask',
           label: 'Star us',
-          position: 'left',
+          position: 'right',
           className: 'navbar__github',
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
         },
         {
           to: '/docs/playground',
