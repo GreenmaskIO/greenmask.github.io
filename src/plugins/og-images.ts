@@ -227,7 +227,7 @@ export default function ogImagesPlugin(context: LoadContext): Plugin {
             patched = patched.replace('</head>', `${twitterTag}\n</head>`);
           }
 
-          if (!/<meta name="twitter:card"/.test(patched)) {
+          if (!/<meta\s[^>]*name=["']?twitter:card["']?[^>]*\/?>/i.test(patched)) {
             patched = patched.replace(
               '</head>',
               `${twitterCardTag}\n</head>`,
