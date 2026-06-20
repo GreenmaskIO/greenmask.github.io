@@ -183,7 +183,6 @@ const config: Config = {
           items: [
             { to: '/about', label: 'About' },
             { to: '/vision', label: 'Vision' },
-            { to: '/contacts', label: 'Contacts' },
           ],
         },
         { to: '/blog', label: 'Blog', position: 'left' },
@@ -193,6 +192,7 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
+        { to: '/contacts', label: 'Contacts', position: 'left' },
         {
           href: 'https://github.com/greenmaskio/greenmask',
           label: 'Star us',
