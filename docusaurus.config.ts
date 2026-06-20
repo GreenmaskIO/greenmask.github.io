@@ -177,11 +177,11 @@ const config: Config = {
       items: [
         { to: '/request-a-feature', label: 'Request a Feature', position: 'left' },
         {
-          label: 'Company',
+          label: 'About',
           position: 'left',
           type: 'dropdown',
           items: [
-            { to: '/about', label: 'About' },
+            { to: '/about', label: 'Company' },
             { to: '/vision', label: 'Vision' },
           ],
         },
@@ -201,6 +201,10 @@ const config: Config = {
         },
         {
           type: 'docsVersionDropdown',
+          position: 'right',
+        },
+        {
+          type: 'search',
           position: 'right',
         },
         {

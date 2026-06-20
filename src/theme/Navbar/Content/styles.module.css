@@ -1,15 +1,14 @@
 /* Aligned to the same container as page sections (hero, features, sticky
    cards, footer): max-width + auto margin + page-horizontal padding. */
 .navbarLayout {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   max-width: var(--max-width--main);
   margin: 0 auto;
   padding: 0 var(--page-padding-horizontal);
   height: 100%;
-  position: relative;
 }
 
 .navbarLeft {
@@ -18,21 +17,25 @@
   flex: 0 0 auto;
 }
 
+/* Absolutely centered so it sits at the true mid-point of the layout
+   container without pushing the logo away. Raised z-index so right-side
+   items don't render above the nav links when the sections approach each other. */
 .navbarCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  z-index: 1;
 }
 
 .navbarRight {
   display: flex;
   align-items: center;
-  flex: 0 0 auto;
-  gap: 4px;
+  margin-left: auto;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .colorModeToggle {
