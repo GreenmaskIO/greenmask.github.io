@@ -176,8 +176,15 @@ const config: Config = {
       },
       items: [
         { to: '/request-a-feature', label: 'Request a Feature', position: 'left' },
-        { to: '/about', label: 'About', position: 'left' },
-        { to: '/vision', label: 'Vision', position: 'left' },
+        {
+          label: 'About',
+          position: 'left',
+          type: 'dropdown',
+          items: [
+            { to: '/about', label: 'About' },
+            { to: '/vision', label: 'Vision' },
+          ],
+        },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
           type: 'docSidebar',
