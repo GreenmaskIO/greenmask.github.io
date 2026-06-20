@@ -1,7 +1,6 @@
 /* Aligned to the same container as page sections (hero, features, sticky
    cards, footer): max-width + auto margin + page-horizontal padding. */
 .navbarLayout {
-  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -17,24 +16,21 @@
   flex: 0 0 auto;
 }
 
-/* Absolutely centered so it sits at the true mid-point of the layout
-   container without pushing the logo away. Raised z-index so right-side
-   items don't render above the nav links when the sections approach each other. */
+/* Takes the remaining space between the logo and the right CTAs and
+   centers its content within that space. No absolute positioning means
+   it can never overlap the right section regardless of how wide it grows. */
 .navbarCenter {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 40px;
-  z-index: 1;
 }
 
 .navbarRight {
   display: flex;
   align-items: center;
-  margin-left: auto;
-  justify-content: flex-end;
+  flex: 0 0 auto;
   gap: 8px;
 }
 

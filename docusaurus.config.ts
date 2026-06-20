@@ -196,7 +196,7 @@ const config: Config = {
         {
           href: 'https://github.com/greenmaskio/greenmask',
           label: 'Star us',
-          position: 'right',
+          position: 'left',
           className: 'navbar__github',
         },
         {
