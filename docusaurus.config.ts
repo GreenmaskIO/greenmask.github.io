@@ -83,6 +83,19 @@ const config: Config = {
 
   plugins: [ogImagesPlugin],
 
+  themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        docsRouteBasePath: '/docs',
+        indexBlog: true,
+        indexPages: false,
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
