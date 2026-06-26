@@ -560,6 +560,65 @@ html {
   padding-right: 0.75rem;
 }
 
+/* The search + version toolbar at the top of the docs sidebar renders
+   dropdowns (search results, version menu) that must overflow the sidebar
+   box. Docusaurus clips the container with `clip-path: inset(0)` for the
+   collapse animation, which is unused here (the sidebar isn't hideable),
+   so drop it — otherwise the dropdowns get cut off at the sidebar edge. */
+[class*='docRoot_'] .theme-doc-sidebar-container {
+  clip-path: none;
+}
+
+/* The easyops search panel is a fixed-width box anchored to the right of
+   the input (left:auto; right:0) because it no longer gets the navbar's
+   `searchBarLeft` class — so in the narrow sidebar it runs off the left of
+   the screen. Anchor it to the left so it opens down/right into the content
+   area, cap the width to the viewport, and lift it above page content.
+   The dropdown's real class is a hashed CSS-module name (dropdownMenu_xxxx),
+   so match it by substring rather than a literal `.dropdownMenu`. */
+[class*='docRoot_'] .theme-doc-sidebar-container [class*='dropdownMenu'],
+.docsSidebarToolbar [class*='dropdownMenu'] {
+  left: 0 !important;
+  right: auto !important;
+  width: min(var(--search-local-modal-width, 560px), calc(100vw - 4rem)) !important;
+  z-index: var(--ifm-z-index-dropdown, 100);
+}
+
+/* Infima hides .navbar__item on mobile (navbar items move into the drawer),
+   which also hides our version dropdown inside the toolbar. Force it back so
+   the version shows in the mobile docs-navigation drawer. */
+.docsSidebarToolbar .navbar__item {
+  display: flex !important;
+}
+
+/* Keep the search box fluid in the drawer too (easyops collapses it to 2rem
+   below 576px). */
+.docsSidebarToolbar .navbar__search-input {
+  width: 100% !important;
+}
+
+/* Version dropdown in the sidebar reuses the navbar link, which carries the
+   site-wide "link-slide" hover (text slides up + underline). Simplify it to
+   a plain colour change: freeze the slide, hide the duplicate hover copy and
+   the underline, and tint on hover. */
+[class*='docRoot_'] .theme-doc-sidebar-container .navbar__item .link-slide__default {
+  transform: none !important;
+  transition: none !important;
+}
+
+[class*='docRoot_'] .theme-doc-sidebar-container .navbar__item .link-slide__hover,
+[class*='docRoot_'] .theme-doc-sidebar-container .navbar__item .link-slide::after {
+  display: none !important;
+}
+
+[class*='docRoot_'] .theme-doc-sidebar-container .navbar__item .navbar__link {
+  transition: color 0.2s ease;
+}
+
+[class*='docRoot_'] .theme-doc-sidebar-container .navbar__item .navbar__link:hover {
+  color: var(--ifm-color-primary-darker);
+}
+
 /* Tablet (1024–1199px) — narrow the sidebar so the article gets more
    reading width. Default Docusaurus var is 300px globally; we override
    only in this band, so desktop ≥1200px keeps the standard width. */
@@ -1535,6 +1594,20 @@ html.page-dark-nav .navbar-sidebar__close {
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--active {
   color: var(--text--blue);
   font-weight: 600;
+}
+
+/* The top-level "Documentation" category is a non-clickable section heading
+   (collapsible: false), so it shouldn't read as interactive. The grey
+   highlight is painted on the collapsible WRAPPER (`.menu__list-item-
+   collapsible`) in its :hover / --active states, not on the link — clear it
+   there, and drop the pointer cursor on the label. */
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible:hover,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible--active {
+  background: transparent !important;
+}
+
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link {
+  cursor: default;
 }
 
 /* Docs sidebar: replace the category caret chevron with a custom SVG. */

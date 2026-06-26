@@ -19,7 +19,7 @@
   text-transform: var(--h2--text-transform);
   color: var(--color-dark);
   text-align: center;
-  margin: 0 0 2.5rem;
+  margin: 0 0 var(--space--medium);
 }
 
 .accent {
@@ -27,11 +27,24 @@
 }
 
 /* ========================
-   Hero
+   Hero — same composition as the Request-a-Feature hero (full-width justified
+   heading with brand-green accents + a description in the right column of a
+   2-col grid), but on the light theme with a white background.
    ======================== */
 .hero {
   background: var(--color-light);
   padding: var(--padding-vertical--xlsmall) 0 var(--padding-vertical--large);
+}
+
+.heroHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space--medium);
+}
+
+.heroTitleWrap {
+  width: 100%;
 }
 
 .heroTitle {
@@ -41,25 +54,32 @@
   letter-spacing: var(--h1--letter-spacing);
   font-weight: var(--h1--font-weight);
   text-transform: var(--h1--text-transform);
-  color: var(--color-brand);
-  margin: 0 0 0.5rem;
-}
-
-.heroSubtitle2 {
-  font-family: var(--h2--font-family);
-  font-size: var(--h2--font-size);
-  line-height: var(--h2--line-height);
-  letter-spacing: var(--h2--letter-spacing);
-  font-weight: var(--h2--font-weight);
-  text-transform: var(--h2--text-transform);
   color: var(--color-dark);
-  margin: 0 0 1.5rem;
-  max-width: 20ch;
+  margin: 0;
+  text-align: justify;
 }
 
-.heroSubtitle2 strong {
+.heroTitle strong {
   font-weight: 400;
   color: var(--color-brand);
+}
+
+/* Description: 2-col grid, empty left spacer + text on the right */
+.heroDescriptionWrap {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column-gap: 1.25rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.heroDescriptionEmpty {
+  /* intentionally empty — occupies the first column */
+}
+
+.heroDescriptionText {
+  display: flex;
+  align-items: flex-start;
 }
 
 .heroSubtitle {
@@ -69,7 +89,6 @@
   letter-spacing: var(--text-large--letter-spacing);
   font-weight: var(--text-large--font-weight);
   color: var(--color-dark);
-  max-width: 64ch;
   margin: 0;
 }
 
@@ -77,31 +96,63 @@
    Principles
    ======================== */
 .principles {
-  background: var(--color-purple-light);
+  background: var(--color-light);
   padding: var(--padding-vertical--large) 0;
+}
+
+/* Two-column composition: illustration on the left, list on the right. */
+.principlesLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space--large);
+}
+
+.principlesVisual {
+  width: 100%;
+}
+
+.principlesImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
 .principlesList {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  gap: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Each row is separated by a thin divider, like the reference. */
 .principleItem {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   font-family: var(--text-medium--font-family);
   font-size: var(--text-medium--font-size);
   line-height: var(--text-medium--line-height);
   font-weight: var(--text-medium--font-weight);
   color: var(--color-dark);
-  background: var(--color-light);
-  border: 1px solid rgba(13, 22, 22, 0.1);
-  padding: 0.875rem 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(13, 22, 22, 0.1);
+}
+
+.principleItem:first-child {
+  border-top: 1px solid rgba(13, 22, 22, 0.1);
+}
+
+/* Square brand-green marker (round dot .principleCheck is kept for the
+   Future section). */
+.principleMarker {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--color-brand);
 }
 
 .principleCheck {
@@ -116,32 +167,105 @@
 /* ========================
    Features
    ======================== */
+/* ========================
+   What Greenmask Provides — dark section. Heading + lead on the left,
+   feature cards stacked on the right (reference composition). Site tokens.
+   ======================== */
 .features {
-  background: var(--color-light);
+  background: var(--color-dark);
+  color: var(--color-light);
   padding: var(--padding-vertical--large) 0;
 }
 
-.featuresGrid {
+.featuresLayout {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space--large);
+  align-items: start;
+}
+
+/* Left intro stays pinned while the cards scroll past (reference behaviour). */
+.featuresIntro {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2.5rem);
+}
+
+.featuresEyebrow {
+  font-family: var(--text-small--font-family);
+  font-size: var(--text-small--font-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-brand);
+  margin: 0 0 1.25rem;
+}
+
+.featuresHeading {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-light);
+  margin: 0 0 var(--space--main);
+}
+
+.featuresHeading strong {
+  font-weight: inherit;
+  color: var(--color-brand);
+}
+
+.featuresLead {
+  font-family: var(--text-large--font-family);
+  font-size: var(--text-large--font-size);
+  line-height: var(--text-large--line-height);
+  letter-spacing: var(--text-large--letter-spacing);
+  font-weight: var(--text-large--font-weight);
+  color: rgba(251, 251, 251, 0.7);
+  margin: 0;
+}
+
+.featuresCards {
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
 }
 
 .featureCard {
-  border: 1px solid rgba(13, 22, 22, 0.15);
-  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(251, 251, 251, 0.12);
+  background: rgba(251, 251, 251, 0.03);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  min-height: 22rem;
+}
+
+/* Line-art illustration sits under the title and fills the card body, with
+   the description pinned below it. */
+.featureIllustration {
+  flex: 1;
+  min-height: 0;
+  margin: var(--space--main) 0;
+  display: flex;
+}
+
+.featureIllustration img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .featureTitle {
-  font-family: var(--h5--font-family);
-  font-size: var(--h5--font-size);
-  line-height: var(--h5--line-height);
-  font-weight: var(--h5--font-weight);
-  text-transform: var(--h5--text-transform);
-  color: var(--color-dark);
+  font-family: var(--h4--font-family);
+  font-size: var(--h4--font-size);
+  line-height: var(--h4--line-height);
+  font-weight: var(--h4--font-weight);
+  text-transform: var(--h4--text-transform);
+  color: var(--color-light);
   margin: 0;
 }
 
@@ -150,7 +274,7 @@
   font-size: var(--text-medium--font-size);
   line-height: var(--text-medium--line-height);
   font-weight: var(--text-medium--font-weight);
-  color: var(--color-dark);
+  color: rgba(251, 251, 251, 0.7);
   margin: 0;
 }
 
@@ -158,78 +282,144 @@
    Architecture
    ======================== */
 .architecture {
-  background: var(--color-dark);
+  background: var(--color-light);
   padding: var(--padding-vertical--large) 0;
-  color: var(--color-light);
+  color: var(--color-dark);
 }
 
 .architecture .sectionLabel {
-  color: var(--color-light);
+  color: var(--color-dark);
 }
 
-.archLayout {
+/* Reference layout: centered 2-line heading, central card with dashed
+   connectors, and a row of labeled steps below. Site tokens throughout. */
+.archHeading {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-dark);
+  text-align: center;
+  margin: 0 0 var(--space--large);
+}
+
+.archHeading strong {
+  font-weight: inherit;
+  color: var(--color-brand);
+}
+
+/* Diagram area with a dashed connector cross behind the card */
+.archDiagram {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: var(--space--medium) 0;
+  margin-bottom: var(--space--large);
+}
+
+.archDiagram::before,
+.archDiagram::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.archDiagram::before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 1px dashed rgba(13, 22, 22, 0.2);
+}
+
+.archDiagram::after {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 1px dashed rgba(13, 22, 22, 0.2);
+}
+
+.archCard {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 30rem;
+  background: var(--color-light);
+  border: 1px solid rgba(13, 22, 22, 0.12);
+  box-shadow: 0 12px 40px rgba(13, 22, 22, 0.08);
+  padding: var(--space--main);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--space--main);
 }
 
-.archPipeline {
+.archCardLabel {
+  font-family: var(--text-small--font-family);
+  font-size: var(--text-small--font-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-brand);
+  margin: 0;
+}
+
+.archCardFlow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
-}
-
-.pipelineStep {
+  gap: 0.5rem 0.625rem;
   font-family: var(--h5--font-family);
   font-size: var(--h5--font-size);
-  font-weight: var(--h5--font-weight);
-  color: var(--color-light);
-  background: rgba(251, 251, 251, 0.08);
-  border: 1px solid rgba(251, 251, 251, 0.2);
-  padding: 0.625rem 1.125rem;
+  color: var(--color-dark);
 }
 
-.pipelineArrow {
-  font-size: 1.25rem;
+.archFlowArrow {
   color: var(--color-brand);
   font-weight: 700;
 }
 
-.archPoints {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.archCardBadges {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: var(--space--main);
+  padding-top: var(--space--small);
+  border-top: 1px solid rgba(13, 22, 22, 0.1);
 }
 
-.archPoints li {
+/* Bottom row of labeled steps */
+.archSteps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space--medium);
+}
+
+.archStep {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: var(--space--small);
+}
+
+.archStepTitle {
+  font-family: var(--text-small--font-family);
+  font-size: var(--text-small--font-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.archStepArrow {
+  color: var(--color-brand);
+}
+
+.archStepDesc {
   font-family: var(--text-medium--font-family);
   font-size: var(--text-medium--font-size);
   line-height: var(--text-medium--line-height);
-  color: rgba(251, 251, 251, 0.8);
-}
-
-.archPoints li::before {
-  content: '';
-  display: inline-block;
-  flex-shrink: 0;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--color-brand);
-}
-
-.dbSupport {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
+  color: rgba(29, 29, 53, 0.75);
+  margin: 0;
 }
 
 .dbGroup {
@@ -238,7 +428,7 @@
   gap: 0.75rem;
   font-family: var(--text-medium--font-family);
   font-size: var(--text-medium--font-size);
-  color: var(--color-light);
+  color: var(--color-dark);
 }
 
 .dbBadge {
@@ -270,23 +460,109 @@
   padding: var(--padding-vertical--large) 0;
 }
 
-.futureIntro {
+/* Reference layout: heading + description + mini-cards on the left,
+   partner logos on the right (instead of an illustration). Site tokens. */
+.futureLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: var(--space--large);
+  align-items: start;
+}
+
+.futureIntroCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space--main);
+}
+
+.futureHeading {
+  font-family: var(--h2--font-family);
+  font-size: var(--h2--font-size);
+  line-height: var(--h2--line-height);
+  letter-spacing: var(--h2--letter-spacing);
+  font-weight: var(--h2--font-weight);
+  text-transform: var(--h2--text-transform);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.futureHeading strong {
+  font-weight: inherit;
+  color: var(--color-brand);
+}
+
+.futureLead {
   font-family: var(--text-large--font-family);
   font-size: var(--text-large--font-size);
   line-height: var(--text-large--line-height);
+  letter-spacing: var(--text-large--letter-spacing);
   font-weight: var(--text-large--font-weight);
-  color: var(--color-dark);
-  max-width: 64ch;
-  margin: 0 auto 2rem;
-  text-align: center;
+  color: rgba(29, 29, 53, 0.75);
+  margin: 0;
 }
 
-.partnerLogos {
+.futureLead a {
+  color: var(--color-brand);
+  text-decoration: none;
+}
+
+.futureLead a:hover {
+  text-decoration: underline;
+}
+
+/* Rounded mini-cards stacked in a column */
+.futureCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space--small);
+  margin-top: var(--space--small);
+}
+
+.futureCardItem {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+  font-family: var(--text-medium--font-family);
+  font-size: var(--text-medium--font-size);
+  line-height: var(--text-medium--line-height);
+  font-weight: var(--text-medium--font-weight);
+  color: var(--color-dark);
+  background: var(--color-light);
+  border: 1px solid rgba(13, 22, 22, 0.12);
+  padding: 0.875rem 1.125rem;
+}
+
+.futureCardIcon {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  background: rgba(20, 193, 154, 0.12);
+  color: var(--color-brand);
+}
+
+/* Right column: mini-cards + announcement */
+.futureCardsCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space--main);
+}
+
+/* Partner logos: a horizontal strip under the description (left column) */
+.futureLogos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 1.5rem;
-  margin: 0 auto 2.5rem;
+  margin-top: var(--space--small);
+}
+
+.futureLogos .partnerLogoImg {
+  height: 3rem;
 }
 
 .partnerLogo {
@@ -315,49 +591,12 @@
   color: rgba(13, 22, 22, 0.35);
 }
 
-.futureList {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 3rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  gap: 1rem 1.25rem;
-  max-width: var(--max-width--main);
-}
-
-.futureItem {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--text-medium--font-family);
-  font-size: var(--text-medium--font-size);
-  line-height: var(--text-medium--line-height);
-  font-weight: var(--text-medium--font-weight);
-  color: var(--color-dark);
-  background: var(--color-purple-light);
-  padding: 0.875rem 1.25rem;
-}
-
-.visionImageWrap {
-  margin: 0 auto 2.5rem;
-  border: 1px solid rgba(13, 22, 22, 0.12);
-  overflow: hidden;
-}
-
-.visionImage {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .futureCollaboration {
   font-family: var(--text-medium--font-family);
   font-size: var(--text-medium--font-size);
   line-height: var(--text-medium--line-height);
   color: var(--color-dark);
-  max-width: 64ch;
-  margin: 0 auto;
-  text-align: center;
+  margin: var(--space--small) 0 0;
 }
 
 .futureCollaboration a {
@@ -367,6 +606,23 @@
 
 .futureCollaboration a:hover {
   text-decoration: underline;
+}
+
+/* Ephemeral-env architecture diagram — a dark block inside the (light) Future
+   section, styled like the card illustrations (thin outlines, light text,
+   green accents). */
+.futureDiagram {
+  margin-top: var(--space--large);
+  background: var(--color-dark);
+  padding: var(--space--medium);
+}
+
+.ephemeralImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 62rem;
+  margin: 0 auto;
 }
 
 /* ========================
@@ -429,13 +685,40 @@
    Responsive
    ======================== */
 @media (max-width: 996px) {
-  .archPipeline {
-    gap: 0.5rem;
+  /* Hero description drops to a single full-width column (matches the ref). */
+  .heroDescriptionWrap {
+    grid-template-columns: 1fr;
   }
 
-  .pipelineStep {
-    font-size: 0.875rem;
-    padding: 0.5rem 0.875rem;
+  .heroDescriptionEmpty {
+    display: none;
+  }
+
+  /* Core Principles: stack illustration above the list. */
+  .principlesLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space--medium);
+  }
+
+  /* What Greenmask Provides: stack heading above the cards, drop the pin. */
+  .featuresLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space--medium);
+  }
+
+  .featuresIntro {
+    position: static;
+  }
+
+  /* Architecture steps: 4 -> 2 columns. */
+  .archSteps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Future Vision: stack text above the logos. */
+  .futureLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space--medium);
   }
 }
 
@@ -444,13 +727,9 @@
     max-width: none;
   }
 
-  .archPipeline {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .pipelineArrow {
-    transform: rotate(90deg);
+  /* Architecture steps stack to a single column. */
+  .archSteps {
+    grid-template-columns: 1fr;
   }
 
   .ctaArrow {

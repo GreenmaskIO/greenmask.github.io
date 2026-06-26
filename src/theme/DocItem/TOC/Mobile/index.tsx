@@ -7,6 +7,7 @@ import {
 } from '@docusaurus/plugin-content-docs/client';
 import TOCCollapsible from '@theme/TOCCollapsible';
 import DocSidebarItems from '@theme/DocSidebarItems';
+import SidebarSearchToolbar from '@site/src/components/SidebarSearchToolbar';
 import {useLocation} from '@docusaurus/router';
 import styles from './styles.module.css';
 
@@ -131,6 +132,7 @@ export default function DocItemTOCMobile(): ReactNode {
                 </svg>
               </button>
             </div>
+            <SidebarSearchToolbar />
             <nav
               className="menu thin-scrollbar"
               aria-label="Docs navigation">

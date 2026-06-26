@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" aria-label="Ephemeral development environment architecture">
+  <defs>
+    <marker id="eaArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#14C19A"/>
+    </marker>
+    <filter id="eaGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+  <rect x="50" y="70" width="1100" height="300" rx="16" fill="#FBFBFB" fill-opacity="0.02" stroke="#FBFBFB" stroke-opacity="0.18" stroke-width="1.5"/>
+  <rect x="80" y="52" width="200" height="40" rx="20" fill="#1D1D35" stroke="#FBFBFB" stroke-opacity="0.3" stroke-width="1.5"/><text x="180" y="72" fill="#FBFBFB" font-size="20" font-weight="600" text-anchor="middle" dominant-baseline="middle">Developer laptop</text>
+  <rect x="50" y="450" width="1100" height="300" rx="16" fill="#FBFBFB" fill-opacity="0.02" stroke="#FBFBFB" stroke-opacity="0.18" stroke-width="1.5"/>
+  <rect x="80" y="432" width="260" height="40" rx="20" fill="#1D1D35" stroke="#FBFBFB" stroke-opacity="0.3" stroke-width="1.5"/><text x="210" y="452" fill="#FBFBFB" font-size="20" font-weight="600" text-anchor="middle" dominant-baseline="middle">Remote (ephemeral env)</text>
+  <rect x="100" y="150" width="400" height="80" rx="10" fill="#FBFBFB" fill-opacity="0.03" stroke="#FBFBFB" stroke-opacity="0.22" stroke-width="1.5"/><text fill="#FBFBFB" fill-opacity="0.9" font-size="22" text-anchor="middle" dominant-baseline="middle"><tspan x="300" y="190">User</tspan></text>
+  <rect x="100" y="270" width="400" height="80" rx="10" fill="none" stroke="#14C19A" stroke-opacity="0.5" stroke-width="3" filter="url(#eaGlow)"/><rect x="100" y="270" width="400" height="80" rx="10" fill="#14C19A" fill-opacity="0.08" stroke="#14C19A" stroke-opacity="0.85" stroke-width="1.5"/><text fill="#14C19A" fill-opacity="1" font-size="22" text-anchor="middle" dominant-baseline="middle"><tspan x="300" y="310">AI Agent</tspan></text>
+  <rect x="560" y="150" width="540" height="200" rx="10" fill="#FBFBFB" fill-opacity="0.03" stroke="#FBFBFB" stroke-opacity="0.22" stroke-width="1.5"/><text fill="#FBFBFB" fill-opacity="0.9" font-size="22" text-anchor="middle" dominant-baseline="middle"><tspan x="830" y="237">Service</tspan><tspan x="830" y="263">(local instance)</tspan></text>
+  <rect x="100" y="520" width="400" height="100" rx="10" fill="#FBFBFB" fill-opacity="0.03" stroke="#FBFBFB" stroke-opacity="0.22" stroke-width="1.5"/><text fill="#FBFBFB" fill-opacity="0.9" font-size="22" text-anchor="middle" dominant-baseline="middle"><tspan x="300" y="557">DBaaS</tspan><tspan x="300" y="583">(with branching)</tspan></text>
+  <rect x="560" y="520" width="540" height="100" rx="10" fill="none" stroke="#14C19A" stroke-opacity="0.5" stroke-width="3" filter="url(#eaGlow)"/><rect x="560" y="520" width="540" height="100" rx="10" fill="#14C19A" fill-opacity="0.08" stroke="#14C19A" stroke-opacity="0.85" stroke-width="1.5"/><text fill="#14C19A" fill-opacity="1" font-size="22" text-anchor="middle" dominant-baseline="middle"><tspan x="830" y="570">Agentic API</tspan></text>
+  <rect x="100" y="650" width="400" height="80" rx="10" fill="#FBFBFB" fill-opacity="0.03" stroke="#FBFBFB" stroke-opacity="0.22" stroke-width="1.5"/><text fill="#FBFBFB" fill-opacity="0.9" font-size="22" text-anchor="middle" dominant-baseline="middle"><tspan x="300" y="690">Test Data Management (TDM)</tspan></text>
+  <rect x="560" y="650" width="540" height="80" rx="10" fill="#FBFBFB" fill-opacity="0.03" stroke="#FBFBFB" stroke-opacity="0.22" stroke-width="1.5"/><text fill="#FBFBFB" fill-opacity="0.9" font-size="22" text-anchor="middle" dominant-baseline="middle"><tspan x="830" y="690">User Services</tspan></text>
+  <path d="M300 230 V 270" fill="none" stroke="#14C19A" stroke-width="2" stroke-opacity="0.85" marker-end="url(#eaArrow)"/>
+  <path d="M500 190 H518 Q530 190 530 202 V238 Q530 250 542 250 H560" fill="none" stroke="#14C19A" stroke-width="2" stroke-opacity="0.85" stroke-linecap="round" marker-end="url(#eaArrow)"/>
+  <path d="M500 310 H518 Q530 310 530 322 V558 Q530 570 542 570 H560" fill="none" stroke="#14C19A" stroke-width="2" stroke-opacity="0.85" stroke-linecap="round" marker-end="url(#eaArrow)"/>
+  <path d="M830 350 V 410" fill="none" stroke="#14C19A" stroke-width="2" stroke-opacity="0.85" marker-end="url(#eaArrow)"/>
+  <rect x="735" y="392" width="190" height="36" rx="8" fill="#1D1D35" stroke="#FBFBFB" stroke-opacity="0.25" stroke-width="1.2"/><text x="830" y="410" fill="#FBFBFB" fill-opacity="0.8" font-size="15" text-anchor="middle" dominant-baseline="middle">Access to ephemeral env</text>
+  <path d="M830 428 V 520" fill="none" stroke="#14C19A" stroke-width="2" stroke-opacity="0.85" marker-end="url(#eaArrow)"/>
+</svg>

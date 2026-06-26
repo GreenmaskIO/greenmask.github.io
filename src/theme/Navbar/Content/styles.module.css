@@ -54,5 +54,8 @@
 
   .navbarMobileToggle {
     display: flex;
+    /* The flex:1 center spacer is hidden on mobile, so push the hamburger to
+       the right edge: logo on the left, toggle in the right corner. */
+    margin-left: auto;
   }
 }
