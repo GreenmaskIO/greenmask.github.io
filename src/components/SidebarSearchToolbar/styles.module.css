@@ -1,0 +1,57 @@
+/* Toolbar at the top of the docs sidebar: search on the left, version
+   selector on the right. Spans the full sidebar width (zero left padding,
+   flush with the menu) and uses the project spacing scale. */
+.toolbar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--space--half-large);
+  /* Flush left (aligned with the menu), with breathing room only on the
+     right so the version clears the divider. */
+  padding: var(--space--small) var(--space--small) var(--space--small) 0;
+}
+
+/* Search fills the remaining width and shrinks; the version stays put. */
+.search {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Infima gives .navbar__search-input a fixed 12.5rem width, which overflows
+   the narrow sidebar and pushes the version onto its own line. Make the
+   search box fluid so it stretches across the available width. */
+.search :global(.navbar__search),
+.search :global(.navbar__search-input) {
+  width: 100%;
+}
+
+/* Tint the search outline on hover (the plugin only outlines on :focus).
+   Keep a permanent 1px transparent outline so the colour can transition
+   smoothly instead of the ring popping in (width 0->1px wouldn't animate).
+   The :focus rule comes last so the stronger 2px ring still wins when active. */
+.search :global(.navbar__search-input) {
+  outline: 1px solid transparent;
+  outline-offset: 0;
+  transition: outline-color 0.25s ease;
+}
+
+.search :global(.navbar__search-input):hover {
+  outline-color: var(--ifm-color-primary);
+}
+
+.search :global(.navbar__search-input):focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 0;
+}
+
+/* The version dropdown reuses navbar dropdown markup; strip the inherited
+   navbar link padding and keep it from shrinking. */
+.toolbar :global(.navbar__item) {
+  padding: 0;
+  flex: 0 0 auto;
+}
+
+.toolbar :global(.navbar__item .navbar__link) {
+  padding: 0;
+  white-space: nowrap;
+}

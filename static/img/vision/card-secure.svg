@@ -1,0 +1,42 @@
+<svg viewBox="0 0 560 320" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="seFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="0.32" stop-color="#fff"/>
+      <stop offset="0.68" stop-color="#fff"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <mask id="seFadeMask"><rect width="560" height="320" fill="url(#seFade)"/></mask>
+    <filter id="seGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+
+  <!-- Mirrored fans -->
+  <g mask="url(#seFadeMask)">
+    <g fill="none" stroke="#FBFBFB" stroke-opacity="0.22" stroke-width="1">
+      <ellipse cx="165" cy="160" rx="115" ry="115"/>
+      <ellipse cx="195" cy="160" rx="85" ry="115"/>
+      <ellipse cx="223" cy="160" rx="57" ry="115"/>
+      <ellipse cx="249" cy="160" rx="31" ry="115"/>
+    </g>
+    <g fill="none" stroke="#27D9B6" stroke-width="2.5" stroke-opacity="0.5" filter="url(#seGlow)">
+      <ellipse cx="395" cy="160" rx="115" ry="115"/>
+      <ellipse cx="365" cy="160" rx="85" ry="115"/>
+      <ellipse cx="337" cy="160" rx="57" ry="115"/>
+      <ellipse cx="311" cy="160" rx="31" ry="115"/>
+    </g>
+    <g fill="none" stroke="#14C19A" stroke-width="1" stroke-opacity="0.95">
+      <ellipse cx="395" cy="160" rx="115" ry="115"/>
+      <ellipse cx="365" cy="160" rx="85" ry="115"/>
+      <ellipse cx="337" cy="160" rx="57" ry="115"/>
+      <ellipse cx="311" cy="160" rx="31" ry="115"/>
+    </g>
+    <g fill="none" stroke="#6FF0D4" stroke-width="1" stroke-opacity="0.3">
+      <ellipse cx="395" cy="160" rx="115" ry="115"/>
+      <ellipse cx="365" cy="160" rx="85" ry="115"/>
+      <ellipse cx="337" cy="160" rx="57" ry="115"/>
+      <ellipse cx="311" cy="160" rx="31" ry="115"/>
+    </g>
+    <line x1="280" y1="45" x2="280" y2="275" stroke="#27D9B6" stroke-width="3" stroke-opacity="0.5" filter="url(#seGlow)"/>
+    <line x1="280" y1="45" x2="280" y2="275" stroke="#14C19A" stroke-width="1" stroke-opacity="0.95"/>
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "make start",
+      "type": "shell",
+      "command": "make start",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": {
+        "owner": "docusaurus",
+        "pattern": {
+          "regexp": "^.*$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Starting the development server.*",
+          "endsPattern": ".*(Compiled successfully|compiled successfully|Docusaurus website is running).*"
+        }
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "label": "stop dev server",
+      "type": "shell",
+      "command": "lsof -ti tcp:3000 | xargs kill -9 2>/dev/null || true",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "restart dev server",
+      "dependsOrder": "sequence",
+      "dependsOn": ["stop dev server", "make start"],
+      "problemMatcher": []
+    }
+  ]
+}

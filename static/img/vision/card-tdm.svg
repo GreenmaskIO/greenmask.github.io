@@ -1,0 +1,49 @@
+<svg viewBox="0 0 560 320" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="tdFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000"/><stop offset="0.32" stop-color="#fff"/><stop offset="0.68" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <mask id="tdFadeMask"><rect width="560" height="320" fill="url(#tdFade)"/></mask>
+    <filter id="tdGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+    <radialGradient id="tdCore" gradientUnits="userSpaceOnUse" cx="280" cy="160" r="98"><stop offset="0" stop-color="#fff"/><stop offset="0.5" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
+    <mask id="tdCoreMask"><rect width="560" height="320" fill="url(#tdCore)"/></mask>
+  </defs>
+
+  <!-- Test Data Management -->
+  <g mask="url(#tdFadeMask)">
+    <g stroke="#FBFBFB" stroke-opacity="0.22" stroke-width="1">
+      <circle cx="190" cy="115" r="70"/>
+      <circle cx="280" cy="115" r="70"/>
+      <circle cx="370" cy="115" r="70"/>
+      <circle cx="190" cy="205" r="70"/>
+      <circle cx="280" cy="205" r="70"/>
+      <circle cx="370" cy="205" r="70"/>
+    </g>
+    <g mask="url(#tdCoreMask)">
+      <g fill="none" stroke="#27D9B6" stroke-width="2.5" stroke-opacity="0.5" filter="url(#tdGlow)">
+        <circle cx="190" cy="115" r="70"/>
+        <circle cx="280" cy="115" r="70"/>
+        <circle cx="370" cy="115" r="70"/>
+        <circle cx="190" cy="205" r="70"/>
+        <circle cx="280" cy="205" r="70"/>
+        <circle cx="370" cy="205" r="70"/>
+      </g>
+      <g fill="none" stroke="#14C19A" stroke-width="1" stroke-opacity="0.95">
+        <circle cx="190" cy="115" r="70"/>
+        <circle cx="280" cy="115" r="70"/>
+        <circle cx="370" cy="115" r="70"/>
+        <circle cx="190" cy="205" r="70"/>
+        <circle cx="280" cy="205" r="70"/>
+        <circle cx="370" cy="205" r="70"/>
+      </g>
+      <g fill="none" stroke="#6FF0D4" stroke-width="1" stroke-opacity="0.3">
+        <circle cx="190" cy="115" r="70"/>
+        <circle cx="280" cy="115" r="70"/>
+        <circle cx="370" cy="115" r="70"/>
+        <circle cx="190" cy="205" r="70"/>
+        <circle cx="280" cy="205" r="70"/>
+        <circle cx="370" cy="205" r="70"/>
+      </g>
+    </g>
+  </g>
+</svg>

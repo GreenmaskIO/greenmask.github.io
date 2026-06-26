@@ -6,7 +6,8 @@ import styles from './styles.module.css';
 
 const menuLinks = [
   { label: 'Request a Feature', to: '/request-a-feature' },
-  { label: 'About', to: '/about' },
+  { label: 'Company', to: '/about' },
+  { label: 'Vision', to: '/vision' },
   { label: 'Docs', href: 'https://docs.greenmask.io/latest/' },
   { label: 'Blog', to: '/blog' },
   { label: 'Contacts', to: '/contacts' },

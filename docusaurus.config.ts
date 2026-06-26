@@ -92,6 +92,9 @@ const config: Config = {
         docsRouteBasePath: '/docs',
         indexBlog: true,
         indexPages: false,
+        // Hide the ⌘/Ctrl + K keycap hint inside the search box (the shortcut
+        // itself still works).
+        searchBarShortcutHint: false,
       },
     ],
   ],
@@ -198,14 +201,6 @@ const config: Config = {
           label: 'Star us',
           position: 'left',
           className: 'navbar__github',
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-        },
-        {
-          type: 'search',
-          position: 'right',
         },
         {
           to: '/docs/playground',
